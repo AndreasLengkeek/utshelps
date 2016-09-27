@@ -13,7 +13,7 @@ namespace UTSHelps.Droid
     {
         protected override int LayoutResource
         {
-            get { return Resource.Layout.Main; }
+            get { return Resource.Layout.Activity_Login; }
         }
 
         protected override void OnCreate(Bundle bundle)
@@ -30,12 +30,17 @@ namespace UTSHelps.Droid
         [Java.Interop.Export()]
         public void Login(View view)
         {
+            // show a (progress?) dialog, Logging In...
+
             var studentId = FindViewById<EditText>(Resource.Id.loginStudentId).Text;
             var password = FindViewById<EditText>(Resource.Id.loginPassword).Text;
 
-            if (studentId != null && password != null)
+            if (!String.IsNullOrEmpty(studentId) && !String.IsNullOrEmpty(password))
             {
                 SwitchActivity();
+            } else
+            {
+                // show dialog, Login Failed: Username or Password is incorrect
             }
         }
 
