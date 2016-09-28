@@ -19,7 +19,7 @@ namespace UTSHelps.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
+            
             // TODO:
             //if (CurrentUser != null)
             //{
@@ -49,6 +49,9 @@ namespace UTSHelps.Droid
             // TODO:
             // user hasn't logged in before, go to reg.
             // user is logged in, go to main page.
+
+            var intent = new Intent(this, typeof(MakeBookingActivity));
+            this.StartActivity(intent);
         }
     }
 }
