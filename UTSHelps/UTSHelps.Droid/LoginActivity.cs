@@ -50,7 +50,7 @@ namespace UTSHelps.Droid
             // user hasn't logged in before, go to reg.
             // user is logged in, go to main page.
 
-            var intent = new Intent(this, typeof(MakeBookingActivity));
+            var intent = new Intent(this, typeof(DashboardActivity));
             this.StartActivity(intent);
         }
     }
