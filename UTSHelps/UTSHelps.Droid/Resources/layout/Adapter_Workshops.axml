@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/adapterWorkshop"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <View
+            android:id="@+id/colorWorkshop"
+            android:layout_height="match_parent"
+            android:layout_width="5dp"
+            android:background="@color/material_deep_teal_200" />
+        <TextView
+            android:id="@+id/workshopSets_text"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Workshops"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp" />
+    </LinearLayout>
+</LinearLayout>
