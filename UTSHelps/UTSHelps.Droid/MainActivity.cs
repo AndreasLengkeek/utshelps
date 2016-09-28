@@ -32,26 +32,27 @@ namespace UTSHelps.Droid
             //    ActionBar.Title = "My Toolbar"; 
             //}
 
-            var editToolbar = FindViewById<Toolbar>(Resource.Id.edit_toolbar);
-            if (editToolbar != null)
-            {
-                editToolbar.Title = "Editing";
-                editToolbar.InflateMenu(Resource.Menu.edit_menus);
-                editToolbar.MenuItemClick += (sender, e) => {
-                    Toast.MakeText(this, "Bottom toolbar tapped: " + e.Item.TitleFormatted, ToastLength.Short).Show();
-                }; 
-            }
+            //var editToolbar = FindViewById<Toolbar>(Resource.Id.edit_toolbar);
+            //if (editToolbar != null)
+            //{
+            //    editToolbar.Title = "Editing";
+            //    editToolbar.InflateMenu(Resource.Menu.edit_menus);
+            //    editToolbar.MenuItemClick += (sender, e) => {
+            //        Toast.MakeText(this, "Bottom toolbar tapped: " + e.Item.TitleFormatted, ToastLength.Short).Show();
+            //    }; 
+            //}
         }
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.Menu.top_menus, menu);
-            return base.OnCreateOptionsMenu(menu);
-        }
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            Toast.MakeText(this, "Action selected: " + item.TitleFormatted,
-                ToastLength.Short).Show();
-            return base.OnOptionsItemSelected(item);
-        }
+
+        //public override bool OnCreateOptionsMenu(IMenu menu)
+        //{
+        //    MenuInflater.Inflate(Resource.Menu.top_menus, menu);
+        //    return base.OnCreateOptionsMenu(menu);
+        //}
+        //public override bool OnOptionsItemSelected(IMenuItem item)
+        //{
+        //    Toast.MakeText(this, "Action selected: " + item.TitleFormatted,
+        //        ToastLength.Short).Show();
+        //    return base.OnOptionsItemSelected(item);
+        //}
     }
 }
