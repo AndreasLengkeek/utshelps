@@ -8,7 +8,7 @@ using Android.OS;
 
 namespace UTSHelps.Droid
 {
-    [Activity(Label = "UTSHelps.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "UTSHelps", MainLauncher = true)]
     public class LoginActivity : MainActivity
     {
         protected override int LayoutResource
