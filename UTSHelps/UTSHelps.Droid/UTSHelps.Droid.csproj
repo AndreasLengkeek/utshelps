@@ -65,6 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingsFragment.cs" />
     <Compile Include="WorkshopAdapter.cs" />
+    <Compile Include="BookingsAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -87,6 +88,8 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Adapter_Workshops.axml" />
+    <AndroidResource Include="Resources\layout\Adapter_Bookings.axml" />
+    <AndroidResource Include="Resources\values\Colors.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

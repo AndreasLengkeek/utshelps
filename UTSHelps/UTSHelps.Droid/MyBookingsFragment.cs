@@ -15,6 +15,8 @@ namespace UTSHelps.Droid
 {
     public class MyBookingsFragment : Fragment
     {
+		private List<string> mBookingWorkshops;
+		private ListView bookingListView;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -24,6 +26,16 @@ namespace UTSHelps.Droid
         {
             View view = inflater.Inflate(Resource.Layout.Fragment_MyBookings, container, false);
 
+			bookingListView = view.FindViewById<ListView>(Resource.Id.lstCurrentBooking);
+			mBookingWorkshops = new List<string>();
+
+			mBookingWorkshops.Add("UPASS: Testing");
+			mBookingWorkshops.Add("Writing Workshop1");
+			mBookingWorkshops.Add("YES!!!");
+
+			BookingsAdapter adapter = new BookingsAdapter(this.Activity, mBookingWorkshops);
+
+			bookingListView.Adapter = adapter;
             return view;
         }
     }

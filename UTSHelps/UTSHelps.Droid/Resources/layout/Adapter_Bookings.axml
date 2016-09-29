@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/bookingsAdapter"
+        android:padding="10dp"
+        android:paddingLeft="20dp">
+        <LinearLayout
+            android:id="@+id/bookingdate"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/date"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="25"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:textColor="@android:color/holo_orange_dark" />
+            <TextView
+                android:id="@+id/month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sept"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/detail_workshop"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="3dp">
+            <TextView
+                android:id="@+id/txtWorkshop"
+                android:text="UPASS: whatever"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@color/Text"
+                android:textSize="18sp"
+                android:paddingLeft="10dp" />
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/dateNtime">
+                <TextView
+                    android:id="@+id/day"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Thu 09/09/2016"
+                    android:textColor="@color/Text_Gray"
+                    android:paddingLeft="10dp" />
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="02:00 - 03:00"
+                    android:textColor="@color/Text_Gray"
+                    android:paddingLeft="5dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/location"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/locationName"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="CB11.00.401"
+                    android:textColor="@color/Text_Gray"
+                    android:paddingLeft="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
