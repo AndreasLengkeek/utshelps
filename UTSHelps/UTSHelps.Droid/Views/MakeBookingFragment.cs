@@ -16,6 +16,9 @@ namespace UTSHelps.Droid
 {
     public class MakeBookingFragment : Fragment
     {
+		private List<string> workshops;
+		private ListView workshopListView;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -24,8 +27,17 @@ namespace UTSHelps.Droid
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.Fragment_MakeBooking, container, false);
+			workshops = new List<string>();
 
+			workshops.Add("Test");
+			workshops.Add("Writings");
+			workshops.Add("Readings");
 
+			workshopListView = view.FindViewById<ListView>(Resource.Id.lstWorkshop);
+
+			WorkshopAdapter adapter = new WorkshopAdapter(this.Activity, workshops);
+
+			workshopListView.Adapter = adapter;
             return view;
         }
     }

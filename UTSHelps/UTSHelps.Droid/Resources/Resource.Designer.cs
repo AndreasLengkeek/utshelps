@@ -41,6 +41,28 @@ namespace UTSHelps.Droid
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int Text = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int Text_Gray = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int blue = 2130968578;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
@@ -84,47 +106,95 @@ namespace UTSHelps.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070002
-			public const int edit_toolbar = 2131165186;
+			// aapt resource value: 0x7f080011
+			public const int adapterWorkshop = 2131230737;
 			
-			// aapt resource value: 0x7f070001
-			public const int fragmentContainer = 2131165185;
+			// aapt resource value: 0x7f080007
+			public const int bookingdate = 2131230727;
 			
-			// aapt resource value: 0x7f070005
-			public const int loginButton = 2131165189;
+			// aapt resource value: 0x7f080006
+			public const int bookingsAdapter = 2131230726;
 			
-			// aapt resource value: 0x7f070004
-			public const int loginPassword = 2131165188;
+			// aapt resource value: 0x7f080012
+			public const int colorWorkshop = 2131230738;
 			
-			// aapt resource value: 0x7f070003
-			public const int loginStudentId = 2131165187;
+			// aapt resource value: 0x7f080008
+			public const int date = 2131230728;
 			
-			// aapt resource value: 0x7f070007
-			public const int lstWorkshop = 2131165191;
+			// aapt resource value: 0x7f08000c
+			public const int dateNtime = 2131230732;
 			
-			// aapt resource value: 0x7f070000
-			public const int main_content = 2131165184;
+			// aapt resource value: 0x7f08000d
+			public const int day = 2131230733;
 			
-			// aapt resource value: 0x7f070009
-			public const int menu_add = 2131165193;
+			// aapt resource value: 0x7f08000a
+			public const int detail_workshop = 2131230730;
 			
-			// aapt resource value: 0x7f070008
-			public const int menu_bookings = 2131165192;
+			// aapt resource value: 0x7f080002
+			public const int edit_toolbar = 2131230722;
 			
-			// aapt resource value: 0x7f07000b
-			public const int menu_edit = 2131165195;
+			// aapt resource value: 0x7f080001
+			public const int fragmentContainer = 2131230721;
 			
-			// aapt resource value: 0x7f07000d
-			public const int menu_preferences = 2131165197;
+			// aapt resource value: 0x7f08000f
+			public const int location = 2131230735;
 			
-			// aapt resource value: 0x7f07000c
-			public const int menu_save = 2131165196;
+			// aapt resource value: 0x7f080010
+			public const int locationName = 2131230736;
 			
-			// aapt resource value: 0x7f07000a
-			public const int menu_settings = 2131165194;
+			// aapt resource value: 0x7f080005
+			public const int loginButton = 2131230725;
 			
-			// aapt resource value: 0x7f070006
-			public const int toolbar = 2131165190;
+			// aapt resource value: 0x7f080004
+			public const int loginPassword = 2131230724;
+			
+			// aapt resource value: 0x7f080003
+			public const int loginStudentId = 2131230723;
+			
+			// aapt resource value: 0x7f080016
+			public const int lstCurrentBooking = 2131230742;
+			
+			// aapt resource value: 0x7f080017
+			public const int lstPastBooking = 2131230743;
+			
+			// aapt resource value: 0x7f080015
+			public const int lstWorkshop = 2131230741;
+			
+			// aapt resource value: 0x7f080000
+			public const int main_content = 2131230720;
+			
+			// aapt resource value: 0x7f080019
+			public const int menu_add = 2131230745;
+			
+			// aapt resource value: 0x7f080018
+			public const int menu_bookings = 2131230744;
+			
+			// aapt resource value: 0x7f08001b
+			public const int menu_edit = 2131230747;
+			
+			// aapt resource value: 0x7f08001d
+			public const int menu_preferences = 2131230749;
+			
+			// aapt resource value: 0x7f08001c
+			public const int menu_save = 2131230748;
+			
+			// aapt resource value: 0x7f08001a
+			public const int menu_settings = 2131230746;
+			
+			// aapt resource value: 0x7f080009
+			public const int month = 2131230729;
+			
+			// aapt resource value: 0x7f08000e
+			public const int time = 2131230734;
+			
+			// aapt resource value: 0x7f080014
+			public const int toolbar = 2131230740;
+			
+			// aapt resource value: 0x7f08000b
+			public const int txtWorkshop = 2131230731;
+			
+			// aapt resource value: 0x7f080013
+			public const int workshopSets_text = 2131230739;
 			
 			static Id()
 			{
@@ -146,16 +216,22 @@ namespace UTSHelps.Droid
 			public const int Activity_Login = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int Fragment_MakeBooking = 2130903042;
+			public const int Adapter_Bookings = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int Fragment_MyBookings = 2130903043;
+			public const int Adapter_Workshops = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Fragment_Settings = 2130903044;
+			public const int Fragment_MakeBooking = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int toolbar = 2130903045;
+			public const int Fragment_MyBookings = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int Fragment_Settings = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int toolbar = 2130903047;
 			
 			static Layout()
 			{
@@ -170,11 +246,11 @@ namespace UTSHelps.Droid
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f060000
-			public const int edit_menus = 2131099648;
+			// aapt resource value: 0x7f070000
+			public const int edit_menus = 2131165184;
 			
-			// aapt resource value: 0x7f060001
-			public const int top_menus = 2131099649;
+			// aapt resource value: 0x7f070001
+			public const int top_menus = 2131165185;
 			
 			static Menu()
 			{
@@ -189,11 +265,11 @@ namespace UTSHelps.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
+			// aapt resource value: 0x7f050001
+			public const int ApplicationName = 2131034113;
 			
-			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int Hello = 2131034112;
 			
 			static String()
 			{
@@ -208,8 +284,8 @@ namespace UTSHelps.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int MyTheme = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int MyTheme = 2131099648;
 			
 			static Style()
 			{
