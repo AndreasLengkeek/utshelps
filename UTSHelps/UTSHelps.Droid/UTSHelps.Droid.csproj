@@ -66,6 +66,8 @@
     <Compile Include="SettingsFragment.cs" />
     <Compile Include="WorkshopAdapter.cs" />
     <Compile Include="BookingsAdapter.cs" />
+    <Compile Include="SessionAdapter.cs" />
+    <Compile Include="SessionsFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -90,6 +92,8 @@
     <AndroidResource Include="Resources\layout\Adapter_Workshops.axml" />
     <AndroidResource Include="Resources\layout\Adapter_Bookings.axml" />
     <AndroidResource Include="Resources\values\Colors.xml" />
+    <AndroidResource Include="Resources\layout\Adapter_Session.axml" />
+    <AndroidResource Include="Resources\layout\Fragment_Sessions.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
