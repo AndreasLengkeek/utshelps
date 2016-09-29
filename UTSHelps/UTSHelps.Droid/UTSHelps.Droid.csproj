@@ -16,7 +16,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -99,6 +99,7 @@
     <AndroidResource Include="Resources\layout\Fragment_Registration4.axml" />
     <AndroidResource Include="Resources\layout\Adapter_Session.axml" />
     <AndroidResource Include="Resources\layout\Fragment_Sessions.axml" />
+    <AndroidResource Include="Resources\layout\Fragment_Registration5.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
