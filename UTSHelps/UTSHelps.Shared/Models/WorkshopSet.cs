@@ -8,7 +8,7 @@ namespace UTSHelps.Shared.Models
 {
     public class WorkshopSet
     {
-        public int id { get; set; }
-        public int name { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

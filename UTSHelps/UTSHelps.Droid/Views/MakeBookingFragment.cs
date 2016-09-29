@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using UTSHelps.Droid.Helpers;
 
 namespace UTSHelps.Droid
 {
@@ -23,6 +24,7 @@ namespace UTSHelps.Droid
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.Fragment_MakeBooking, container, false);
+
 
             return view;
         }

@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace UTSHelps.Shared.Services
 {
@@ -14,7 +15,7 @@ namespace UTSHelps.Shared.Services
     public class HelpsService
     {
         protected readonly static HttpClient helpsClient;
-        private const string url = "http://utshelps.cloudapp.net";
+        private const string url = "http://utshelps.azurewebsites.net";
         private const string applicationKey = "123456";
 
         /// <summary>
@@ -31,9 +32,9 @@ namespace UTSHelps.Shared.Services
         /// <summary>
         /// Send an initial request to the helps server to wake it up
         /// </summary>
-        public static void Purge()
+        public static async void Purge()
         {
-
+            await helpsClient.GetAsync("api/sessionId/workshopSets/as");
         }
     }
 }
