@@ -8,5 +8,6 @@ namespace UTSHelps.Shared.Models
 {
     public class Workshop
     {
+        public int Id { get; set; }
     }
 }
