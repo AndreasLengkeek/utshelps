@@ -2,4 +2,5 @@
 <resources>
 	<color name="Text">#333333</color>
 	<color name="Text_Gray">#777777</color>
+  <color name="blue">#555555</color>
 </resources>
