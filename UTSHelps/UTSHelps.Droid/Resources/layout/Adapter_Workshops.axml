@@ -12,7 +12,7 @@
             android:id="@+id/colorWorkshop"
             android:layout_height="match_parent"
             android:layout_width="5dp"
-            android:background="@color/material_deep_teal_200" />
+            android:background="@color/blue" />
         <TextView
             android:id="@+id/workshopSets_text"
             android:layout_height="wrap_content"

@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using UTSHelps.Droid.Helpers;
 
 namespace UTSHelps.Droid
 {
