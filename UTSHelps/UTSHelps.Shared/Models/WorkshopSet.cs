@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace UTSHelps.Shared.Models
 {
-    public class Workshop
+    public class WorkshopSet
     {
+        public int id { get; set; }
+        public int name { get; set; }
     }
 }

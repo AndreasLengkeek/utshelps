@@ -56,17 +56,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DashboardActivity.cs" />
-    <Compile Include="LoginActivity.cs" />
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="MakeBookingFragment.cs" />
-    <Compile Include="MyBookingsFragment.cs" />
+    <Compile Include="Helpers\ServiceHelper.cs" />
+    <Compile Include="Views\DashboardActivity.cs" />
+    <Compile Include="Views\LoginActivity.cs" />
+    <Compile Include="Views\MainActivity.cs" />
+    <Compile Include="Views\MakeBookingFragment.cs" />
+    <Compile Include="Views\MyBookingsFragment.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingsFragment.cs" />
+    <Compile Include="Views\SettingsFragment.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -182,6 +182,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\edit_menus.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UTSHelps.Shared\UTSHelps.Shared.csproj">
+      <Project>{A2A83D22-5DB7-429F-A76C-4FAAFA65CD68}</Project>
+      <Name>UTSHelps.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
