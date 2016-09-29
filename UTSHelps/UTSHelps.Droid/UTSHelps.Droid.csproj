@@ -91,6 +91,10 @@
     <AndroidResource Include="Resources\layout\Adapter_Workshops.axml" />
     <AndroidResource Include="Resources\layout\Adapter_Bookings.axml" />
     <AndroidResource Include="Resources\values\Colors.xml" />
+    <AndroidResource Include="Resources\layout\Fragment_Registration1.axml" />
+    <AndroidResource Include="Resources\layout\Fragment_Registration2.axml" />
+    <AndroidResource Include="Resources\layout\Fragment_Registration3.axml" />
+    <AndroidResource Include="Resources\layout\Fragment_Registration4.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

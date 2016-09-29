@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="#ff03a9f4">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/registrationLogo"
+            android:minWidth="100dp"
+            android:minHeight="150dp"
+            android:layout_marginTop="30dp" />
+    </LinearLayout>
+    <TextView
+        android:text="We see it's the first time you're using HELPS"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textColor="#ffe0f2f1"
+        android:gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:text="We just need to verify your student details to get started"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textColor="#ffffffff"
+        android:gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp" />
+    <Button
+        android:text="Start Registration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rego1StartButton"
+        android:textAllCaps="false"
+        android:gravity="center"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textColor="#ffffffff"
+        android:background="#ff03a9f4"
+        android:layout_marginTop="100dp"
+        android:requiresFadingEdge="horizontal"
+        android:fadingEdge="none"
+        android:shadowColor="#ffffffff" />
+</LinearLayout>
