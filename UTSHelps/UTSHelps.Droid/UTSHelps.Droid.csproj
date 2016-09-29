@@ -67,6 +67,8 @@
     <Compile Include="Views\SettingsFragment.cs" />
     <Compile Include="WorkshopAdapter.cs" />
     <Compile Include="BookingsAdapter.cs" />
+    <Compile Include="SessionAdapter.cs" />
+    <Compile Include="SessionsFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -95,6 +97,8 @@
     <AndroidResource Include="Resources\layout\Fragment_Registration2.axml" />
     <AndroidResource Include="Resources\layout\Fragment_Registration3.axml" />
     <AndroidResource Include="Resources\layout\Fragment_Registration4.axml" />
+    <AndroidResource Include="Resources\layout\Adapter_Session.axml" />
+    <AndroidResource Include="Resources\layout\Fragment_Sessions.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -200,7 +204,7 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
      Other similar extension points exist, see Microsoft.Common.targets.
 		<Target Name="BeforeBuild">
 		</Target>

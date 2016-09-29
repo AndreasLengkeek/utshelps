@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <View
+            android:layout_height="match_parent"
+            android:layout_width="5dp"
+            android:background="@color/Side_Bar" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp">
+            <TextView
+                android:id="@+id/sessionName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UPASS: A bane of easy design"
+                android:textColor="@color/Text"
+                android:paddingBottom="5dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:paddingBottom="5dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number of Session: "
+                    android:textColor="@color/Text_Gray" />
+                <TextView
+                    android:id="@+id/noOfSession"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:textColor="@color/Text_Gray" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp">
+                <TextView
+                    android:id="@+id/sessionTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10-12pm"
+                    android:textColor="@color/Text_Gray"
+                    android:paddingRight="5dp" />
+                <TextView
+                    android:id="@+id/sessionDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10/7/2016 - 20/7/2016"
+                    android:textColor="@color/Text_Gray" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/sessionLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CB11.01.412"
+                android:paddingBottom="5dp"
+                android:textColor="@color/Text_Gray" />
+            <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:paddingBottom="5dp">
+                <TextView
+                    android:id="@+id/sessionPlace"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_toLeftOf="@+id/placesLeft"
+                    android:text="21" />
+                <TextView
+                    android:id="@+id/placesLeft"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text=" places left"
+                    android:paddingRight="5dp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

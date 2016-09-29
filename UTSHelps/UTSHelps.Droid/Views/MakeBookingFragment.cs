@@ -18,6 +18,7 @@ namespace UTSHelps.Droid
     {
 		private List<string> workshops;
 		private ListView workshopListView;
+		private SessionsFragment sFragment;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,5 +41,6 @@ namespace UTSHelps.Droid
 			workshopListView.Adapter = adapter;
             return view;
         }
-    }
+
+	}
 }
