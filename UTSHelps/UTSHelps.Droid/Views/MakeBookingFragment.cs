@@ -11,6 +11,8 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using UTSHelps.Droid.Helpers;
+using System.Threading.Tasks;
+using UTSHelps.Shared.Models;
 
 namespace UTSHelps.Droid
 {
@@ -28,19 +30,21 @@ namespace UTSHelps.Droid
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.Fragment_MakeBooking, container, false);
-			workshops = new List<string>();
 
-			workshops.Add("Test");
-			workshops.Add("Writings");
-			workshops.Add("Readings");
+            var t = Task.Run(async () => {
+                var response = await ServiceHelper.Workshop.GetWorkshopSets();
+                if (response.IsSuccess)
+                {
+                    List<WorkshopSet> sets = response.Results;
+                    var workshopAdap = new WorkshopAdapter(this.Activity, sets);
 
-			workshopListView = view.FindViewById<ListView>(Resource.Id.lstWorkshop);
+                    workshopListView = view.FindViewById<ListView>(Resource.Id.lstWorkshop);
+                    workshopListView.Adapter = workshopAdap;
+                }
+            });
+            t.Wait();
 
-			WorkshopAdapter adapter = new WorkshopAdapter(this.Activity, workshops);
-
-			workshopListView.Adapter = adapter;
             return view;
         }
-
 	}
 }

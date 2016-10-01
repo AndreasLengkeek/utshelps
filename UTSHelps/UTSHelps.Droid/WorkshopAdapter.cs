@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using Android.Content;
 using Android.Widget;
 using Android.Views;
+using UTSHelps.Shared.Models;
 
 namespace UTSHelps.Droid
 {
-	public class WorkshopAdapter : BaseAdapter<string>
+	public class WorkshopAdapter : BaseAdapter<WorkshopSet>
 	{
-		private List<string> workshops;
+		private List<WorkshopSet> workshops;
 		private Context context;
 
-		public WorkshopAdapter(Context context, List<string> mLists)
+		public WorkshopAdapter(Context context, List<WorkshopSet> list)
 		{
 			this.context = context;
-			workshops = mLists;
+			workshops = list;
 		}
 
 		public override int Count
@@ -30,7 +31,7 @@ namespace UTSHelps.Droid
 			return position;
 		}
 
-		public override string this[int position]
+		public override WorkshopSet this[int position]
 		{
 			get
 			{
@@ -48,7 +49,7 @@ namespace UTSHelps.Droid
 			}
 
 			TextView mWorkshop = row.FindViewById<TextView>(Resource.Id.workshopSets_text);
-			mWorkshop.Text = workshops[position];
+			mWorkshop.Text = workshops[position].Name;
 
 			return row;
 		}

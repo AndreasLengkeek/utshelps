@@ -56,9 +56,11 @@ namespace UTSHelps.Shared.Services
         /// <returns></returns>
         protected static bool IsConnected()
         {
-            var networkConnection = DependencyService.Get<INetworkConnection>();
-            networkConnection.CheckNetworkConnection();
-            return networkConnection.IsConnected;
+            //var networkConnection = DependencyService.Get<INetworkConnection>();
+            //networkConnection.CheckNetworkConnection();
+            //return networkConnection.IsConnected;
+
+            return true;
         }
     }
 }
