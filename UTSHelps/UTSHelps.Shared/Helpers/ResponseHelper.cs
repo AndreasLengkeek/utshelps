@@ -16,5 +16,20 @@ namespace UTSHelps.Shared.Helpers
                 DisplayMessage = message
             };
         }
+
+        public static GenericResponse CreateGenericErrorResponse(string message)
+        {
+            return new GenericResponse {
+                IsSuccess = false,
+                DisplayMessage = message
+            };
+        }
+
+        public static GenericResponse Success()
+        {
+            return new GenericResponse {
+                IsSuccess = true
+            };
+        }
     }
 }

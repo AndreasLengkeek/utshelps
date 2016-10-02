@@ -34,13 +34,33 @@ namespace UTSHelps.Shared.Services
             if (response.IsSuccessStatusCode)
             {
                 var result = await response.Content.ReadAsAsync<Response<Workshop>>();
+                return result;
             }
             return ResponseHelper.CreateErrorResponse<Workshop>("Could not find workshops");
         }
 
         public async Task<Response<Workshop>> GetWorkshop(int workshopId)
         {
+            // TODO: there isn't an api for this yet.
+
+            //var response = await GetWorkshops();
             return null;
+        }
+
+        public async Task<GenericResponse> BookWorkshop(int workshopId, int studentId)
+        {
+            if (!IsConnected())
+                return ResponseHelper.CreateGenericErrorResponse("No Network Connection");
+
+            var queryString = "workshopId=" + workshopId + "&studentId={1}" + studentId  + "&userId={2}" + studentId;
+            var response = await helpsClient.GetAsync("api/workshop/booking/create?" + queryString);
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsAsync<GenericResponse>();
+                return result;
+            }
+
+            return ResponseHelper.Success();
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace UTSHelps.Shared.Models
 {
-
-    public class Response<T> : GenericResponse
+    public class GenericResponse
     {
-        public List<T> Results { get; set; }
+        public bool IsSuccess { get; set; }
+        public string DisplayMessage { get; set; }
     }
 }
