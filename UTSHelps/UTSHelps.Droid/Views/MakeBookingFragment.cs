@@ -18,33 +18,45 @@ namespace UTSHelps.Droid
 {
     public class MakeBookingFragment : Fragment
     {
-		private List<string> workshops;
+		private List<WorkshopSet> sets;
 		private ListView workshopListView;
-		private SessionsFragment sFragment;
+        private WorkshopAdapter workshopAdapter;
 
-        public override void OnCreate(Bundle savedInstanceState)
+        public override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            Refresh();
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.Fragment_MakeBooking, container, false);
 
-            var t = Task.Run(async () => {
-                var response = await ServiceHelper.Workshop.GetWorkshopSets();
-                if (response.IsSuccess)
-                {
-                    List<WorkshopSet> sets = response.Results;
-                    var workshopAdap = new WorkshopAdapter(this.Activity, sets);
 
-                    workshopListView = view.FindViewById<ListView>(Resource.Id.lstWorkshop);
-                    workshopListView.Adapter = workshopAdap;
-                }
-            });
-            t.Wait();
+            //sets = new List<WorkshopSet>();
+            //workshopAdapter = new WorkshopAdapter(this.Activity, sets);
+            //workshopListView = view.FindViewById<ListView>(Resource.Id.lstWorkshop);
+            //workshopListView.Adapter = workshopAdapter;
+
+            //UpdateView();
 
             return view;
         }
-	}
+        private void UpdateView()
+        {
+            //if (workshopAdapter != null)
+            //{
+            //    workshopAdapter.NotifyDataSetChanged();
+            //}
+        }
+        private async void Refresh()
+        {
+            //var response = await ServiceHelper.Workshop.GetWorkshopSets();
+            //if (response.IsSuccess)
+            //{
+            //    sets = response.Results;
+            //}
+            //UpdateView();
+        }
+    }
 }

@@ -44,10 +44,10 @@ namespace UTSHelps.Shared.Services
         /// </summary>
         protected static void TestConnection()
         {
-            var networkConnection = DependencyService.Get<INetworkConnection>();
-            networkConnection.CheckNetworkConnection();
-            if (!networkConnection.IsConnected)
-                throw new System.Net.WebException();
+            //var networkConnection = DependencyService.Get<INetworkConnection>();
+            //networkConnection.CheckNetworkConnection();
+            //if (!networkConnection.IsConnected)
+            //    throw new System.Net.WebException();
         }
 
         /// <summary>

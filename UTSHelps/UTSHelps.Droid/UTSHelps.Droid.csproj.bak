@@ -100,6 +100,9 @@
     <AndroidResource Include="Resources\layout\Adapter_Session.axml" />
     <AndroidResource Include="Resources\layout\Fragment_Sessions.axml" />
     <AndroidResource Include="Resources\layout\Fragment_Registration5.axml" />
+    <AndroidResource Include="Resources\drawable\userAddIcon.png" />
+    <AndroidResource Include="Resources\drawable\tick.png" />
+    <AndroidResource Include="Resources\drawable\button_border.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
