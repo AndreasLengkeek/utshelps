@@ -31,5 +31,16 @@ namespace UTSHelps.Shared.Helpers
                 IsSuccess = true
             };
         }
+
+        public static Response<T> CreateResponseDetail<T>(T result)
+        {
+            if (result == null)
+                return CreateErrorResponse<T>("Could not find " + nameof(T) + " with that id");
+
+            return new Response<T> {
+                Results = new List<T> { result },
+                IsSuccess = true
+            };
+        }
     }
 }

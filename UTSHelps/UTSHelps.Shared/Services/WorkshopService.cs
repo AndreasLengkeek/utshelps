@@ -43,8 +43,22 @@ namespace UTSHelps.Shared.Services
         {
             // TODO: there isn't an api for this yet.
 
-            //var response = await GetWorkshops();
-            return null;
+            TestConnection();
+
+            var queryString = "active=true";
+            var response = await helpsClient.GetAsync("api/workshop/search?" + queryString);
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsAsync<Response<Workshop>>();
+                if (result.IsSuccess)
+                {
+                    var workshop = result.Results.Where(w => w.Id == workshopId).FirstOrDefault();
+                    return ResponseHelper.CreateResponseDetail(workshop);
+                }
+
+                return ResponseHelper.CreateErrorResponse<Workshop>("Could not find workshops"); ;
+            }
+            return ResponseHelper.CreateErrorResponse<Workshop>("An unknown error occured");
         }
 
         public async Task<GenericResponse> BookWorkshop(int workshopId, int studentId)
@@ -52,15 +66,15 @@ namespace UTSHelps.Shared.Services
             if (!IsConnected())
                 return ResponseHelper.CreateGenericErrorResponse("No Network Connection");
 
-            var queryString = "workshopId=" + workshopId + "&studentId={1}" + studentId  + "&userId={2}" + studentId;
-            var response = await helpsClient.GetAsync("api/workshop/booking/create?" + queryString);
+            var queryString = "workshopId=" + workshopId + "&studentId=" + studentId  + "&userId=" + studentId;
+            var response = await helpsClient.PostAsync("api/workshop/booking/create?" + queryString, null);
             if (response.IsSuccessStatusCode)
             {
                 var result = await response.Content.ReadAsAsync<GenericResponse>();
                 return result;
             }
 
-            return ResponseHelper.Success();
+            return ResponseHelper.CreateGenericErrorResponse("An unknown error occured");
         }
     }
 }
