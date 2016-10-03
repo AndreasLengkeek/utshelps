@@ -11,6 +11,10 @@ namespace UTSHelps.Shared.Services
 {
     public class WorkshopService : HelpsService
     {
+        public WorkshopService() : base()
+        {
+        }
+
         public async Task<Response<WorkshopSet>> GetWorkshopSets()
         {
             TestConnection();
