@@ -61,13 +61,29 @@ namespace UTSHelps.Shared.Services
             return ResponseHelper.CreateErrorResponse<Workshop>("An unknown error occured");
         }
 
-        public async Task<GenericResponse> BookWorkshop(int workshopId, int studentId)
+        public async Task<GenericResponse> CreateBooking(int workshopId, int studentId)
         {
             if (!IsConnected())
                 return ResponseHelper.CreateGenericErrorResponse("No Network Connection");
 
             var queryString = "workshopId=" + workshopId + "&studentId=" + studentId  + "&userId=" + studentId;
             var response = await helpsClient.PostAsync("api/workshop/booking/create?" + queryString, null);
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsAsync<GenericResponse>();
+                return result;
+            }
+
+            return ResponseHelper.CreateGenericErrorResponse("An unknown error occured");
+        }
+
+        public async Task<GenericResponse> CancelBooking(int workshopId, int studentId)
+        {
+            if (!IsConnected())
+                return ResponseHelper.CreateGenericErrorResponse("No Network Connection");
+
+            var queryString = "workshopId=" + workshopId + "&studentId=" + studentId + "&userId=" + studentId;
+            var response = await helpsClient.PostAsync("api/workshop/booking/cancel?" + queryString, null);
             if (response.IsSuccessStatusCode)
             {
                 var result = await response.Content.ReadAsAsync<GenericResponse>();
