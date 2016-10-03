@@ -43,11 +43,17 @@
   <ItemGroup>
     <Compile Include="Helpers\ResponseHelper.cs" />
     <Compile Include="Interfaces\INetworkConnection.cs" />
-    <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\Campus.cs" />
+    <Compile Include="Models\Requests\RegisterRequest.cs" />
+    <Compile Include="Models\Responses\GenericResponse.cs" />
+    <Compile Include="Models\Responses\Response.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Workshop.cs" />
     <Compile Include="Models\WorkshopSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\HelpsService.cs" />
+    <Compile Include="Services\MiscService.cs" />
+    <Compile Include="Services\StudentService.cs" />
     <Compile Include="Services\WorkshopService.cs" />
   </ItemGroup>
   <ItemGroup>
