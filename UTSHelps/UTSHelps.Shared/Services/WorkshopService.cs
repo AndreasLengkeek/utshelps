@@ -59,8 +59,7 @@ namespace UTSHelps.Shared.Services
                     var workshop = result.Results.Where(w => w.Id == workshopId).FirstOrDefault();
                     return ResponseHelper.CreateResponseDetail(workshop);
                 }
-
-                return ResponseHelper.CreateErrorResponse<Workshop>("Could not find workshops"); ;
+                return ResponseHelper.CreateErrorResponse<Workshop>("Could not find workshops");
             }
             return ResponseHelper.CreateErrorResponse<Workshop>("An unknown error occured");
         }
