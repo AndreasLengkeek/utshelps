@@ -3,11 +3,179 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <include
-      android:id="@+id/toolbar"
-      layout="@layout/toolbar" />
-  <TextView
-      android:text="Settings!"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_marginBottom="15dp">
+        <TextView
+            android:text="Notifications"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:textColor="#039688"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="30dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView1"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="20dp" />
+            <TextView
+                android:text="Vibrate"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/textView2"
+                android:gravity="center" />
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/toggleButton1"
+                android:layout_marginLeft="160dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView1"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="20dp" />
+            <TextView
+                android:text="Add to Calender (Auto) "
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/textView2"
+                android:gravity="center" />
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/toggleButton1"
+                android:layout_marginLeft="30dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView1"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="20dp" />
+            <Button
+                android:text="Notification sound"
+                android:id="@+id/button1"
+                android:layout_width="295.5dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Account"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:textColor="#039688"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="30dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_marginBottom="20dp">
+            <ImageView
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView1"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="20dp" />
+            <Button
+                android:text="My Details"
+                android:id="@+id/button1"
+                android:layout_width="295.5dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_marginBottom="20dp">
+            <ImageView
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView1"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="20dp" />
+            <Button
+                android:text="Help"
+                android:id="@+id/button1"
+                android:layout_width="295.5dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView1"
+                android:minWidth="30dp"
+                android:minHeight="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="20dp" />
+            <Button
+                android:text="Logout"
+                android:id="@+id/button1"
+                android:layout_width="295.5dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
