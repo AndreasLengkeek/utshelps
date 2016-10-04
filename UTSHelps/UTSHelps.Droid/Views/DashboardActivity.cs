@@ -36,17 +36,11 @@ namespace UTSHelps.Droid
             myBookings = new MyBookingsFragment();
             settings = new SettingsFragment();
 
-            currentFragment = makeBooking;
-
             var transaction = FragmentManager.BeginTransaction();
-            transaction.Add(Resource.Id.fragmentContainer, makeBooking, "MakeBooking_Fragment");
-            transaction.Add(Resource.Id.fragmentContainer, myBookings, "MyBookings_Fragment");
-            transaction.Add(Resource.Id.fragmentContainer, settings, "Settings_Fragment");
-
-            transaction.Hide(myBookings);
-            transaction.Hide(settings);
+			transaction.Add(Resource.Id.fragmentContainer, myBookings, "MakeBooking_Fragment");
 
             transaction.Commit();
+			currentFragment = myBookings;
 
             var editToolbar = FindViewById<Toolbar>(Resource.Id.edit_toolbar);
             if (editToolbar != null)
@@ -61,11 +55,11 @@ namespace UTSHelps.Droid
             var title = e.Item.TitleFormatted.ToString();
             switch (title)
             {
-                case "My Bookings": ShowFragment(myBookings);
+				case "My Bookings": ReplaceFragment(myBookings);
                     break;
-                case "Add Booking": ShowFragment(makeBooking);
+				case "Add Booking": ReplaceFragment(makeBooking);
                     break;
-                case "Settings": ShowFragment(settings);
+				case "Settings": ReplaceFragment(settings);
                     break;
                 default:
                     Toast.MakeText(this, "Something fucked up!", ToastLength.Short).Show();
@@ -74,11 +68,10 @@ namespace UTSHelps.Droid
             Toast.MakeText(this, "Here's Johnny (" + title + ")!", ToastLength.Short).Show();
         }
 
-        private void ShowFragment(Fragment selectedFragment)
+        private void ReplaceFragment(Fragment selectedFragment)
         {
             var transaction = FragmentManager.BeginTransaction();
-            transaction.Hide(currentFragment);
-            transaction.Show(selectedFragment);
+			transaction.Replace(Resource.Id.fragmentContainer, selectedFragment);
             transaction.AddToBackStack(null);
             transaction.Commit();
 
