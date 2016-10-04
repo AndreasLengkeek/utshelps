@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!--Margin Values-->
+  <dimen name="center_align_element">50sp</dimen>
+  <dimen name="spacing_element">20sp</dimen>
+</resources>
