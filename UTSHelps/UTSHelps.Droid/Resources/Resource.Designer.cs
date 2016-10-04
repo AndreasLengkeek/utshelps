@@ -203,6 +203,9 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090008
 			public const int bookingsAdapter = 2131296264;
 			
+			// aapt resource value: 0x7f09003c
+			public const int button1 = 2131296316;
+			
 			// aapt resource value: 0x7f09001b
 			public const int colorWorkshop = 2131296283;
 			
@@ -269,23 +272,23 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090000
 			public const int main_content = 2131296256;
 			
+			// aapt resource value: 0x7f09003e
+			public const int menu_add = 2131296318;
+			
 			// aapt resource value: 0x7f09003d
-			public const int menu_add = 2131296317;
-			
-			// aapt resource value: 0x7f09003c
-			public const int menu_bookings = 2131296316;
-			
-			// aapt resource value: 0x7f09003f
-			public const int menu_edit = 2131296319;
-			
-			// aapt resource value: 0x7f090041
-			public const int menu_preferences = 2131296321;
+			public const int menu_bookings = 2131296317;
 			
 			// aapt resource value: 0x7f090040
-			public const int menu_save = 2131296320;
+			public const int menu_edit = 2131296320;
 			
-			// aapt resource value: 0x7f09003e
-			public const int menu_settings = 2131296318;
+			// aapt resource value: 0x7f090042
+			public const int menu_preferences = 2131296322;
+			
+			// aapt resource value: 0x7f090041
+			public const int menu_save = 2131296321;
+			
+			// aapt resource value: 0x7f09003f
+			public const int menu_settings = 2131296319;
 			
 			// aapt resource value: 0x7f09000b
 			public const int month = 2131296267;
