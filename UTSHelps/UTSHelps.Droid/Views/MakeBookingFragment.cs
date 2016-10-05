@@ -39,7 +39,15 @@ namespace UTSHelps.Droid
             workshopListView.Adapter = workshopAdapter;
 
 			workshopSetsProgress = view.FindViewById<ProgressBar>(Resource.Id.workshopsets_progress);
-			workshopSetsProgress.Visibility = ViewStates.Visible;
+			if (workshopAdapter.Count == 0)
+			{
+				workshopSetsProgress.Visibility = ViewStates.Visible;
+			}
+			else
+			{
+				workshopSetsProgress.Visibility = ViewStates.Gone;
+			}
+
             //UpdateView();
 
             return view;
