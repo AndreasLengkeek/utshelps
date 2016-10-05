@@ -39,6 +39,12 @@ namespace UTSHelps.Droid
 			}
 		}
 
+		public void SwapItems(List<WorkshopSet> items)
+		{
+			this.workshops = items;
+			NotifyDataSetChanged();
+		}
+
 		public override View GetView(int position, View convertView, ViewGroup parent)
 		{
 			View row = convertView;

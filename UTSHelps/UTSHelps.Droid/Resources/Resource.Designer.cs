@@ -191,8 +191,8 @@ namespace UTSHelps.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f09002a
-			public const int Rego2BestContactNo = 2131296298;
+			// aapt resource value: 0x7f09002b
+			public const int Rego2BestContactNo = 2131296299;
 			
 			// aapt resource value: 0x7f09001a
 			public const int adapterWorkshop = 2131296282;
@@ -203,8 +203,8 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090008
 			public const int bookingsAdapter = 2131296264;
 			
-			// aapt resource value: 0x7f09003c
-			public const int button1 = 2131296316;
+			// aapt resource value: 0x7f09003d
+			public const int button1 = 2131296317;
 			
 			// aapt resource value: 0x7f09001b
 			public const int colorWorkshop = 2131296283;
@@ -230,14 +230,14 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090001
 			public const int fragmentContainer = 2131296257;
 			
-			// aapt resource value: 0x7f090021
-			public const int imageView1 = 2131296289;
+			// aapt resource value: 0x7f090022
+			public const int imageView1 = 2131296290;
 			
-			// aapt resource value: 0x7f090025
-			public const int linearLayout1 = 2131296293;
+			// aapt resource value: 0x7f090026
+			public const int linearLayout1 = 2131296294;
 			
-			// aapt resource value: 0x7f09003a
-			public const int linearLayout2 = 2131296314;
+			// aapt resource value: 0x7f09003b
+			public const int linearLayout2 = 2131296315;
 			
 			// aapt resource value: 0x7f090011
 			public const int location = 2131296273;
@@ -257,14 +257,14 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090004
 			public const int loginStudentId = 2131296260;
 			
-			// aapt resource value: 0x7f09001f
-			public const int lstCurrentBooking = 2131296287;
-			
 			// aapt resource value: 0x7f090020
-			public const int lstPastBooking = 2131296288;
+			public const int lstCurrentBooking = 2131296288;
 			
-			// aapt resource value: 0x7f090039
-			public const int lstSessions = 2131296313;
+			// aapt resource value: 0x7f090021
+			public const int lstPastBooking = 2131296289;
+			
+			// aapt resource value: 0x7f09003a
+			public const int lstSessions = 2131296314;
 			
 			// aapt resource value: 0x7f09001e
 			public const int lstWorkshop = 2131296286;
@@ -272,23 +272,23 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090000
 			public const int main_content = 2131296256;
 			
+			// aapt resource value: 0x7f09003f
+			public const int menu_add = 2131296319;
+			
 			// aapt resource value: 0x7f09003e
-			public const int menu_add = 2131296318;
-			
-			// aapt resource value: 0x7f09003d
-			public const int menu_bookings = 2131296317;
-			
-			// aapt resource value: 0x7f090040
-			public const int menu_edit = 2131296320;
-			
-			// aapt resource value: 0x7f090042
-			public const int menu_preferences = 2131296322;
+			public const int menu_bookings = 2131296318;
 			
 			// aapt resource value: 0x7f090041
-			public const int menu_save = 2131296321;
+			public const int menu_edit = 2131296321;
 			
-			// aapt resource value: 0x7f09003f
-			public const int menu_settings = 2131296319;
+			// aapt resource value: 0x7f090043
+			public const int menu_preferences = 2131296323;
+			
+			// aapt resource value: 0x7f090042
+			public const int menu_save = 2131296322;
+			
+			// aapt resource value: 0x7f090040
+			public const int menu_settings = 2131296320;
 			
 			// aapt resource value: 0x7f09000b
 			public const int month = 2131296267;
@@ -299,59 +299,59 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090019
 			public const int placesLeft = 2131296281;
 			
-			// aapt resource value: 0x7f090024
-			public const int rego1StartButton = 2131296292;
-			
-			// aapt resource value: 0x7f09002c
-			public const int rego2Birthdate = 2131296300;
-			
-			// aapt resource value: 0x7f09002b
-			public const int rego2Email = 2131296299;
-			
-			// aapt resource value: 0x7f090027
-			public const int rego2PreferredFIrstName = 2131296295;
-			
-			// aapt resource value: 0x7f090026
-			public const int rego2StudentName = 2131296294;
-			
-			// aapt resource value: 0x7f090028
-			public const int rego2homePhone = 2131296296;
-			
-			// aapt resource value: 0x7f090029
-			public const int rego2mobilePhone = 2131296297;
-			
-			// aapt resource value: 0x7f090032
-			public const int rego3Course = 2131296306;
-			
-			// aapt resource value: 0x7f090033
-			public const int rego3DegreeList = 2131296307;
-			
-			// aapt resource value: 0x7f090031
-			public const int rego3Faculty = 2131296305;
-			
-			// aapt resource value: 0x7f090034
-			public const int rego3YearList = 2131296308;
-			
-			// aapt resource value: 0x7f090035
-			public const int rego4AddBtn = 2131296309;
-			
-			// aapt resource value: 0x7f090037
-			public const int rego5ContinueBtn = 2131296311;
-			
-			// aapt resource value: 0x7f09002e
-			public const int rego5CountryList = 2131296302;
+			// aapt resource value: 0x7f090025
+			public const int rego1StartButton = 2131296293;
 			
 			// aapt resource value: 0x7f09002d
-			public const int rego5GenderList = 2131296301;
+			public const int rego2Birthdate = 2131296301;
 			
-			// aapt resource value: 0x7f09002f
-			public const int rego5LanguageList = 2131296303;
+			// aapt resource value: 0x7f09002c
+			public const int rego2Email = 2131296300;
+			
+			// aapt resource value: 0x7f090028
+			public const int rego2PreferredFIrstName = 2131296296;
+			
+			// aapt resource value: 0x7f090027
+			public const int rego2StudentName = 2131296295;
+			
+			// aapt resource value: 0x7f090029
+			public const int rego2homePhone = 2131296297;
+			
+			// aapt resource value: 0x7f09002a
+			public const int rego2mobilePhone = 2131296298;
+			
+			// aapt resource value: 0x7f090033
+			public const int rego3Course = 2131296307;
+			
+			// aapt resource value: 0x7f090034
+			public const int rego3DegreeList = 2131296308;
+			
+			// aapt resource value: 0x7f090032
+			public const int rego3Faculty = 2131296306;
+			
+			// aapt resource value: 0x7f090035
+			public const int rego3YearList = 2131296309;
 			
 			// aapt resource value: 0x7f090036
-			public const int rego5NewBookingBtn = 2131296310;
+			public const int rego4AddBtn = 2131296310;
+			
+			// aapt resource value: 0x7f090038
+			public const int rego5ContinueBtn = 2131296312;
+			
+			// aapt resource value: 0x7f09002f
+			public const int rego5CountryList = 2131296303;
+			
+			// aapt resource value: 0x7f09002e
+			public const int rego5GenderList = 2131296302;
 			
 			// aapt resource value: 0x7f090030
-			public const int rego5StatusList = 2131296304;
+			public const int rego5LanguageList = 2131296304;
+			
+			// aapt resource value: 0x7f090037
+			public const int rego5NewBookingBtn = 2131296311;
+			
+			// aapt resource value: 0x7f090031
+			public const int rego5StatusList = 2131296305;
 			
 			// aapt resource value: 0x7f090016
 			public const int sessionDate = 2131296278;
@@ -368,20 +368,20 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090015
 			public const int sessionTime = 2131296277;
 			
-			// aapt resource value: 0x7f090038
-			public const int session_workshopName = 2131296312;
-			
-			// aapt resource value: 0x7f090022
-			public const int textView1 = 2131296290;
+			// aapt resource value: 0x7f090039
+			public const int session_workshopName = 2131296313;
 			
 			// aapt resource value: 0x7f090023
-			public const int textView2 = 2131296291;
+			public const int textView1 = 2131296291;
+			
+			// aapt resource value: 0x7f090024
+			public const int textView2 = 2131296292;
 			
 			// aapt resource value: 0x7f090010
 			public const int time = 2131296272;
 			
-			// aapt resource value: 0x7f09003b
-			public const int toggleButton1 = 2131296315;
+			// aapt resource value: 0x7f09003c
+			public const int toggleButton1 = 2131296316;
 			
 			// aapt resource value: 0x7f09001d
 			public const int toolbar = 2131296285;
@@ -391,6 +391,9 @@ namespace UTSHelps.Droid
 			
 			// aapt resource value: 0x7f09001c
 			public const int workshopSets_text = 2131296284;
+			
+			// aapt resource value: 0x7f09001f
+			public const int workshopsets_progress = 2131296287;
 			
 			static Id()
 			{

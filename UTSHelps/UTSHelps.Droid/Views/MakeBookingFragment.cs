@@ -21,11 +21,12 @@ namespace UTSHelps.Droid
 		private List<WorkshopSet> sets = new List<WorkshopSet>();
 		private ListView workshopListView;
         private WorkshopAdapter workshopAdapter;
+		private ProgressBar workshopSetsProgress;
 
         public override async void OnCreate(Bundle savedInstanceState)
         {
-			base.OnCreate(savedInstanceState);
 			Refresh();
+			base.OnCreate(savedInstanceState);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -37,26 +38,33 @@ namespace UTSHelps.Droid
             workshopListView = view.FindViewById<ListView>(Resource.Id.lstWorkshop);
             workshopListView.Adapter = workshopAdapter;
 
+			workshopSetsProgress = view.FindViewById<ProgressBar>(Resource.Id.workshopsets_progress);
+			workshopSetsProgress.Visibility = ViewStates.Visible;
             //UpdateView();
 
             return view;
         }
 
-        private void UpdateView()
-        {
-            if (workshopAdapter != null)
-            {
-                workshopAdapter.NotifyDataSetChanged();
-            }
-        }
+    //    private void UpdateView()
+    //    {
+    //        if (workshopAdapter != null)
+    //        {
+				//Activity.RunOnUiThread(new Action(() =>
+				//{
+    //            	workshopAdapter.NotifyDataSetChanged();
+				//}));
+    //        }
+    //    }
+
         private async void Refresh()
         {
             var response = await ServiceHelper.Workshop.GetWorkshopSets();
             if (response.IsSuccess)
             {
                 sets = response.Results;
+				workshopAdapter.SwapItems(sets);
+				workshopSetsProgress.Visibility = ViewStates.Gone;
             }
-            UpdateView();
         }
     }
 }
