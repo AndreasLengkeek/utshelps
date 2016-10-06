@@ -22,6 +22,7 @@ namespace UTSHelps.Droid
 		private ListView workshopListView;
         private WorkshopAdapter workshopAdapter;
 		private ProgressBar workshopSetsProgress;
+		private SessionsFragment sFragment;
 
         public override async void OnCreate(Bundle savedInstanceState)
         {
@@ -48,10 +49,25 @@ namespace UTSHelps.Droid
 				workshopSetsProgress.Visibility = ViewStates.Gone;
 			}
 
+			workshopListView.ItemClick += WorkshopListView_ItemClick;
             //UpdateView();
 
             return view;
         }
+
+		void WorkshopListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+		{
+			Bundle args = new Bundle();
+			args.PutInt("workshopID", sets[e.Position].Id);
+
+			sFragment = new SessionsFragment();
+			sFragment.Arguments = args;
+			FragmentTransaction transaction = this.Activity.FragmentManager.BeginTransaction();
+			transaction.Replace(Resource.Id.fragmentContainer, sFragment, "SessionFragment");
+			transaction.Commit();
+			//Toast.MakeText(this.Activity, "The Workshop Id is " + sets[e.Position].Id, ToastLength.Short).Show();
+		}
+
 
     //    private void UpdateView()
     //    {
