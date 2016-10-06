@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Toolbar
+        android:id="@+id/edit_toolbar"
+        android:background="?android:attr/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:minHeight="?android:attr/actionBarSize"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginRight="0.0dp">
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_toLeftOf="@+id/linearadd"
+                android:id="@+id/linearbooking"
+                android:orientation="vertical"
+                android:layout_marginRight="90dp"
+                android:clickable="true">
+                <ImageView
+                    android:id="@+id/action_mybookings"
+                    android:src="@drawable/listIcon"
+                    android:background="@color/background"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center" />
+                <TextView
+                    android:text="@string/MyBookings"
+                    android:layout_below="@id/action_mybookings"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtbookings"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:id="@+id/linearadd"
+                android:clickable="true">
+                <ImageView
+                    android:id="@+id/action_add"
+                    android:src="@drawable/addIcon"
+                    android:background="@color/background"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center" />
+                <TextView
+                    android:text="@string/AddBooking"
+                    android:layout_below="@id/action_add"
+                    android:textSize="13sp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtAdd"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/linearadd"
+                android:layout_marginLeft="90dp"
+                android:id="@+id/linearsettings"
+                android:orientation="vertical"
+                android:clickable="true">
+                <ImageView
+                    android:id="@+id/action_settings"
+                    android:src="@drawable/settingsIcon"
+                    android:background="@color/background"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center" />
+                <TextView
+                    android:text="@string/Settings"
+                    android:layout_below="@id/action_settings"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtsettings"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+        </RelativeLayout>
+    </Toolbar>
+</RelativeLayout>

@@ -106,6 +106,7 @@
     <AndroidResource Include="Resources\drawable\listIcon.png" />
     <AndroidResource Include="Resources\drawable\addIcon.png" />
     <AndroidResource Include="Resources\drawable\settingsIcon.png" />
+    <AndroidResource Include="Resources\layout\nav_bottom.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

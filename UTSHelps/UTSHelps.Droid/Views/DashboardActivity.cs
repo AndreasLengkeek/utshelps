@@ -18,6 +18,9 @@ namespace UTSHelps.Droid
         private MakeBookingFragment makeBooking;
         private MyBookingsFragment myBookings;
         private SettingsFragment settings;
+		private LinearLayout bookingPage;
+		private LinearLayout addBookingPage;
+		private LinearLayout settingsPage;
 
         private Fragment currentFragment;
 
@@ -42,31 +45,32 @@ namespace UTSHelps.Droid
             transaction.Commit();
 			currentFragment = myBookings;
 
-            var editToolbar = FindViewById<Toolbar>(Resource.Id.edit_toolbar);
-            if (editToolbar != null)
-            {
-                editToolbar.InflateMenu(Resource.Menu.edit_menus);
-                editToolbar.MenuItemClick += MenuSelect;
-            }
+			bookingPage = FindViewById<LinearLayout>(Resource.Id.linearbooking);
+			addBookingPage = FindViewById<LinearLayout>(Resource.Id.linearadd);
+			settingsPage = FindViewById<LinearLayout>(Resource.Id.linearsettings);
+
+			bookingPage.Click += BookingPage_Click;
+			addBookingPage.Click += AddBookingPage_Click;
+			settingsPage.Click += SettingsPage_Click;
         }
 
-        private void MenuSelect(object sender, Toolbar.MenuItemClickEventArgs e)
-        {
-            var title = e.Item.TitleFormatted.ToString();
-            switch (title)
-            {
-				case "My Bookings": ReplaceFragment(myBookings);
-                    break;
-				case "Add Booking": ReplaceFragment(makeBooking);
-                    break;
-				case "Settings": ReplaceFragment(settings);
-                    break;
-                default:
-                    Toast.MakeText(this, "Something fucked up!", ToastLength.Short).Show();
-                    break;
-            }
-            Toast.MakeText(this, "Here's Johnny (" + title + ")!", ToastLength.Short).Show();
-        }
+		void BookingPage_Click(object sender, EventArgs e)
+		{
+			ReplaceFragment(myBookings);
+			Toast.MakeText(this, "Here's Johnny ( myBooking )!", ToastLength.Short).Show();
+		}
+
+		void AddBookingPage_Click(object sender, EventArgs e)
+		{
+			ReplaceFragment(makeBooking);
+			Toast.MakeText(this, "Here's Johnny ( addBooking )!", ToastLength.Short).Show();
+		}
+
+		void SettingsPage_Click(object sender, EventArgs e)
+		{
+			ReplaceFragment(settings);
+			Toast.MakeText(this, "Here's Johnny ( settings )!", ToastLength.Short).Show();
+		}
 
         private void ReplaceFragment(Fragment selectedFragment)
         {
