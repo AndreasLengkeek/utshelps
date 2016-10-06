@@ -25,7 +25,7 @@ namespace UTSHelps.Shared.Services
                 return result;
             }
 
-            return ResponseHelper.CreateGenericErrorResponse("An unkown error occured");
+            return ResponseHelper.CreateGenericErrorResponse("An unknown error occured");
         }
 
         public async Task<GenericResponse> GetStudent(int studentId)
@@ -33,10 +33,10 @@ namespace UTSHelps.Shared.Services
             var response = await helpsClient.GetAsync("api/student?studentId=" + studentId);
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadAsAsync<Response<Student>>();
+                var result = await response.Content.ReadAsAsync<StudentResponse>();
                 return result;
             }
-            return ResponseHelper.CreateGenericErrorResponse("An unkown error occured");
+            return ResponseHelper.CreateGenericErrorResponse("An unknown error occured");
         }
     }
 }

@@ -17,10 +17,12 @@ namespace UTSHelps.Droid.Helpers
     public static class ServiceHelper
     {
         public static WorkshopService Workshop;
+        public static StudentService Student;
 
         static ServiceHelper()
         {
             Workshop = new WorkshopService();
+            Student = new StudentService();
             Task.Factory.StartNew(HelpsService.Purge);
         }
     }

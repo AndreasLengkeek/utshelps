@@ -5,6 +5,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using UTSHelps.Droid.Helpers;
+using UTSHelps.Shared.Models;
 
 namespace UTSHelps.Droid
 {
@@ -28,30 +30,57 @@ namespace UTSHelps.Droid
         }
 
         [Java.Interop.Export()]
-        public void Login(View view)
+        public async void Login(View view)
         {
             // show a (progress?) dialog, Logging In...
 
             var studentId = FindViewById<EditText>(Resource.Id.loginStudentId).Text;
             var password = FindViewById<EditText>(Resource.Id.loginPassword).Text;
 
-            if (!String.IsNullOrEmpty(studentId) && !String.IsNullOrEmpty(password))
+            try
             {
-                SwitchActivity();
-            } else
+                TestCredentials(studentId, password);
+            } catch (Exception ex)
             {
-                // show dialog, Login Failed: Username or Password is incorrect
+                DialogHelper.ShowDialog(this, "An error occured", ex.Message);
+                return;
+            }
+
+            var progress = DialogHelper.CreateProgressDialog("Signing In...", this);
+            progress.Show();
+            var response = (StudentResponse)await ServiceHelper.Student.GetStudent(studentId.ToInt());
+            progress.Hide();
+            LoginOrRegister(response.Student);
+        }
+
+        private void TestCredentials(string studentId, string password)
+        {
+            if (String.IsNullOrEmpty(studentId) || studentId.Length != 8)
+            {
+                throw new Exception("Student Id is invalid");
+            }
+
+            if (String.IsNullOrEmpty(password))
+            {
+                throw new Exception("Password cannot be empty");
             }
         }
 
-        private void SwitchActivity()
+        private void LoginOrRegister(Student student)
         {
-            // TODO:
-            // user hasn't logged in before, go to reg.
-            // user is logged in, go to main page.
+            if (student == null)
+            {
+                Toast.MakeText(this, "Should go to register page...", ToastLength.Short).Show(); 
+                // go to first register page
+            } else
+            {
+                // go to dashboard
+                CurrentUser = student;
 
-            var intent = new Intent(this, typeof(DashboardActivity));
-            this.StartActivity(intent);
+                var intent = new Intent(this, typeof(DashboardActivity));
+                this.StartActivity(intent);
+            }
+
         }
     }
 }
