@@ -5,6 +5,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using UTSHelps.Droid.Helpers;
+using UTSHelps.Shared.Models;
 
 namespace UTSHelps.Droid
 {
@@ -28,30 +30,66 @@ namespace UTSHelps.Droid
         }
 
         [Java.Interop.Export()]
-        public void Login(View view)
+        public async void Login(View view)
         {
             // show a (progress?) dialog, Logging In...
 
             var studentId = FindViewById<EditText>(Resource.Id.loginStudentId).Text;
             var password = FindViewById<EditText>(Resource.Id.loginPassword).Text;
 
-            if (!String.IsNullOrEmpty(studentId) && !String.IsNullOrEmpty(password))
+            try
             {
-                SwitchActivity();
-            } else
+                TestCredentials(studentId, password);
+            } catch (Exception ex)
             {
-                // show dialog, Login Failed: Username or Password is incorrect
+                var builder = new AlertDialog.Builder(this);
+                builder.SetMessage(ex.Message);
+                builder.SetTitle("An error occured");
+                builder.Create().Show();
+                return;
+            }
+
+            var response = (StudentResponse)await ServiceHelper.Student.GetStudent(studentId.ToInt());
+            if (response.IsSuccess)
+            {
+                LoginOrRegister(response.Student);
+            }
+            else
+            {
+                var builder = new AlertDialog.Builder(this);
+                builder.SetMessage(response.DisplayMessage);
+                builder.SetTitle("An error occured");
+                builder.Create().Show();
             }
         }
 
-        private void SwitchActivity()
+        private void TestCredentials(string studentId, string password)
         {
-            // TODO:
-            // user hasn't logged in before, go to reg.
-            // user is logged in, go to main page.
+            if (String.IsNullOrEmpty(studentId) || studentId.Length != 8)
+            {
+                throw new Exception("Student Id is invalid");
+            }
 
-            var intent = new Intent(this, typeof(DashboardActivity));
-            this.StartActivity(intent);
+            if (String.IsNullOrEmpty(password))
+            {
+                throw new Exception("Password cannot be empty");
+            }
+        }
+
+        private void LoginOrRegister(Student student)
+        {
+            if (student == null)
+            {
+                // go to first register page
+            } else
+            {
+                // go to dashboard
+                CurrentUser = student;
+
+                var intent = new Intent(this, typeof(DashboardActivity));
+                this.StartActivity(intent);
+            }
+
         }
     }
 }

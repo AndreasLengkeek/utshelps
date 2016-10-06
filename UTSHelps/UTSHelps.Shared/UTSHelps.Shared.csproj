@@ -48,7 +48,8 @@
     <Compile Include="Models\Requests\RegisterRequest.cs" />
     <Compile Include="Models\Responses\GenericResponse.cs" />
     <Compile Include="Models\Responses\Response.cs" />
-    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Student\Student.cs" />
+    <Compile Include="Models\Student\StudentResponse.cs" />
     <Compile Include="Models\Workshop.cs" />
     <Compile Include="Models\WorkshopSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
