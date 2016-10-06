@@ -6,4 +6,5 @@
   <color name="Transparent_White">#B3FFFFFF</color>
   <color name="Helps_Red">#CC0A00</color>
   <color name="Login_Text">#FFFFFF</color>
+  <color name="white">#FFFFFF</color>
 </resources>

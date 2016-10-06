@@ -4,6 +4,6 @@
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowActionBar">false</item>
     <item name="android:colorPrimary">#5A8622</item>
-    <item name="android:colorAccent">#C7A935</item>
+    <item name="android:colorAccent">#ED3232</item>
   </style>
 </resources>

@@ -62,6 +62,9 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f050003
 			public const int Transparent_White = 2131034115;
 			
+			// aapt resource value: 0x7f050006
+			public const int white = 2131034118;
+			
 			static Color()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -134,49 +137,58 @@ namespace UTSHelps.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int button_border = 2130837504;
+			public const int addIcon = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int HELPS_logo = 2130837505;
+			public const int button_border = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int ic_action_content_create = 2130837506;
+			public const int HELPS_logo = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int ic_action_content_save = 2130837507;
+			public const int ic_action_content_create = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int ic_menu_copy_holo_dark = 2130837508;
+			public const int ic_action_content_save = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int ic_menu_cut_holo_dark = 2130837509;
+			public const int ic_menu_copy_holo_dark = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int ic_menu_paste_holo_dark = 2130837510;
+			public const int ic_menu_cut_holo_dark = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int ic_menu_search_holo_dark = 2130837511;
+			public const int ic_menu_paste_holo_dark = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int Icon = 2130837512;
+			public const int ic_menu_search_holo_dark = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int login_logo = 2130837513;
+			public const int Icon = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int rounded_login = 2130837514;
+			public const int listIcon = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int rounded_red_button = 2130837515;
+			public const int login_logo = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int SignInBackground = 2130837516;
+			public const int rounded_login = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int tick = 2130837517;
+			public const int rounded_red_button = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int userAddIcon = 2130837518;
+			public const int settingsIcon = 2130837518;
+			
+			// aapt resource value: 0x7f02000f
+			public const int SignInBackground = 2130837519;
+			
+			// aapt resource value: 0x7f020010
+			public const int tick = 2130837520;
+			
+			// aapt resource value: 0x7f020011
+			public const int userAddIcon = 2130837521;
 			
 			static Drawable()
 			{

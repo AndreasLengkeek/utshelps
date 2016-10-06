@@ -103,6 +103,9 @@
     <AndroidResource Include="Resources\drawable\userAddIcon.png" />
     <AndroidResource Include="Resources\drawable\tick.png" />
     <AndroidResource Include="Resources\drawable\button_border.xml" />
+    <AndroidResource Include="Resources\drawable\listIcon.png" />
+    <AndroidResource Include="Resources\drawable\addIcon.png" />
+    <AndroidResource Include="Resources\drawable\settingsIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
