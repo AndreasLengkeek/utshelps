@@ -28,7 +28,8 @@
             android:layout_marginLeft="@dimen/inside_lr"
             android:layout_marginRight="@dimen/inside_lr"
             android:layout_marginTop="@dimen/inside_tb"
-            android:layout_marginBottom="@dimen/inside_tb" />
+            android:layout_marginBottom="@dimen/inside_tb"
+            android:text="10161063" />
         <EditText
             android:inputType="textPassword"
             android:id="@+id/loginPassword"
