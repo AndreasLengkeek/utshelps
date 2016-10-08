@@ -58,7 +58,7 @@ namespace UTSHelps.Droid
 			sFragment = new SessionsFragment();
 			sFragment.Arguments = args;
 			FragmentTransaction transaction = this.Activity.FragmentManager.BeginTransaction();
-			transaction.Replace(Resource.Id.fragmentContainer, sFragment, "SessionFragment");
+			transaction.Replace(Resource.Id.mainFragmentContainer, sFragment, "SessionFragment");
 			transaction.AddToBackStack(null);
 			transaction.Commit();
 		}

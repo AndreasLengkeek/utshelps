@@ -13,27 +13,18 @@ using Android.Widget;
 
 namespace UTSHelps.Droid
 {
-    public class SettingsFragment : Fragment
+    public class RegistrationIntroFragment : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.Fragment_Settings, container, false);
+            View view = inflater.Inflate(Resource.Layout.Fragment_Registration1, container, false);
 
             return view;
-        }
-
-        [Java.Interop.Export()]
-        public void Logout_Click(View view)
-        {
-            var intent = new Intent(this.Activity, typeof(LoginActivity));
-            this.StartActivity(intent);
         }
     }
 }

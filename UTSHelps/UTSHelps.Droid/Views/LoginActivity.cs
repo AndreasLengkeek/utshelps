@@ -68,8 +68,8 @@ namespace UTSHelps.Droid
         {
             if (student == null)
             {
-                Toast.MakeText(this, "Should go to register page...", ToastLength.Short).Show(); 
-                // go to first register page
+                var intent = new Intent(this, typeof(RegisterActivity));
+                this.StartActivity(intent);
             } else
             {
                 // go to dashboard

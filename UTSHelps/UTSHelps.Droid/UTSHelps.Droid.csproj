@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\DialogHelper.cs" />
+    <Compile Include="Helpers\FontAwesome.cs" />
     <Compile Include="Helpers\ServiceHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Views\DashboardActivity.cs" />
@@ -66,6 +67,8 @@
     <Compile Include="Views\MyBookingsFragment.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\RegisterActivity.cs" />
+    <Compile Include="Views\RegistrationIntroFragment.cs" />
     <Compile Include="Views\SettingsFragment.cs" />
     <Compile Include="WorkshopAdapter.cs" />
     <Compile Include="BookingsAdapter.cs" />
@@ -74,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <AndroidAsset Include="Assets\fontawesome-webfont.ttf" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -108,7 +112,12 @@
     <AndroidResource Include="Resources\drawable\listIcon.png" />
     <AndroidResource Include="Resources\drawable\addIcon.png" />
     <AndroidResource Include="Resources\drawable\settingsIcon.png" />
-    <AndroidResource Include="Resources\layout\nav_bottom.axml" />
+    <AndroidResource Include="Resources\layout\nav_bottom.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Activity_Registration.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -229,6 +238,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\rounded_red_button.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\FontAwesome.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

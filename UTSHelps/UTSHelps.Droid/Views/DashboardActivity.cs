@@ -18,6 +18,7 @@ namespace UTSHelps.Droid
         private MakeBookingFragment makeBooking;
         private MyBookingsFragment myBookings;
         private SettingsFragment settings;
+
 		private LinearLayout bookingPage;
 		private LinearLayout addBookingPage;
 		private LinearLayout settingsPage;
@@ -40,7 +41,7 @@ namespace UTSHelps.Droid
             settings = new SettingsFragment();
 
             var transaction = FragmentManager.BeginTransaction();
-			transaction.Add(Resource.Id.fragmentContainer, myBookings, "MakeBooking_Fragment");
+			transaction.Add(Resource.Id.mainFragmentContainer, myBookings, "MakeBooking_Fragment");
 
             transaction.Commit();
 			currentFragment = myBookings;
@@ -72,7 +73,7 @@ namespace UTSHelps.Droid
         private void ReplaceFragment(Fragment selectedFragment)
         {
             var transaction = FragmentManager.BeginTransaction();
-			transaction.Replace(Resource.Id.fragmentContainer, selectedFragment);
+			transaction.Replace(Resource.Id.mainFragmentContainer, selectedFragment);
             transaction.AddToBackStack(null);
             transaction.Commit();
 
