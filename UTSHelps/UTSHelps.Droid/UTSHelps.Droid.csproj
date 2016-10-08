@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\DialogHelper.cs" />
     <Compile Include="Helpers\ServiceHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
     <Compile Include="Views\DashboardActivity.cs" />
@@ -107,6 +108,7 @@
     <AndroidResource Include="Resources\drawable\listIcon.png" />
     <AndroidResource Include="Resources\drawable\addIcon.png" />
     <AndroidResource Include="Resources\drawable\settingsIcon.png" />
+    <AndroidResource Include="Resources\layout\nav_bottom.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

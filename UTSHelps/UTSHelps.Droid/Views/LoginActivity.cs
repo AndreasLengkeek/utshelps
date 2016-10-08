@@ -42,25 +42,15 @@ namespace UTSHelps.Droid
                 TestCredentials(studentId, password);
             } catch (Exception ex)
             {
-                var builder = new AlertDialog.Builder(this);
-                builder.SetMessage(ex.Message);
-                builder.SetTitle("An error occured");
-                builder.Create().Show();
+                DialogHelper.ShowDialog(this, "An error occured", ex.Message);
                 return;
             }
 
+            var progress = DialogHelper.CreateProgressDialog("Signing In...", this);
+            progress.Show();
             var response = (StudentResponse)await ServiceHelper.Student.GetStudent(studentId.ToInt());
-            if (response.IsSuccess)
-            {
-                LoginOrRegister(response.Student);
-            }
-            else
-            {
-                var builder = new AlertDialog.Builder(this);
-                builder.SetMessage(response.DisplayMessage);
-                builder.SetTitle("An error occured");
-                builder.Create().Show();
-            }
+            progress.Hide();
+            LoginOrRegister(response.Student);
         }
 
         private void TestCredentials(string studentId, string password)
@@ -80,6 +70,7 @@ namespace UTSHelps.Droid
         {
             if (student == null)
             {
+                Toast.MakeText(this, "Should go to register page...", ToastLength.Short).Show(); 
                 // go to first register page
             } else
             {

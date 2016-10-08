@@ -7,4 +7,6 @@
   <color name="Helps_Red">#CC0A00</color>
   <color name="Login_Text">#FFFFFF</color>
   <color name="white">#FFFFFF</color>
+	<color name="background">#ED3232</color>
+
 </resources>
