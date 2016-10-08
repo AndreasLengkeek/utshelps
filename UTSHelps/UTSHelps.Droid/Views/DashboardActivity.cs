@@ -56,20 +56,17 @@ namespace UTSHelps.Droid
 
 		void BookingPage_Click(object sender, EventArgs e)
 		{
-			ReplaceFragment(myBookings);
-			Toast.MakeText(this, "Here's Johnny ( myBooking )!", ToastLength.Short).Show();
+            ReplaceFragment(myBookings);
 		}
 
 		void AddBookingPage_Click(object sender, EventArgs e)
 		{
 			ReplaceFragment(makeBooking);
-			Toast.MakeText(this, "Here's Johnny ( addBooking )!", ToastLength.Short).Show();
 		}
 
 		void SettingsPage_Click(object sender, EventArgs e)
 		{
 			ReplaceFragment(settings);
-			Toast.MakeText(this, "Here's Johnny ( settings )!", ToastLength.Short).Show();
 		}
 
         private void ReplaceFragment(Fragment selectedFragment)

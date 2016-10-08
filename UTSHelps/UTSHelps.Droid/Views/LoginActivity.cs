@@ -32,8 +32,6 @@ namespace UTSHelps.Droid
         [Java.Interop.Export()]
         public async void Login(View view)
         {
-            // show a (progress?) dialog, Logging In...
-
             var studentId = FindViewById<EditText>(Resource.Id.loginStudentId).Text;
             var password = FindViewById<EditText>(Resource.Id.loginPassword).Text;
 
