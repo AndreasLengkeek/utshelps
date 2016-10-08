@@ -29,7 +29,7 @@ namespace UTSHelps.Shared.Services
             return ResponseHelper.CreateErrorResponse<WorkshopSet>("Could not find workshop sets");
         }
 
-        public async Task<Response<Workshop>> GetWorkshops(string workshopSetId)
+        public async Task<Response<Workshop>> GetWorkshops(int workshopSetId)
         {
             TestConnection();
 

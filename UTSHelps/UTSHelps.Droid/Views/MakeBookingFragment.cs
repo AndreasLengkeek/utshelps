@@ -18,13 +18,13 @@ namespace UTSHelps.Droid
 {
     public class MakeBookingFragment : Fragment
     {
-		private List<WorkshopSet> sets = new List<WorkshopSet>();
+		private List<WorkshopSet> workshopSets = new List<WorkshopSet>();
 		private ListView workshopListView;
         private WorkshopAdapter workshopAdapter;
 		private ProgressBar workshopSetsProgress;
 		private SessionsFragment sFragment;
 
-        public override async void OnCreate(Bundle savedInstanceState)
+        public override void OnCreate(Bundle savedInstanceState)
         {
 			Refresh();
 			base.OnCreate(savedInstanceState);
@@ -35,7 +35,7 @@ namespace UTSHelps.Droid
             View view = inflater.Inflate(Resource.Layout.Fragment_MakeBooking, container, false);
 
 			//sets = new List<WorkshopSet>();
-            workshopAdapter = new WorkshopAdapter(this.Activity, sets);
+			workshopAdapter = new WorkshopAdapter(this.Activity, workshopSets);
             workshopListView = view.FindViewById<ListView>(Resource.Id.lstWorkshop);
             workshopListView.Adapter = workshopAdapter;
 
@@ -58,14 +58,17 @@ namespace UTSHelps.Droid
 		void WorkshopListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
 		{
 			Bundle args = new Bundle();
-			args.PutInt("workshopID", sets[e.Position].Id);
+			args.PutInt("workshopID", workshopSets[e.Position].Id);
+			args.PutString("workshopName", workshopSets[e.Position].Name);
 
 			sFragment = new SessionsFragment();
 			sFragment.Arguments = args;
 			FragmentTransaction transaction = this.Activity.FragmentManager.BeginTransaction();
 			transaction.Replace(Resource.Id.fragmentContainer, sFragment, "SessionFragment");
+			transaction.AddToBackStack(null);
 			transaction.Commit();
-			//Toast.MakeText(this.Activity, "The Workshop Id is " + sets[e.Position].Id, ToastLength.Short).Show();
+
+			//Toast.MakeText(this.Activity, "The Workshop Id is " + workshopSets[e.Position].Id, ToastLength.Short).Show();
 		}
 
 
@@ -85,8 +88,8 @@ namespace UTSHelps.Droid
             var response = await ServiceHelper.Workshop.GetWorkshopSets();
             if (response.IsSuccess)
             {
-                sets = response.Results;
-				workshopAdapter.SwapItems(sets);
+				workshopSets = response.Results;
+				workshopAdapter.SwapItems(workshopSets);
 				workshopSetsProgress.Visibility = ViewStates.Gone;
             }
         }
