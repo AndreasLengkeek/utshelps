@@ -41,17 +41,11 @@ namespace UTSHelps.Droid
 
 			workshopSetsProgress = view.FindViewById<ProgressBar>(Resource.Id.workshopsets_progress);
 			if (workshopAdapter.Count == 0)
-			{
 				workshopSetsProgress.Visibility = ViewStates.Visible;
-			}
 			else
-			{
 				workshopSetsProgress.Visibility = ViewStates.Gone;
-			}
 
 			workshopListView.ItemClick += WorkshopListView_ItemClick;
-            //UpdateView();
-
             return view;
         }
 
@@ -67,21 +61,7 @@ namespace UTSHelps.Droid
 			transaction.Replace(Resource.Id.fragmentContainer, sFragment, "SessionFragment");
 			transaction.AddToBackStack(null);
 			transaction.Commit();
-
-			//Toast.MakeText(this.Activity, "The Workshop Id is " + workshopSets[e.Position].Id, ToastLength.Short).Show();
 		}
-
-
-    //    private void UpdateView()
-    //    {
-    //        if (workshopAdapter != null)
-    //        {
-				//Activity.RunOnUiThread(new Action(() =>
-				//{
-    //            	workshopAdapter.NotifyDataSetChanged();
-				//}));
-    //        }
-    //    }
 
         private async void Refresh()
         {

@@ -21,17 +21,19 @@ namespace UTSHelps.Droid
 		private List<Workshop> sessionSets = new List<Workshop>();
 		private ListView sessionListView;
 		private SessionAdapter sessionAdapter;
+		private ProgressBar sessionsProgressBar;
 		private int workshopID;
-		private String workshopSetName;
+        private string workshopSetName;
 
 		public override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
+
 			Bundle args = Arguments;
 			workshopID = args.GetInt("workshopID");
 			workshopSetName = args.GetString("workshopName");
+
 			Refresh(workshopID);
-			// Create your fragment here
 		}
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -46,7 +48,17 @@ namespace UTSHelps.Droid
 			sessionListView.Adapter = sessionAdapter;
 			Toast.MakeText(this.Activity, "The Workshop Id is " + workshopID, ToastLength.Short).Show();
 
-			return view;
+            sessionsProgressBar = view.FindViewById<ProgressBar>(Resource.Id.session_progress);
+            if (sessionAdapter.Count == 0)
+            {
+                sessionsProgressBar.Visibility = ViewStates.Visible;
+            }
+            else
+            {
+                sessionsProgressBar.Visibility = ViewStates.Gone;
+            }
+
+            return view;
 		}
 
 		private async void Refresh(int workshopSetId)
@@ -54,10 +66,10 @@ namespace UTSHelps.Droid
 			var response = await ServiceHelper.Workshop.GetWorkshops(workshopSetId);
 			if (response.IsSuccess)
 			{
-				sessionSets = response.Results;
-				//sessionAdapter.SwapItems(sessionSets);
-				//workshopSetsProgress.Visibility = ViewStates.Gone;
-			}
+                sessionSets = response.Results;
+                sessionAdapter.SwapItems(sessionSets);
+                sessionsProgressBar.Visibility = ViewStates.Gone;
+            }
 		}
 	}
 }

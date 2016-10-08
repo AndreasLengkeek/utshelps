@@ -33,25 +33,14 @@ namespace UTSHelps.Shared.Services
         {
             TestConnection();
 
-            //var queryString = "workshopSetId=" + workshopSetId + "&active=true" + "&startingDtBegin=" + DateTime.Now.ToString(DateFormat);
-            //var response = await helpsClient.GetAsync("api/workshop/search?" + queryString);
-            //if (response.IsSuccessStatusCode)
-            //{
-            //    var result = await response.Content.ReadAsAsync<Response<Workshop>>();
-            //    return result;
-            //}
-            //return ResponseHelper.CreateErrorResponse<Workshop>("Could not find workshops");
-
-            var response = new Response<Workshop> {
-                Results = new List<Workshop> {
-                    new Workshop { WorkshopId = 1, topic = "A good workshop", NumOfWeeks = 4, StartDate = new DateTime(2016, 10, 6, 10, 0, 0), EndDate = new DateTime(2016, 10, 6, 12, 0, 0), campus = "CB11.01.412", maximum = 20, BookingCount = 18 },
-                    new Workshop { WorkshopId = 2, topic = "A bad workshop", NumOfWeeks = 2, StartDate = new DateTime(2016, 10, 2, 1, 0, 0), EndDate = new DateTime(2016, 10, 2, 1, 0, 0), campus = "CB11.06.100", maximum = 25, BookingCount = 1 },
-                    new Workshop { WorkshopId = 3, topic = "Another workshop", NumOfWeeks = 100, StartDate = new DateTime(2016, 11, 15, 10, 0, 0), EndDate = new DateTime(2016, 11, 15, 12, 0, 0), campus = "CB11.04.999", maximum = 20, BookingCount = 6 }
-                },
-                IsSuccess = true
-            };
-
-            return response;
+            var queryString = "workshopSetId=" + workshopSetId + "&active=true" + "&startingDtBegin=" + DateTime.Now.ToString(DateFormat);
+            var response = await helpsClient.GetAsync("api/workshop/search?" + queryString);
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsAsync<Response<Workshop>>();
+                return result;
+            }
+            return ResponseHelper.CreateErrorResponse<Workshop>("Could not find workshops");
         }
 
         public async Task<Response<Workshop>> GetWorkshop(int workshopId)
