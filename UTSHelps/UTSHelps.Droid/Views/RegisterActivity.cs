@@ -23,6 +23,7 @@ namespace UTSHelps.Droid
         private List<Fragment> views;
 
         private RegistrationStudentInfoViewModel studentInfo;
+        private RegistrationCourseViewModel courseInfo;
 
         private FontAwesome leftArrow;
         private FontAwesome rightArrow;
@@ -49,8 +50,6 @@ namespace UTSHelps.Droid
             var transaction = FragmentManager.BeginTransaction();
             transaction.Add(Resource.Id.regFragmentContainer, views[currentFragment]);
             transaction.Commit();
-
-
 
             studentId = Intent.GetStringExtra("studentId");
         }
@@ -113,7 +112,7 @@ namespace UTSHelps.Droid
                     studentInfo = ((RegistrationStudentInfoFragment)views[currentFragment]).GetData();
                     break;
                 case 1:
-                    //courseInfo = ((RegistrationStudentInfoFragment)views[currentFragment]).GetData();
+                    courseInfo = ((RegistrationCourseFragment)views[currentFragment]).GetData();
                     break;
                 default:
                     //background = ((RegistrationStudentInfoFragment)views[currentFragment]).GetData();
@@ -174,6 +173,8 @@ namespace UTSHelps.Droid
         private void FinishRegister()
         {
             var newStudent = ParseStudentFromFragments();
+            newStudent.studentID = studentId;
+
             // TODO: Register student with api
             // TODO: Redirect to final register page
 

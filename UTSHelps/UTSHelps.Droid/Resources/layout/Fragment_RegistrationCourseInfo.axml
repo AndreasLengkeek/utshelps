@@ -66,15 +66,26 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp" />
-        <ExpandableListView
-            android:layout_marginTop="15dp"
+        <RadioGroup
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/regDegreeRadioGroup"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/rego3DegreeList" />
+            android:layout_marginTop="10dp" >
+          <RadioButton
+              android:text="Undergraduate"
+              android:id="@+id/regDegreeUndergrad"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:checked="true" />
+          <RadioButton
+              android:text="Postgraduate"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:id="@+id/regDegreePostGrad" />
+        </RadioGroup>
         <TextView
             android:text="Year"
             android:textAppearance="?android:attr/textAppearanceLarge"
