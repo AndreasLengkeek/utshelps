@@ -105,7 +105,7 @@
         android:id="@+id/lnrPlaces"
         android:layout_below="@+id/lnrLocation">
         <TextView
-            android:text="Places:"
+            android:text="Places Left:"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_weight="40"
