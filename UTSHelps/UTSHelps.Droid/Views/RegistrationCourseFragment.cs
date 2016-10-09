@@ -22,7 +22,7 @@ namespace UTSHelps.Droid
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.Fragment_Registration3, container, false);
+            View view = inflater.Inflate(Resource.Layout.Fragment_RegistrationCourseInfo, container, false);
 
             return view;
         }

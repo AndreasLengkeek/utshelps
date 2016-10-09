@@ -13,6 +13,8 @@ namespace UTSHelps.Droid
     [Activity(Label = "UTSHelps", MainLauncher = true)]
     public class LoginActivity : MainActivity
     {
+        private EditText studentId;
+        private EditText password;
         protected override int LayoutResource
         {
             get { return Resource.Layout.Activity_Login; }
@@ -32,12 +34,12 @@ namespace UTSHelps.Droid
         [Java.Interop.Export()]
         public async void Login(View view)
         {
-            var studentId = FindViewById<EditText>(Resource.Id.loginStudentId).Text;
-            var password = FindViewById<EditText>(Resource.Id.loginPassword).Text;
+            studentId = FindViewById<EditText>(Resource.Id.loginStudentId);
+            password = FindViewById<EditText>(Resource.Id.loginPassword);
 
             try
             {
-                TestCredentials(studentId, password);
+                TestCredentials(studentId.Text, password.Text);
             } catch (Exception ex)
             {
                 DialogHelper.ShowDialog(this, "An error occured", ex.Message);
@@ -46,7 +48,7 @@ namespace UTSHelps.Droid
 
             var progress = DialogHelper.CreateProgressDialog("Signing In...", this);
             progress.Show();
-            var response = (StudentResponse)await ServiceHelper.Student.GetStudent(studentId.ToInt());
+            var response = (StudentResponse)await ServiceHelper.Student.GetStudent(studentId.Text.ToInt());
             progress.Hide();
             LoginOrRegister(response.Student);
         }
@@ -69,6 +71,7 @@ namespace UTSHelps.Droid
             if (student == null)
             {
                 var intent = new Intent(this, typeof(RegistrationIntroActivity));
+                intent.PutExtra("studentId", studentId.Text);
                 this.StartActivity(intent);
             } else
             {
@@ -78,7 +81,6 @@ namespace UTSHelps.Droid
                 var intent = new Intent(this, typeof(DashboardActivity));
                 this.StartActivity(intent);
             }
-
         }
     }
 }

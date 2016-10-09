@@ -29,7 +29,7 @@
             android:layout_marginRight="@dimen/inside_lr"
             android:layout_marginTop="@dimen/inside_tb"
             android:layout_marginBottom="@dimen/inside_tb"
-            android:text="10161063" />
+            android:text="10161062" />
         <EditText
             android:inputType="textPassword"
             android:id="@+id/loginPassword"
@@ -39,6 +39,7 @@
             android:layout_marginLeft="@dimen/inside_lr"
             android:layout_marginRight="@dimen/inside_lr"
             android:layout_marginTop="@dimen/inside_tb"
+            android:text="t"
             android:layout_marginBottom="@dimen/inside_tb" />
         <Button
             android:text="LOGIN"

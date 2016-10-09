@@ -12,28 +12,19 @@ using Android.Widget;
 
 namespace UTSHelps.Droid
 {
-    [Activity(Label = "RegistrationIntroActivity")]
-    public class RegistrationIntroActivity : MainActivity
+    [Activity(Label = "RegistrationConfirmationActivity")]
+    public class RegistrationConfirmationActivity : MainActivity
     {
         protected override int LayoutResource
         {
             get {
-                return Resource.Layout.Fragment_RegistrationIntro;
+                return Resource.Layout.Fragment_RegistrationConfirmation;
             }
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            var startButton = FindViewById<Button>(Resource.Id.rego1StartButton);
-        }
-
-        [Java.Interop.Export()]
-        public void StartRegistration(View view)
-        {
-            var intent = new Intent(this, typeof(RegisterActivity));
-            this.StartActivity(intent);
         }
     }
 }
