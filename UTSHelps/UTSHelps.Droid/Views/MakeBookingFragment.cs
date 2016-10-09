@@ -52,8 +52,8 @@ namespace UTSHelps.Droid
 		void WorkshopListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
 		{
 			Bundle args = new Bundle();
-			args.PutInt("workshopID", workshopSets[e.Position].Id);
-			args.PutString("workshopName", workshopSets[e.Position].Name);
+			args.PutInt("workshopSetID", workshopSets[e.Position].Id);
+			args.PutString("workshopSetName", workshopSets[e.Position].Name);
 
 			sFragment = new SessionsFragment();
 			sFragment.Arguments = args;

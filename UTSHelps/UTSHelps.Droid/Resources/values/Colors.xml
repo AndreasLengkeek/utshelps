@@ -8,5 +8,7 @@
   <color name="Login_Text">#FFFFFF</color>
   <color name="white">#FFFFFF</color>
 	<color name="background">#ED3232</color>
+	<color name="Green_Booking">#00C932</color>
+	<color name="Green_Words">#90DE00</color>
 
 </resources>

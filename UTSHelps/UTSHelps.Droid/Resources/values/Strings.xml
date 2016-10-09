@@ -5,4 +5,6 @@
 	<string name="AddBooking">Make a Booking</string>
 	<string name="MyBookings">My Bookings</string>
 	<string name="Settings">Settings</string>
+	<string name="BookWorkshopBtn">Book this workshop</string>
+	<string name="CancelWorkshopBtn">Cancel this booking</string>
 </resources>

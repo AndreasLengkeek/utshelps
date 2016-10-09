@@ -22,18 +22,19 @@ namespace UTSHelps.Droid
 		private ListView sessionListView;
 		private SessionAdapter sessionAdapter;
 		private ProgressBar sessionsProgressBar;
-		private int workshopID;
+		private int workshopSetID;
         private string workshopSetName;
+		private BookingWorkshopFragment bWorkshopFragment;
 
 		public override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
 			Bundle args = Arguments;
-			workshopID = args.GetInt("workshopID");
-			workshopSetName = args.GetString("workshopName");
+			workshopSetID = args.GetInt("workshopSetID");
+			workshopSetName = args.GetString("workshopSetName");
 
-			Refresh(workshopID);
+			Refresh(workshopSetID);
 		}
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -46,7 +47,7 @@ namespace UTSHelps.Droid
 			sessionAdapter = new SessionAdapter(this.Activity, sessionSets);
 			sessionListView = view.FindViewById<ListView>(Resource.Id.lstSessions);
 			sessionListView.Adapter = sessionAdapter;
-			Toast.MakeText(this.Activity, "The Workshop Id is " + workshopID, ToastLength.Short).Show();
+			Toast.MakeText(this.Activity, "The WorkshopSets Id is " + workshopSetID, ToastLength.Short).Show();
 
             sessionsProgressBar = view.FindViewById<ProgressBar>(Resource.Id.session_progress);
             if (sessionAdapter.Count == 0)
@@ -58,7 +59,23 @@ namespace UTSHelps.Droid
                 sessionsProgressBar.Visibility = ViewStates.Gone;
             }
 
+			sessionListView.ItemClick += SessionListView_ItemClick;
+
             return view;
+		}
+
+		void SessionListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+		{
+			Bundle args = new Bundle();
+			args.PutInt("workshopId", sessionSets[e.Position].WorkshopId);
+			args.PutString("workshopName", sessionSets[e.Position].topic);
+
+			bWorkshopFragment = new BookingWorkshopFragment();
+			bWorkshopFragment.Arguments = args;
+			FragmentTransaction trans = this.Activity.FragmentManager.BeginTransaction();
+			trans.Replace(Resource.Id.mainFragmentContainer, bWorkshopFragment, "BookingWorkshopFragment");
+			trans.AddToBackStack(null);
+			trans.Commit();
 		}
 
 		private async void Refresh(int workshopSetId)
