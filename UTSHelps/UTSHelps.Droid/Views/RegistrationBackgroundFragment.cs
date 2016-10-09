@@ -13,28 +13,18 @@ using Android.Widget;
 
 namespace UTSHelps.Droid
 {
-    public class SettingsFragment : Fragment
+    public class RegistrationBackgroundFragment : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.Fragment_Settings, container, false);
-
-            Button logout = view.FindViewById<Button>(Resource.Id.settingsLogout);
-            logout.Click += Logout_Click;
+            View view = inflater.Inflate(Resource.Layout.Fragment_Registration4, container, false);
 
             return view;
-        }
-
-        public void Logout_Click(object sender, EventArgs e)
-        {
-            var intent = new Intent(this.Activity, typeof(LoginActivity));
-            this.StartActivity(intent);
         }
     }
 }

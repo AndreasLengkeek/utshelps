@@ -18,10 +18,23 @@
         android:layout_width="fill_parent"
         android:layout_height="55dp"
         android:background="#079AF5"
+        android:padding="10dp"
         android:layout_alignParentBottom="true">
         <UTSHelps.Droid.Helpers.FontAwesome
-            android:id="@+id/regLeftIcon"
+            android:id="@+id/regLeftArrow"
             android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textColor="#FFFFFF80"
+            android:textSize="24dp"
             android:text="@string/fa_angle_left" />
+        <UTSHelps.Droid.Helpers.FontAwesome
+            android:id="@+id/regRightArrow"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:onClick="NextScreen"
+            android:clickable="true"
+            android:textColor="#FFFFFF"
+            android:textSize="24dp"
+            android:text="@string/fa_angle_right" />
     </LinearLayout>
 </RelativeLayout>

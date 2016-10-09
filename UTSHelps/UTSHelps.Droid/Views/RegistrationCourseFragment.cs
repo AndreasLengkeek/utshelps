@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace UTSHelps.Droid
 {
-    public class RegistrationIntroFragment : Fragment
+    public class RegistrationCourseFragment : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -22,7 +22,7 @@ namespace UTSHelps.Droid
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            View view = inflater.Inflate(Resource.Layout.Fragment_Registration1, container, false);
+            View view = inflater.Inflate(Resource.Layout.Fragment_Registration3, container, false);
 
             return view;
         }

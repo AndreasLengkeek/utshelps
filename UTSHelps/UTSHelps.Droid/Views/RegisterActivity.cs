@@ -15,9 +15,10 @@ namespace UTSHelps.Droid
     [Activity(Label = "RegisterActivity")]
     public class RegisterActivity : MainActivity
     {
-        private Fragment currentFragment;
+        private int currentFragment;
 
-        private RegistrationIntroFragment introFragment;
+        private RegistrationStudentInfoFragment introFragment;
+        private List<Fragment> views;
 
         protected override int LayoutResource
         {
@@ -30,13 +31,50 @@ namespace UTSHelps.Droid
         {
             base.OnCreate(savedInstanceState);
 
-            introFragment = new RegistrationIntroFragment();
+            views = new List<Fragment> {
+                new RegistrationStudentInfoFragment(),
+                new RegistrationCourseFragment(),
+                new RegistrationBackgroundFragment()
+            };
+
+            currentFragment = 0;
 
             var transaction = FragmentManager.BeginTransaction();
-            transaction.Add(Resource.Id.regFragmentContainer, introFragment, "RegistrationIntro_Fragment");
+            transaction.Add(Resource.Id.regFragmentContainer, views[currentFragment]);
             transaction.Commit();
+        }
 
-            currentFragment = introFragment;
+        [Java.Interop.Export()]
+        public void PrevScreen(View view)
+        {
+            if (currentFragment == 0)
+            {
+                return;
+            }
+            ReplaceFragment(--currentFragment);
+        }
+
+        [Java.Interop.Export()]
+        public void NextScreen(View view)
+        {
+            if (currentFragment == 2)
+            {
+                FinishRegister();
+            }
+            ReplaceFragment(++currentFragment);
+        }
+
+        private void ReplaceFragment(int selected)
+        {
+            var transaction = FragmentManager.BeginTransaction();
+            transaction.Replace(Resource.Id.regFragmentContainer, views[selected]);
+            transaction.AddToBackStack(null);
+            transaction.Commit();
+        }
+
+        private void FinishRegister()
+        {
+            throw new NotImplementedException();
         }
     }
 }

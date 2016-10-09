@@ -68,7 +68,7 @@ namespace UTSHelps.Droid
         {
             if (student == null)
             {
-                var intent = new Intent(this, typeof(RegisterActivity));
+                var intent = new Intent(this, typeof(RegistrationIntroActivity));
                 this.StartActivity(intent);
             } else
             {

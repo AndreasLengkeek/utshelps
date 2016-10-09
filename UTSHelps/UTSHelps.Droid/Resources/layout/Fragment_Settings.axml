@@ -173,9 +173,8 @@
                 android:layout_marginRight="20dp" />
             <Button
                 android:text="Logout"
-                android:id="@+id/button1"
+                android:id="@+id/settingsLogout"
                 android:layout_width="295.5dp"
-                android:onClick="Logout_Click"
                 android:layout_height="match_parent" />
         </LinearLayout>
     </LinearLayout>

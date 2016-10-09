@@ -77,7 +77,6 @@ namespace UTSHelps.Droid
             transaction.AddToBackStack(null);
             transaction.Commit();
 
-
             currentFragment = selectedFragment;
         }
     }
