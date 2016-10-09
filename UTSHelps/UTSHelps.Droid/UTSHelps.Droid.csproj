@@ -75,11 +75,11 @@
     <Compile Include="Views\RegistrationIntroActivity.cs" />
     <Compile Include="Views\RegistrationStudentInfoFragment.cs" />
     <Compile Include="Views\SettingsFragment.cs" />
-    <Compile Include="WorkshopAdapter.cs" />
-    <Compile Include="BookingsAdapter.cs" />
-    <Compile Include="SessionAdapter.cs" />
-    <Compile Include="SessionsFragment.cs" />
-    <Compile Include="BookingWorkshopFragment.cs" />
+    <Compile Include="Views\WorkshopAdapter.cs" />
+    <Compile Include="Views\BookingsAdapter.cs" />
+    <Compile Include="Views\SessionAdapter.cs" />
+    <Compile Include="Views\SessionsFragment.cs" />
+    <Compile Include="Views\BookingWorkshopFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -45,26 +45,18 @@ namespace UTSHelps.Shared.Services
 
         public async Task<Response<Workshop>> GetWorkshop(int workshopId)
         {
-            // TODO: there isn't an api for this yet.
-
             TestConnection();
 
-            var queryString = "active=true";
-            var response = await helpsClient.GetAsync("api/workshop/search?" + queryString);
+            var response = await helpsClient.GetAsync("api/workshop/" + workshopId.ToString());
             if (response.IsSuccessStatusCode)
             {
                 var result = await response.Content.ReadAsAsync<Response<Workshop>>();
-                if (result.IsSuccess)
-                {
-                    var workshop = result.Results.Where(w => w.WorkshopId == workshopId).FirstOrDefault();
-                    return ResponseHelper.CreateResponseDetail(workshop);
-                }
-                return ResponseHelper.CreateErrorResponse<Workshop>("Could not find workshops");
+                return result;
             }
             return ResponseHelper.CreateErrorResponse<Workshop>("An unknown error occured");
         }
 
-        public async Task<GenericResponse> CreateBooking(int workshopId, int studentId)
+        public async Task<GenericResponse> CreateWorkshopBooking(int workshopId, int studentId)
         {
             if (!IsConnected())
                 return ResponseHelper.CreateGenericErrorResponse("No Network Connection");
@@ -80,7 +72,7 @@ namespace UTSHelps.Shared.Services
             return ResponseHelper.CreateGenericErrorResponse("An unknown error occured");
         }
 
-        public async Task<GenericResponse> CancelBooking(int workshopId, int studentId)
+        public async Task<GenericResponse> CancelWorkshopBooking(int workshopId, int studentId)
         {
             if (!IsConnected())
                 return ResponseHelper.CreateGenericErrorResponse("No Network Connection");
