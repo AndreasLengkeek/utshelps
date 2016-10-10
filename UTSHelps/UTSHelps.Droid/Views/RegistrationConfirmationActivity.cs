@@ -26,5 +26,20 @@ namespace UTSHelps.Droid
         {
             base.OnCreate(savedInstanceState);
         }
+
+        [Java.Interop.Export()]
+        public void MakeBooking(View view)
+        {
+            var intent = new Intent(this, typeof(DashboardActivity));
+            intent.PutExtra("StartScreen", "MakeBooking");
+            this.StartActivity(intent);
+        }
+
+        [Java.Interop.Export()]
+        public void ContinueToApp(View view)
+        {
+            var intent = new Intent(this, typeof(DashboardActivity));
+            this.StartActivity(intent);
+        }
     }
 }

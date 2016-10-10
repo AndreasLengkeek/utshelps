@@ -15,9 +15,9 @@ namespace UTSHelps.Shared.Services
         {
         }
 
-        public async Task<GenericResponse> Register(Student student)
+        public async Task<GenericResponse> Register(RegisterRequest studentRegister)
         {
-            var response = await helpsClient.PostAsJsonAsync("api/student/register", student);
+            var response = await helpsClient.PostAsJsonAsync("api/student/register", studentRegister);
 
             if (response.IsSuccessStatusCode)
             {

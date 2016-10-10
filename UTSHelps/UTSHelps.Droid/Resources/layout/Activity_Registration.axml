@@ -2,72 +2,222 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#03A9F4"
-        android:id="@+id/registration_content">
-        <FrameLayout
-            android:id="@+id/regFragmentContainer"
-            android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="55dp" />
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="55dp"
-        android:background="#03A9F4"
-        android:padding="10dp"
-        android:layout_alignParentBottom="true">
-        <UTSHelps.Droid.Helpers.FontAwesome
-            android:id="@+id/regLeftArrow"
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="#03A9F4"
+          android:id="@+id/registration_content">
+        <TextView
+            android:text="Preferred First Name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textColor="#ffffffff"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rego2PreferredFIrstName"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="70dp"
+            android:textColor="#ffffffff" />
+        <TextView
+            android:text="Best Contact No"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textColor="#ffffffff"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp" />
+        <EditText
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Rego2BestContactNo"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="70dp"
+            android:textColor="#ffffffff" />
+        <TextView
+            android:text="Date of Birth"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="wrap_content"
-            android:onClick="PrevScreen"
-            android:clickable="true"
-            android:textColor="#80FFFFFF"
-            android:textSize="36dp"
-            android:text="@string/fa_angle_left" />
+            android:layout_height="wrap_content"
+            android:textColor="#ffffffff"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp" />
         <LinearLayout
-            android:id="@+id/regPager"
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="130dp"
-            android:layout_marginRight="130dp">
-            <UTSHelps.Droid.Helpers.FontAwesome
-                android:id="@+id/regCircle1"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:textColor="#FFFFFF"
-                android:textSize="36dp"
-                android:text="@string/fa_circle" />
-            <UTSHelps.Droid.Helpers.FontAwesome
-                android:id="@+id/regCircle2"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:textColor="#FFFFFF"
-                android:textSize="36dp"
-                android:text="@string/fa_circle_thin" />
-            <UTSHelps.Droid.Helpers.FontAwesome
-                android:id="@+id/regCircle3"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:textColor="#FFFFFF"
-                android:textSize="36dp"
-                android:text="@string/fa_circle_thin" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+          <EditText
+              android:inputType="number"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/regDobDate"
+              android:hint="DD"
+              android:maxLength="2" />
+          <EditText
+              android:inputType="number"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/regDobMonth"
+              android:hint="MM"
+              android:maxLength="2" />
+          <EditText
+              android:inputType="number"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/regDobYear"
+              android:hint="YYYY"
+              android:maxLength="4" />
         </LinearLayout>
-        <UTSHelps.Droid.Helpers.FontAwesome
-            android:id="@+id/regRightArrow"
+        <TextView
+            android:text="Gender"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:onClick="NextScreen"
-            android:clickable="true"
-            android:textColor="#FFFFFF"
-            android:textSize="36dp"
-            android:text="@string/fa_angle_right" />
-    </LinearLayout>
+            android:id="@+id/textView2"
+            android:textColor="#ffffffff"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+        <RadioGroup
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/regGenderRadioGroup"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+          <RadioButton
+              android:text="Other"
+              android:id="@+id/regGenderRadioOther"
+              android:layout_width="143.1dp"
+              android:layout_height="match_parent"
+              android:checked="true" />
+          <RadioButton
+              android:text="Male"
+              android:id="@+id/regGenderRadioMale"
+              android:layout_width="143.1dp"
+              android:layout_height="match_parent" />
+          <RadioButton
+              android:text="Female"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:id="@+id/regGenderRadioFemale" />
+        </RadioGroup>
+        <TextView
+            android:text="Country of Origin"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textColor="#ffffffff"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+        <Spinner
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:hint="Country"
+            android:id="@+id/regCountrySpinner"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+        <TextView
+            android:text="First Language"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textColor="#ffffffff"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+        <Spinner
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:hint="Language"
+            android:id="@+id/regLanguageSpinner"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+        <TextView
+            android:text="Status"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textColor="#ffffffff"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+        <RadioGroup
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/regStatusRadioGroup"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+          <RadioButton
+              android:text="Permanent"
+              android:id="@+id/regRadioStausPermanent"
+              android:layout_width="143.1dp"
+              android:layout_height="match_parent"
+              android:checked="true" />
+          <RadioButton
+              android:text="International"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:id="@+id/regRadioStatusInternational" />
+        </RadioGroup>
+        <TextView
+            android:text="Degree"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textColor="#ffffffff"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp" />
+        <RadioGroup
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/regDegreeRadioGroup"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp">
+          <RadioButton
+              android:text="Undergraduate"
+              android:id="@+id/regDegreeUndergrad"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:checked="true" />
+          <RadioButton
+              android:text="Postgraduate"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:id="@+id/regDegreePostGrad" />
+        </RadioGroup>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/regConfirm"
+            android:onClick="Register"
+            android:text="Register" />
+      </LinearLayout>
+  </ScrollView>
 </RelativeLayout>

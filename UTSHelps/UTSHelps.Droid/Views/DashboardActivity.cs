@@ -40,11 +40,12 @@ namespace UTSHelps.Droid
             myBookings = new MyBookingsFragment();
             settings = new SettingsFragment();
 
-            var transaction = FragmentManager.BeginTransaction();
-			transaction.Add(Resource.Id.mainFragmentContainer, myBookings, "MakeBooking_Fragment");
+            var startPage = Intent.GetStringExtra("StartScreen");
+			currentFragment = GetStartScreen(startPage);
 
+            var transaction = FragmentManager.BeginTransaction();
+			transaction.Add(Resource.Id.mainFragmentContainer, currentFragment, "MakeBooking_Fragment");
             transaction.Commit();
-			currentFragment = myBookings;
 
 			bookingPage = FindViewById<LinearLayout>(Resource.Id.linearbooking);
 			addBookingPage = FindViewById<LinearLayout>(Resource.Id.linearadd);
@@ -55,7 +56,20 @@ namespace UTSHelps.Droid
 			settingsPage.Click += SettingsPage_Click;
         }
 
-		void BookingPage_Click(object sender, EventArgs e)
+        private Fragment GetStartScreen(string page)
+        {
+            switch (page)
+            {
+                case "MakeBooking":
+                    return makeBooking;
+                case "Settings":
+                    return settings;
+                default:
+                    return myBookings;
+            }
+        }
+
+        void BookingPage_Click(object sender, EventArgs e)
 		{
             ReplaceFragment(myBookings);
 		}

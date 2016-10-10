@@ -13,26 +13,25 @@ using UTSHelps.Droid.Helpers;
 using Android.Graphics;
 using UTSHelps.Shared.Models;
 using UTSHelps.Droid.ViewModels;
+using System.Globalization;
 
 namespace UTSHelps.Droid
 {
     [Activity(Label = "RegisterActivity")]
     public class RegisterActivity : MainActivity
     {
-        private int currentFragment;
-        private List<Fragment> views;
-
-        private RegistrationStudentInfoViewModel studentInfo;
-        private RegistrationCourseViewModel courseInfo;
-
-        private FontAwesome leftArrow;
-        private FontAwesome rightArrow;
-        private List<FontAwesome> pagerCircles;
-
-        private string fullCircle;
-        private string openCircle;
-
         private string studentId;
+
+        private TextView prefName;
+        private TextView altContact;
+        private TextView date;
+        private TextView month;
+        private TextView year;
+        private Spinner country;
+        private Spinner language;
+        private RadioGroup status;
+        private RadioGroup gender;
+        private RadioGroup degree;
 
         protected override int LayoutResource
         {
@@ -47,141 +46,128 @@ namespace UTSHelps.Droid
 
             InitComponents();
 
-            var transaction = FragmentManager.BeginTransaction();
-            transaction.Add(Resource.Id.regFragmentContainer, views[currentFragment]);
-            transaction.Commit();
-
             studentId = Intent.GetStringExtra("studentId");
         }
 
         private void InitComponents()
         {
+            prefName = FindViewById<TextView>(Resource.Id.rego2PreferredFIrstName);
+            altContact = FindViewById<TextView>(Resource.Id.Rego2BestContactNo);
+            date = FindViewById<TextView>(Resource.Id.regDobDate);
+            month = FindViewById<TextView>(Resource.Id.regDobMonth);
+            year = FindViewById<TextView>(Resource.Id.regDobYear);
+            country = FindViewById<Spinner>(Resource.Id.regCountrySpinner);
+            language = FindViewById<Spinner>(Resource.Id.regLanguageSpinner);
+            status = FindViewById<RadioGroup>(Resource.Id.regStatusRadioGroup);
+            gender = FindViewById<RadioGroup>(Resource.Id.regGenderRadioGroup);
+            degree = FindViewById<RadioGroup>(Resource.Id.regDegreeRadioGroup);
 
-            views = new List<Fragment> {
-                new RegistrationStudentInfoFragment(),
-                new RegistrationCourseFragment(),
-                new RegistrationBackgroundFragment()
-            };
-
-            currentFragment = 0;
-
-            leftArrow = FindViewById<FontAwesome>(Resource.Id.regLeftArrow);
-            rightArrow = FindViewById<FontAwesome>(Resource.Id.regRightArrow);
-
-            pagerCircles = new List<FontAwesome> {
-                FindViewById<FontAwesome>(Resource.Id.regCircle1),
-                FindViewById<FontAwesome>(Resource.Id.regCircle2),
-                FindViewById<FontAwesome>(Resource.Id.regCircle3)
-            };
-
-            fullCircle = Resources.GetString(Resource.String.fa_circle);
-            openCircle = Resources.GetString(Resource.String.fa_circle_thin);
+            country.Adapter = GetCountries();
+            language.Adapter = GetLanguages();
         }
 
-        [Java.Interop.Export()]
-        public void PrevScreen(View view)
+        private ArrayAdapter GetCountries(string overrideValue = "Australia")
         {
-            if (currentFragment == 0)
+
+            CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.AllCultures);
+            LinkedList<string> countries = new LinkedList<string>();
+            foreach (CultureInfo culture in cultures)
             {
-                return;
+                try
+                {
+                    RegionInfo regionInfo = new RegionInfo(culture.LCID);
+                    if (!(countries.Contains(regionInfo.EnglishName)))
+                        countries.AddLast(regionInfo.EnglishName);
+                }
+                catch { }
             }
-            ReplaceFragment(--currentFragment);
-            UpdatePager();
+            return SortAndAssign(countries, overrideValue);
+        }
+
+        private ArrayAdapter GetLanguages(string overrideValue = "English")
+        {
+
+            CultureInfo[] cultures = CultureInfo.GetCultures(CultureTypes.AllCultures);
+            LinkedList<string> languages = new LinkedList<string>();
+            foreach (CultureInfo culture in cultures)
+            {
+                try
+                {
+                    if (culture.IsNeutralCulture)
+                        languages.AddLast(culture.DisplayName);
+                }
+                catch { }
+            }
+            return SortAndAssign(languages, overrideValue);
+        }
+
+        private ArrayAdapter SortAndAssign(LinkedList<string> list, string DefaultValue)
+        {
+            List<string> sortedList = list.ToList();
+            sortedList.Sort();
+            sortedList.Insert(0, DefaultValue);
+            ArrayAdapter arr = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleDropDownItem1Line,
+                sortedList.ToArray<string>());
+            arr.SetDropDownViewResource(Android.Resource.Layout.SimpleDropDownItem1Line);
+            return arr;
+        }
+
+        private static DateTime GetBirthDate(TextView date, TextView month, TextView year)
+        {
+            DateTime dt;
+            try
+            {
+                dt = DateTime.ParseExact(year.Text + month.Text + date.Text, "yyyyMMdd", CultureInfo.InvariantCulture);
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                dt = DateTime.Now;
+            }
+            return dt;
         }
 
         [Java.Interop.Export()]
-        public void NextScreen(View view)
+        public async void Register(View view)
         {
-            GetDataFromFragment();
-            if (currentFragment == 2)
+            var newStudent = ParseView();
+
+            var progressDialog = DialogHelper.CreateProgressDialog("Registering...", this);
+            progressDialog.Show();
+            var response = await ServiceHelper.Student.Register(newStudent);
+            progressDialog.Hide();
+
+            if (response.IsSuccess)
             {
-                FinishRegister();
+                var intent = new Intent(this, typeof(RegistrationConfirmationActivity));
+                this.StartActivity(intent);
             }
             else
             {
-                ReplaceFragment(++currentFragment);
-                UpdatePager();
+                DialogHelper.ShowDialog(this, "An error occured", response.DisplayMessage);
             }
         }
 
-        private void GetDataFromFragment()
+        private RegisterRequest ParseView()
         {
-            switch (currentFragment)
-            {
-                case 0:
-                    studentInfo = ((RegistrationStudentInfoFragment)views[currentFragment]).GetData();
-                    break;
-                case 1:
-                    courseInfo = ((RegistrationCourseFragment)views[currentFragment]).GetData();
-                    break;
-                default:
-                    //background = ((RegistrationStudentInfoFragment)views[currentFragment]).GetData();
-                    break;
-            }
-        }
+            var birthDate = GetBirthDate(date, month, year);
+            var statusSelected = FindViewById<RadioButton>(status.CheckedRadioButtonId);
+            var degreeSelected = FindViewById<RadioButton>(degree.CheckedRadioButtonId);
+            var genderSelected = FindViewById<RadioButton>(gender.CheckedRadioButtonId);
 
-        private Student ParseStudentFromFragments()
-        {
-            return new Student {
-                preferred_name = studentInfo.PrefName,
-                alternative_contact = studentInfo.AltContact,
-                country_origin = studentInfo.Country,
-                first_language = studentInfo.Language,
-                gender = studentInfo.Gender.ToString(),
-                status = studentInfo.Status.ToString(),
-                dob = studentInfo.BirthDate
+            var newStudent = new RegisterRequest {
+                StudentId = studentId,
+                PreferredName = prefName.Text,
+                AltContact = altContact.Text,
+                DateOfBirth = birthDate,
+                CountryOrigin = country.SelectedItem.ToString(),
+                FirstLanguage = language.SelectedItem.ToString(),
+                Status = status.IndexOfChild(statusSelected),
+                Degree = degree.IndexOfChild(degreeSelected) + 1,
+                Gender = gender.IndexOfChild(genderSelected)
             };
-        }
 
-        private void ReplaceFragment(int selected)
-        {
-            var transaction = FragmentManager.BeginTransaction();
-            transaction.Replace(Resource.Id.regFragmentContainer, views[selected]);
-            transaction.AddToBackStack(null);
-            transaction.Commit();
-        }
-
-        private void UpdatePager()
-        {
-            // change indicator for current page
-            for (int i = 0; i < pagerCircles.Count; i++)
-            {
-                pagerCircles[i].Text = (i == currentFragment ? fullCircle : openCircle);
-            }
-
-            ResetPagerArrows();
-
-            // update arrows on first and last page
-            if (currentFragment == 0)
-            {
-                leftArrow.SetTextColor(Color.ParseColor("#80FFFFFF"));
-            }
-            else if (currentFragment == 2)
-            {
-                rightArrow.Text = Resources.GetString(Resource.String.fa_check);
-            }
-        }
-
-        private void ResetPagerArrows()
-        {
-            leftArrow.SetTextColor(Color.ParseColor("#FFFFFF"));
-            rightArrow.SetTextColor(Color.ParseColor("#FFFFFF"));
-            leftArrow.Text = Resources.GetString(Resource.String.fa_angle_left);
-            rightArrow.Text = Resources.GetString(Resource.String.fa_angle_right);
-        }
-
-        private void FinishRegister()
-        {
-            var newStudent = ParseStudentFromFragments();
-            newStudent.studentID = studentId;
-
-            // TODO: Register student with api
-            // TODO: Redirect to final register page
-
-            Toast.MakeText(this, "Registering... (Not yet)", ToastLength.Short).Show();
-
-            var intent = new Intent(this, typeof(RegistrationConfirmationActivity));
-            this.StartActivity(intent);
+            return newStudent;
         }
     }
 }
