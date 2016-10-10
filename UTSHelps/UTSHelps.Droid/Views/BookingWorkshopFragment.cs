@@ -20,26 +20,28 @@ namespace UTSHelps.Droid
 	public class BookingWorkshopFragment : Fragment
 	{
 		private int workshopId;
-		private String workshopName;
-		private String workshopTime;
-		private String workshopDate;
-		private String workshopDescription;
-		private String workshopLocation;
-		private String workshopPlaces;
 		private Button bookWorkshopbtn;
-		//private List<Workshop> workshop = new List<Workshop>();
+		private List<Workshop> workshop = new List<Workshop>();
+		private ProgressBar workshopBookingProgressBar;
+
+		private TextView txtworkshopName;
+		private TextView txtworkshopDate;
+		private TextView txtworkshopTime;
+		private TextView txtworkshopLocation;
+		private TextView txtworkshopPlaces;
+		private TextView txtworkshopSessionLocation;
+		private TextView txtworkshopSessionTime;
+		private TextView txtworkshopSessionDate;
+		private TextView txtworkshopDesciption;
+		private TextView txtworkshopSessionDay;
+		private RelativeLayout lnrWorkshopDetails;
 
 		public override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			Bundle args = Arguments;
 			workshopId = args.GetInt("workshopId");
-			workshopName = args.GetString("workshopName");
-			workshopDescription = args.GetString("workshopDescription");
-			workshopDate = args.GetString("workshopDate");
-			workshopTime = args.GetString("workshopTime");
-			workshopLocation = args.GetString("workshopLocation");
-			workshopPlaces = args.GetString("workshopPlace");
+
 			//Refresh(workshopId);
 			// Create your fragment here
 		}
@@ -48,32 +50,20 @@ namespace UTSHelps.Droid
 		{
 			View view = inflater.Inflate(Resource.Layout.Fragment_BookingPage, container, false);
 
-			TextView txtworkshopName = view.FindViewById<TextView>(Resource.Id.workshopName);
-			txtworkshopName.Text = workshopName;
+			Refresh(workshopId);
 
-			TextView txtworkshopDate = view.FindViewById<TextView>(Resource.Id.workshopDate);
-			txtworkshopDate.Text = workshopDate;
-
-			TextView txtworkshopTime = view.FindViewById<TextView>(Resource.Id.workshopTime);
-			txtworkshopTime.Text = workshopTime;
-
-			TextView txtworkshopLocation = view.FindViewById<TextView>(Resource.Id.workshopLocation);
-			txtworkshopLocation.Text = workshopLocation;
-
-			TextView txtworkshopDesciption = view.FindViewById<TextView>(Resource.Id.workshopDescription);
-			txtworkshopDesciption.Text = workshopDescription;
-
-			TextView txtworkshopPlaces = view.FindViewById<TextView>(Resource.Id.workshopPlaces);
-			txtworkshopPlaces.Text = workshopPlaces;
-
-			TextView txtworkshopSessionLocation = view.FindViewById<TextView>(Resource.Id.workshopSessionLocation);
-			txtworkshopSessionLocation.Text = workshopLocation;
-
-			TextView txtworkshopSessionTime = view.FindViewById<TextView>(Resource.Id.workshopSessionTime);
-			txtworkshopSessionTime.Text = workshopTime;
-
-			TextView txtworkshopSessionDate = view.FindViewById<TextView>(Resource.Id.workshopSessionDate);
-			txtworkshopSessionDate.Text = workshopDate;
+			txtworkshopName = view.FindViewById<TextView>(Resource.Id.workshopName);
+			txtworkshopDate = view.FindViewById<TextView>(Resource.Id.workshopDate);
+			txtworkshopTime = view.FindViewById<TextView>(Resource.Id.workshopTime);
+			txtworkshopLocation = view.FindViewById<TextView>(Resource.Id.workshopLocation);
+			txtworkshopDesciption = view.FindViewById<TextView>(Resource.Id.workshopDescription);
+			txtworkshopPlaces = view.FindViewById<TextView>(Resource.Id.workshopPlaces);
+			txtworkshopSessionLocation = view.FindViewById<TextView>(Resource.Id.workshopSessionLocation);
+			txtworkshopSessionTime = view.FindViewById<TextView>(Resource.Id.workshopSessionTime);
+			txtworkshopSessionDate = view.FindViewById<TextView>(Resource.Id.workshopSessionDate);
+			txtworkshopSessionDay = view.FindViewById<TextView>(Resource.Id.workshopSessionDay);
+			workshopBookingProgressBar = view.FindViewById<ProgressBar>(Resource.Id.workshopBooking_progress);
+			lnrWorkshopDetails = view.FindViewById<RelativeLayout>(Resource.Id.lnrBookingDetails);
 
 			Toast.MakeText(this.Activity, "The Workshop Id is " + workshopId, ToastLength.Short).Show();
 
@@ -84,14 +74,38 @@ namespace UTSHelps.Droid
 			// return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 		}
 
-		//private async void Refresh(int workshopID)
-		//{
-		//	var response = await ServiceHelper.Workshop.GetWorkshop(workshopID);
-		//	if (response.IsSuccess)
-		//	{
-		//		workshop = response.Results;
-		//	}
-		//}
+		private void SetView()
+		{
+			txtworkshopName.Text = workshop[0].topic;
+			txtworkshopDate.Text = workshop[0].StartDate.ToShortDateString() + " - " + workshop[0].EndDate.ToShortDateString();
+			txtworkshopTime.Text = workshop[0].StartDate.ToString("hh:mm") + " - " + workshop[0].EndDate.ToString("hh:mm");
+			txtworkshopLocation.Text = workshop[0].campus;
+			txtworkshopDesciption.Text = workshop[0].description;
+			txtworkshopPlaces.Text = workshop[0].BookingCount + "/" + workshop[0].maximum;
+			txtworkshopSessionLocation.Text = workshop[0].campus;
+			txtworkshopSessionTime.Text = workshop[0].StartDate.ToString("hhtt") + " - " + workshop[0].EndDate.ToString("hhtt");
+			txtworkshopSessionDate.Text = workshop[0].StartDate.ToShortDateString();
+			txtworkshopSessionDay.Text = workshop[0].StartDate.ToString("dddd");
+		}
+
+		private async void Refresh(int workshopID)
+		{
+			var response = await ServiceHelper.Workshop.GetWorkshop(workshopID);
+			if (response.IsSuccess)
+			{
+				workshop = response.Results;
+				if (workshop.Count == 0)
+				{
+					workshopBookingProgressBar.Visibility = ViewStates.Visible;
+				}
+				else
+				{
+					workshopBookingProgressBar.Visibility = ViewStates.Gone;
+					SetView();
+					lnrWorkshopDetails.Visibility = ViewStates.Visible;
+				}
+			}
+		}
 
 		void BookWorkshopbtn_Click(object sender, EventArgs e)
 		{

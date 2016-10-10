@@ -68,12 +68,6 @@ namespace UTSHelps.Droid
 		{
 			Bundle args = new Bundle();
 			args.PutInt("workshopId", sessionSets[e.Position].WorkshopId);
-			args.PutString("workshopName", sessionSets[e.Position].topic);
-			args.PutString("workshopDescription", sessionSets[e.Position].description);
-			args.PutString("workshopDate", sessionSets[e.Position].StartDate.ToShortDateString() + " - " + sessionSets[e.Position].EndDate.ToShortDateString());
-			args.PutString("workshopLocation", sessionSets[e.Position].campus);
-			args.PutString("workshopTime", sessionSets[e.Position].StartDate.ToString("hh:mmtt") + " - " + sessionSets[e.Position].EndDate.ToString("hh:mmtt"));
-			args.PutString("workshopPlace", sessionSets[e.Position].BookingCount + " / " + sessionSets[e.Position].maximum);
 
 			bWorkshopFragment = new BookingWorkshopFragment();
 			bWorkshopFragment.Arguments = args;

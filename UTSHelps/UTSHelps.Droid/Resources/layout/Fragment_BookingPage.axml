@@ -6,209 +6,229 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
-    <TextView
-        android:id="@+id/workshopName"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:paddingLeft="5dp"
-        android:text="UPASS:Test"
-        android:textColor="@color/Text_Gray"
-        android:textSize="20dp"
-        android:layout_marginBottom="5dp"
-        android:layout_below="@id/toolbar" />
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:padding="5dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="5dp"
-        android:weightSum="100"
-        android:layout_below="@id/workshopName"
-        android:id="@+id/lnrDate">
+        android:id="@+id/lnrBookingDetails"
+        android:layout_below="@id/toolbar"
+        android:visibility="gone">
         <TextView
-            android:text="Date:"
+            android:id="@+id/workshopName"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="40"
-            android:textColor="@color/Green_Words"
-            android:layout_marginLeft="10dp"
-            android:textSize="18sp" />
-        <TextView
-            android:id="@+id/workshopDate"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="60"
-            android:text="25/12/2016 - 30/12/2022"
-            android:textSize="18sp"
-            android:textColor="@color/Text" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:padding="5dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="5dp"
-        android:weightSum="100"
-        android:id="@+id/lnrTime"
-        android:layout_below="@+id/lnrDate">
-        <TextView
-            android:text="Time:"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="40"
-            android:textColor="@color/Green_Words"
-            android:textSize="18sp"
-            android:layout_marginLeft="10dp" />
-        <TextView
-            android:id="@+id/workshopTime"
-            android:text="22:00 - 23:00"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="60"
-            android:textSize="18sp"
-            android:textColor="@color/Text" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:padding="5dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="5dp"
-        android:weightSum="100"
-        android:id="@+id/lnrLocation"
-        android:layout_below="@+id/lnrTime">
-        <TextView
-            android:text="Location:"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="40"
-            android:textColor="@color/Green_Words"
-            android:textSize="18sp"
-            android:layout_marginLeft="10dp" />
-        <TextView
-            android:id="@+id/workshopLocation"
-            android:text="CB11.01.401"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="60"
-            android:textSize="18sp"
-            android:textColor="@color/Text" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:padding="5dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="5dp"
-        android:weightSum="100"
-        android:id="@+id/lnrPlaces"
-        android:layout_below="@+id/lnrLocation">
-        <TextView
-            android:text="Places Left:"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="40"
-            android:textColor="@color/Green_Words"
-            android:textSize="18sp"
-            android:layout_marginLeft="10dp" />
-        <TextView
-            android:id="@+id/workshopPlaces"
-            android:text="25"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="60"
-            android:textSize="18sp"
-            android:textColor="@color/Text" />
-    </LinearLayout>
-    <ScrollView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_below="@id/lnrPlaces">
+            android:paddingTop="20dp"
+            android:paddingLeft="5dp"
+            android:text="UPASS:Test"
+            android:textColor="@color/Text_Gray"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp" />
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:orientation="vertical">
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:weightSum="100"
+            android:layout_below="@id/workshopName"
+            android:id="@+id/lnrDate">
             <TextView
-                android:id="@+id/workshopDescriptionTitle"
-                android:text="Description"
+                android:text="Date:"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="40"
+                android:textColor="@color/Green_Words"
+                android:layout_marginLeft="10dp"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/workshopDate"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="60"
+                android:text="25/12/2016 - 30/12/2022"
                 android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="15dp"
-                android:textColor="@color/Text_Gray"
-                android:layout_marginBottom="10dp"
-                android:layout_below="@+id/lnrPlaces" />
-            <TextView
-                android:id="@+id/workshopDescription"
-                android:text="Description here"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:textColor="@color/Text_Gray"
-                android:textSize="15sp"
-                android:layout_marginBottom="10dp"
-                android:layout_below="@+id/workshopDescriptionTitle" />
-            <TextView
-                android:id="@+id/workshopSessionTitle"
-                android:text="Sessions"
-                android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="15dp"
-                android:textColor="@color/Text_Gray"
-                android:layout_marginBottom="8dp"
-                android:layout_below="@+id/workshopDescription" />
-            <LinearLayout
-                android:id="@+id/lnrWorkshopSessionDate"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:paddingLeft="30dp"
-                android:orientation="horizontal"
-                android:layout_marginBottom="5dp"
-                android:layout_below="@+id/workshopSessionTitle">
-                <TextView
-                    android:id="@+id/workshopSessionDay"
-                    android:text="Monday"
-                    android:textSize="15sp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/Text_Gray"
-                    android:layout_marginRight="5dp" />
-                <TextView
-                    android:id="@+id/workshopSessionDate"
-                    android:text="16/7/2016"
-                    android:textSize="15sp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/Text_Gray" />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/lnrWorkshopSessionLocation"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:paddingLeft="30dp"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp"
-                android:layout_below="@+id/lnrWorkshopSessionDate">
-                <TextView
-                    android:id="@+id/workshopSessionTime"
-                    android:text="11:00 - 12:00"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:textSize="15sp"
-                    android:textColor="@color/Text_Gray" />
-                <TextView
-                    android:id="@+id/workshopSessionLocation"
-                    android:text="CB11.00.400"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textSize="15sp"
-                    android:textColor="@color/Text_Gray" />
-            </LinearLayout>
+                android:textColor="@color/Text" />
         </LinearLayout>
-    </ScrollView>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:weightSum="100"
+            android:id="@+id/lnrTime"
+            android:layout_below="@+id/lnrDate">
+            <TextView
+                android:text="Time:"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="40"
+                android:textColor="@color/Green_Words"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp" />
+            <TextView
+                android:id="@+id/workshopTime"
+                android:text="22:00 - 23:00"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="60"
+                android:textSize="18sp"
+                android:textColor="@color/Text" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:weightSum="100"
+            android:id="@+id/lnrLocation"
+            android:layout_below="@+id/lnrTime">
+            <TextView
+                android:text="Location:"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="40"
+                android:textColor="@color/Green_Words"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp" />
+            <TextView
+                android:id="@+id/workshopLocation"
+                android:text="CB11.01.401"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="60"
+                android:textSize="18sp"
+                android:textColor="@color/Text" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:weightSum="100"
+            android:id="@+id/lnrPlaces"
+            android:layout_below="@+id/lnrLocation">
+            <TextView
+                android:text="Places Left:"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="40"
+                android:textColor="@color/Green_Words"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp" />
+            <TextView
+                android:id="@+id/workshopPlaces"
+                android:text="25"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="60"
+                android:textSize="18sp"
+                android:textColor="@color/Text" />
+        </LinearLayout>
+        <ScrollView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_below="@id/lnrPlaces"
+            android:isScrollContainer="true"
+            android:layout_marginBottom="50dp">
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/workshopDescriptionTitle"
+                    android:text="Description"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/Text_Gray"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@+id/lnrPlaces" />
+                <TextView
+                    android:id="@+id/workshopDescription"
+                    android:text="Description here"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="30dp"
+                    android:textColor="@color/Text_Gray"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@+id/workshopDescriptionTitle" />
+                <TextView
+                    android:id="@+id/workshopSessionTitle"
+                    android:text="Sessions"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/Text_Gray"
+                    android:layout_marginBottom="8dp"
+                    android:layout_below="@+id/workshopDescription" />
+                <LinearLayout
+                    android:id="@+id/lnrWorkshopSessionDate"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:paddingLeft="30dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp"
+                    android:layout_below="@+id/workshopSessionTitle">
+                    <TextView
+                        android:id="@+id/workshopSessionDay"
+                        android:text="Monday"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/Text_Gray"
+                        android:layout_marginRight="5dp" />
+                    <TextView
+                        android:id="@+id/workshopSessionDate"
+                        android:text="16/7/2016"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/Text_Gray" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lnrWorkshopSessionLocation"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:paddingLeft="30dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@+id/lnrWorkshopSessionDate">
+                    <TextView
+                        android:id="@+id/workshopSessionTime"
+                        android:text="11:00 - 12:00"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:textSize="15sp"
+                        android:textColor="@color/Text_Gray" />
+                    <TextView
+                        android:id="@+id/workshopSessionLocation"
+                        android:text="CB11.00.400"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/Text_Gray" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:id="@+id/workshopBooking_progress"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
     <Button
         android:text="@string/BookWorkshopBtn"
         android:id="@+id/workshopBookingbtn"
