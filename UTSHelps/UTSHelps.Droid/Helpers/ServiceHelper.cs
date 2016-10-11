@@ -18,11 +18,15 @@ namespace UTSHelps.Droid.Helpers
     {
         public static WorkshopService Workshop;
         public static StudentService Student;
+        public static BookingService Booking;
+        public static MiscService Misc;
 
         static ServiceHelper()
         {
             Workshop = new WorkshopService();
             Student = new StudentService();
+            Booking = new BookingService();
+            Misc = new MiscService();
             Task.Factory.StartNew(HelpsService.Purge);
         }
     }
