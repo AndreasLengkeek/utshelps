@@ -15,7 +15,7 @@ namespace UTSHelps.Shared.Services
         {
         }
 
-        public async Task<Response<Booking>> GetBookings(int studentId)
+        public async Task<Response<Booking>> GetBookings(string studentId)
         {
             var queryString = "studentId=" + studentId;
             var response = await helpsClient.GetAsync("api/workshop/booking/search?" + queryString);

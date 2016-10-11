@@ -56,7 +56,7 @@ namespace UTSHelps.Shared.Services
             return ResponseHelper.CreateErrorResponse<Workshop>("An unknown error occured");
         }
 
-        public async Task<GenericResponse> CreateWorkshopBooking(int workshopId, int studentId)
+		public async Task<GenericResponse> CreateWorkshopBooking(int workshopId, string studentId)
         {
             if (!IsConnected())
                 return ResponseHelper.CreateGenericErrorResponse("No Network Connection");
@@ -72,7 +72,7 @@ namespace UTSHelps.Shared.Services
             return ResponseHelper.CreateGenericErrorResponse("An unknown error occured");
         }
 
-        public async Task<GenericResponse> CancelWorkshopBooking(int workshopId, int studentId)
+        public async Task<GenericResponse> CancelWorkshopBooking(int workshopId, string studentId)
         {
             if (!IsConnected())
                 return ResponseHelper.CreateGenericErrorResponse("No Network Connection");
