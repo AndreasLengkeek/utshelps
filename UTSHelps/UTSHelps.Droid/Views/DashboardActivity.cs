@@ -10,6 +10,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using UTSHelps.Droid.Helpers;
+using Android.Graphics;
+using UTSHelps.Shared.Models;
+using UTSHelps.Droid.ViewModels;
 
 namespace UTSHelps.Droid
 {
@@ -23,9 +26,9 @@ namespace UTSHelps.Droid
         private MyBookingsFragment myBookings;
         private SettingsFragment settings;
 
-		private LinearLayout bookingPage;
-		private LinearLayout addBookingPage;
-		private LinearLayout settingsPage;
+        private FontAwesome bookingPage;
+        private FontAwesome addBookingPage;
+        private FontAwesome settingsPage;
 
         private Fragment currentFragment;
 
@@ -61,11 +64,11 @@ namespace UTSHelps.Droid
 			transaction.Add(Resource.Id.mainFragmentContainer, currentFragment, "MakeBooking_Fragment");
             transaction.Commit();
 
-			bookingPage = FindViewById<LinearLayout>(Resource.Id.linearbooking);
-			addBookingPage = FindViewById<LinearLayout>(Resource.Id.linearadd);
-			settingsPage = FindViewById<LinearLayout>(Resource.Id.linearsettings);
+            bookingPage = FindViewById<FontAwesome>(Resource.Id.action_mybookings);
+            addBookingPage = FindViewById<FontAwesome>(Resource.Id.action_add);
+            settingsPage = FindViewById<FontAwesome>(Resource.Id.action_settings);
 
-			bookingPage.Click += BookingPage_Click;
+            bookingPage.Click += BookingPage_Click;
 			addBookingPage.Click += AddBookingPage_Click;
 			settingsPage.Click += SettingsPage_Click;
         }

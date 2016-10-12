@@ -127,7 +127,7 @@
     <AndroidResource Include="Resources\drawable\userIconGrey.png" />
     <AndroidResource Include="Resources\drawable\phone.png" />
     <AndroidResource Include="Resources\drawable\calender.png" />
-    <AndroidResource Include="Resources\drawable\text_size.xml" />
+    <AndroidResource Include="Resources\values\text_size.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
