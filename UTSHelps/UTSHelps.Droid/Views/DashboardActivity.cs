@@ -39,7 +39,6 @@ namespace UTSHelps.Droid
         {
             base.OnCreate(bundle);
 
-
 			studentId = Intent.GetStringExtra("studentId");
 			studentIdBundle = new Bundle();
 			studentIdBundle.PutString("studentId", studentId);
@@ -83,17 +82,17 @@ namespace UTSHelps.Droid
         void BookingPage_Click(object sender, EventArgs e)
 		{
             ReplaceFragment(myBookings);
-		}
+        }
 
 		void AddBookingPage_Click(object sender, EventArgs e)
 		{
 			ReplaceFragment(makeBooking);
-		}
+        }
 
 		void SettingsPage_Click(object sender, EventArgs e)
 		{
 			ReplaceFragment(settings);
-		}
+        }
 
         private void ReplaceFragment(Fragment selectedFragment)
         {

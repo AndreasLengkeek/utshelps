@@ -25,6 +25,9 @@ namespace UTSHelps.Droid
         {
             View view = inflater.Inflate(Resource.Layout.Fragment_Settings, container, false);
 
+            var toolbar = view.FindViewById<Toolbar>(Resource.Id.toolbar);
+            toolbar.Title = "Settings";
+
             Button logout = view.FindViewById<Button>(Resource.Id.settingsLogout);
             logout.Click += Logout_Click;
 
