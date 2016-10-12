@@ -13,7 +13,10 @@
             <TextView
                 android:text="Current Bookings"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:paddingTop="30sp"
+                android:paddingLeft="10sp"
+                android:textSize="@dimen/material_text_title" />
             <ListView
                 android:id="@+id/lstCurrentBooking"
                 android:layout_width="match_parent"
@@ -21,7 +24,10 @@
             <TextView
                 android:text="Past Booking"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/material_text_title"
+                android:paddingTop="30sp"
+                android:paddingLeft="10sp" />
             <ListView
                 android:id="@+id/lstPastBooking"
                 android:layout_width="match_parent"

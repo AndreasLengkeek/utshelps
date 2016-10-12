@@ -6,10 +6,12 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:paddingTop="30dp"
+        android:paddingTop="30sp"
         android:text="UPASS: or something Important"
         android:id="@+id/session_workshopName"
-        android:textColor="@color/Text" />
+        android:textColor="@color/Text"
+        android:paddingLeft="10sp"
+        android:textSize="@dimen/material_text_title" />
     <ListView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
