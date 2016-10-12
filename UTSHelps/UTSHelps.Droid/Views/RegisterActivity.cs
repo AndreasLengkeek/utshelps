@@ -135,7 +135,7 @@ namespace UTSHelps.Droid
             if (newStudent == null)
             {
                 DialogHelper.ShowDialog(this, "An error occured", "You need to fill in all the fields");
-                return
+                return;
             }
 
             var progressDialog = DialogHelper.CreateProgressDialog("Registering...", this);
