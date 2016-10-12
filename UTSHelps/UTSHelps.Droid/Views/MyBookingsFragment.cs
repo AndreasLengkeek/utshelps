@@ -34,8 +34,7 @@ namespace UTSHelps.Droid
         {
             View view = inflater.Inflate(Resource.Layout.Fragment_MyBookings, container, false);
 
-            var toolbar = view.FindViewById<Toolbar>(Resource.Id.toolbar);
-            toolbar.Title = "My Bookings";
+            this.Activity.ActionBar.Title = "My Bookings";
 
             mBookingProgress = view.FindViewById<ProgressBar>(Resource.Id.mybooking_progress);
 			mBookingProgress.Visibility = ViewStates.Visible;

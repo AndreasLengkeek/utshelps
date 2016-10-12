@@ -25,29 +25,9 @@ namespace UTSHelps.Droid
         {
             View view = inflater.Inflate(Resource.Layout.Fragment_Settings, container, false);
 
-            var toolbar = view.FindViewById<Toolbar>(Resource.Id.toolbar);
-            toolbar.Title = "Settings";
-
-            Button logout = view.FindViewById<Button>(Resource.Id.settingsLogout);
-            logout.Click += Logout_Click;
-
-			Button details = view.FindViewById<Button>(Resource.Id.settingsDetail);
-			details.Click += Details_Click;
+            this.Activity.ActionBar.Title = "Settings";
 
             return view;
-        }
-
-		public void Details_Click(object sender, EventArgs e)
-		{
-			var intent = new Intent(this.Activity, typeof(StudentDetailsActivity));
-			this.StartActivity(intent);
-		}
-
-
-        public void Logout_Click(object sender, EventArgs e)
-        {
-			var intent = new Intent(this.Activity, typeof(LoginActivity));
-            this.StartActivity(intent);
         }
     }
 }

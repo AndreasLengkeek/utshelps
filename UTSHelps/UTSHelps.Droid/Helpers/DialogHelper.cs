@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Icu.Util;
 
 namespace UTSHelps.Droid.Helpers
 {
@@ -30,6 +31,45 @@ namespace UTSHelps.Droid.Helpers
             progDialog.SetCancelable(false);
             progDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
             return progDialog;
+        }
+
+        public static DatePickerDialog ShowDatePickerDialog(Context ctx, TextView text)
+        {
+            try
+            {
+                var cal = Calendar.GetInstance(Android.Icu.Util.TimeZone.Default);
+                var listener = new OnDateSetListener(text);
+                var datePicker = new DatePickerDialog(ctx, listener,
+                    cal.Get(CalendarField.Year),
+                    cal.Get(CalendarField.Month),
+                    cal.Get(CalendarField.DayOfMonth));
+                datePicker.SetCancelable(false);
+                datePicker.Show();
+            }
+            catch (Exception ex)
+            {
+                ShowDialog(ctx, "An error occured while showing Date Picker\n\n Error Details:\n" + ex, "Exception");
+            }
+            return null;
+        }
+
+        private class OnDateSetListener : Java.Lang.Object, DatePickerDialog.IOnDateSetListener
+        {
+            private TextView textView;
+
+            public OnDateSetListener(TextView text)
+            {
+                this.textView = text;
+            }
+
+            // when dialog box is closed, below method will be called.
+            public void OnDateSet(DatePicker view, int selectedYear,
+                int selectedMonth, int selectedDay)
+            {
+                var date = new DateTime(selectedYear, selectedMonth + 1, selectedDay);
+                var formattedDateTime = date.ToString("ddd, dd MMM yyyy");
+                textView.Text = formattedDateTime;
+            }
         }
     }
 }

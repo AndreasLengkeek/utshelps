@@ -36,8 +36,7 @@ namespace UTSHelps.Droid
         {
             View view = inflater.Inflate(Resource.Layout.Fragment_MakeBooking, container, false);
 
-            var toolbar = view.FindViewById<Toolbar>(Resource.Id.toolbar);
-            toolbar.Title = "Choose a set";
+            this.Activity.ActionBar.Title = "Choose a set";
 
             //sets = new List<WorkshopSet>();
             workshopAdapter = new WorkshopAdapter(this.Activity, workshopSets);
