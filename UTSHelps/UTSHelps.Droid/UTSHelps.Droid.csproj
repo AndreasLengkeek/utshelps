@@ -124,6 +124,10 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Fragment_BookingPage.axml" />
     <AndroidResource Include="Resources\layout\Fragment_MyDetails.axml" />
+    <AndroidResource Include="Resources\drawable\userIconGrey.png" />
+    <AndroidResource Include="Resources\drawable\phone.png" />
+    <AndroidResource Include="Resources\drawable\calender.png" />
+    <AndroidResource Include="Resources\drawable\text_size.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -230,9 +234,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\login_logo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\values\text_size.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\alignment.xml" />
