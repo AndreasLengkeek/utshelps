@@ -20,6 +20,7 @@ namespace UTSHelps.Droid
 	public class BookingWorkshopFragment : Fragment
 	{
 		private int workshopId;
+		private String studentId;
 		private Button bookWorkshopbtn;
 		private List<Workshop> workshop = new List<Workshop>();
 		private ProgressBar workshopBookingProgressBar;
@@ -41,6 +42,7 @@ namespace UTSHelps.Droid
 			base.OnCreate(savedInstanceState);
 			Bundle args = Arguments;
 			workshopId = args.GetInt("workshopId");
+			studentId = args.GetString("studentId");
 
 			//Refresh(workshopId);
 			// Create your fragment here
@@ -81,7 +83,7 @@ namespace UTSHelps.Droid
 			txtworkshopTime.Text = workshop[0].StartDate.ToString("hh:mm") + " - " + workshop[0].EndDate.ToString("hh:mm");
 			txtworkshopLocation.Text = workshop[0].campus;
 			txtworkshopDesciption.Text = workshop[0].description;
-			txtworkshopPlaces.Text = workshop[0].BookingCount + "/" + workshop[0].maximum;
+			txtworkshopPlaces.Text = workshop[0].BookingCount + "/" + workshop[0].cutoff;
 			txtworkshopSessionLocation.Text = workshop[0].campus;
 			txtworkshopSessionTime.Text = workshop[0].StartDate.ToString("hhtt") + " - " + workshop[0].EndDate.ToString("hhtt");
 			txtworkshopSessionDate.Text = workshop[0].StartDate.ToShortDateString();
@@ -107,9 +109,17 @@ namespace UTSHelps.Droid
 			}
 		}
 
-		void BookWorkshopbtn_Click(object sender, EventArgs e)
+		async void BookWorkshopbtn_Click(object sender, EventArgs e)
 		{
-
+			var response = await ServiceHelper.Workshop.CreateWorkshopBooking(workshopId, studentId);
+			if (response.IsSuccess)
+			{
+				Toast.MakeText(this.Activity, "Booking is Success", ToastLength.Short).Show();
+			}
+			else
+			{
+				Toast.MakeText(this.Activity, "Booking has Fail", ToastLength.Short).Show();
+			}
 		}
 	}
 }

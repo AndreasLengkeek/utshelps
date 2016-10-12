@@ -79,6 +79,7 @@ namespace UTSHelps.Droid
                 CurrentUser = student;
 
                 var intent = new Intent(this, typeof(DashboardActivity));
+				intent.PutExtra("studentId", studentId.Text);
                 this.StartActivity(intent);
             }
         }

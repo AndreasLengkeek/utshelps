@@ -57,7 +57,6 @@
                     android:id="@+id/day"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_weight="0.5"
                     android:text="Thu 09/09/2016"
                     android:textColor="@color/Text_Gray"
                     android:paddingLeft="10dp" />
@@ -65,7 +64,6 @@
                     android:id="@+id/time"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_weight="0.5"
                     android:text="02:00 - 03:00"
                     android:textColor="@color/Text_Gray"
                     android:paddingLeft="5dp" />

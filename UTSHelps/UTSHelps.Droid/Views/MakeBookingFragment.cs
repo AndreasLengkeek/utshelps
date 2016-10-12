@@ -23,9 +23,11 @@ namespace UTSHelps.Droid
         private WorkshopAdapter workshopAdapter;
 		private ProgressBar workshopSetsProgress;
 		private SessionsFragment sFragment;
+		private String studentId;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
+			studentId = Arguments.GetString("studentId");
 			Refresh();
 			base.OnCreate(savedInstanceState);
         }
@@ -54,6 +56,7 @@ namespace UTSHelps.Droid
 			Bundle args = new Bundle();
 			args.PutInt("workshopSetID", workshopSets[e.Position].Id);
 			args.PutString("workshopSetName", workshopSets[e.Position].Name);
+			args.PutString("studentId", studentId);
 
 			sFragment = new SessionsFragment();
 			sFragment.Arguments = args;

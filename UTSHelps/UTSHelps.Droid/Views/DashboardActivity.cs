@@ -15,6 +15,9 @@ namespace UTSHelps.Droid
     [Activity(Label = "DashboardActivity")]
     public class DashboardActivity : MainActivity
     {
+		private string studentId;
+		private Bundle studentIdBundle;
+
         private MakeBookingFragment makeBooking;
         private MyBookingsFragment myBookings;
         private SettingsFragment settings;
@@ -36,9 +39,17 @@ namespace UTSHelps.Droid
         {
             base.OnCreate(bundle);
 
+
+			studentId = Intent.GetStringExtra("studentId");
+			studentIdBundle = new Bundle();
+			studentIdBundle.PutString("studentId", studentId);
+
             makeBooking = new MakeBookingFragment();
             myBookings = new MyBookingsFragment();
             settings = new SettingsFragment();
+
+			makeBooking.Arguments = studentIdBundle;
+			myBookings.Arguments = studentIdBundle;
 
             var startPage = Intent.GetStringExtra("StartScreen");
 			currentFragment = GetStartScreen(startPage);
