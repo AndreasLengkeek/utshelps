@@ -132,6 +132,12 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f040009
 			public const int material_text_title = 2130968585;
 			
+			// aapt resource value: 0x7f04000f
+			public const int nav_icon_dimen = 2130968591;
+			
+			// aapt resource value: 0x7f040010
+			public const int nav_text_size = 2130968592;
+			
 			static Dimension()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

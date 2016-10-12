@@ -7,9 +7,7 @@
         android:background="?android:attr/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="46.0dp"
-        android:contentInsetEnd="0sp"
-        android:layout_marginTop="0.0dp">
+        android:layout_height="60dp">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,19 +18,21 @@
                 android:layout_toLeftOf="@+id/linearadd"
                 android:id="@+id/linearbooking"
                 android:orientation="vertical"
-                android:layout_marginRight="90dp"
+                android:layout_marginRight="50dp"
                 android:clickable="true">
-                <ImageView
+                <UTSHelps.Droid.Helpers.FontAwesome
                     android:id="@+id/action_mybookings"
-                    android:src="@drawable/listIcon"
-                    android:background="@color/background"
-                    android:layout_height="20sp"
-                    android:layout_width="20sp"
-                    android:layout_gravity="center" />
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:clickable="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/nav_icon_dimen"
+                    android:gravity="center"
+                    android:text="@string/fa_list_ul" />
                 <TextView
                     android:text="@string/MyBookings"
                     android:layout_below="@id/action_mybookings"
-                    android:textSize="8sp"
+                    android:textSize="@dimen/nav_text_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtbookings"
@@ -47,49 +47,54 @@
                 android:orientation="vertical"
                 android:id="@+id/linearadd"
                 android:clickable="true">
-                <ImageView
+                <UTSHelps.Droid.Helpers.FontAwesome
                     android:id="@+id/action_add"
-                    android:src="@drawable/addIcon"
-                    android:background="@color/background"
-                    android:layout_height="20sp"
-                    android:layout_width="20sp"
-                    android:layout_gravity="center" />
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:clickable="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/nav_icon_dimen"
+                    android:gravity="center"
+                    android:text="@string/fa_plus_circle" />
                 <TextView
                     android:text="@string/AddBooking"
                     android:layout_below="@id/action_add"
-                    android:textSize="8sp"
-                    android:layout_centerInParent="true"
+                    android:textSize="@dimen/nav_text_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtAdd"
                     android:textColor="@android:color/white"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:inputType="text" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/linearadd"
-                android:layout_marginLeft="90dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="20sp"
                 android:id="@+id/linearsettings"
                 android:orientation="vertical"
                 android:clickable="true">
-                <ImageView
+                <UTSHelps.Droid.Helpers.FontAwesome
                     android:id="@+id/action_settings"
-                    android:src="@drawable/settingsIcon"
-                    android:background="@color/background"
-                    android:layout_height="20sp"
-                    android:layout_width="20sp"
-                    android:layout_gravity="center" />
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:clickable="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/nav_icon_dimen"
+                    android:gravity="center"
+                    android:text="@string/fa_cog" />
                 <TextView
                     android:text="@string/Settings"
                     android:layout_below="@id/action_settings"
-                    android:textSize="8sp"
+                    android:textSize="@dimen/nav_text_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/txtsettings"
                     android:textColor="@android:color/white"
-                    android:layout_gravity="center"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:inputType="text" />
             </LinearLayout>
         </RelativeLayout>
     </Toolbar>

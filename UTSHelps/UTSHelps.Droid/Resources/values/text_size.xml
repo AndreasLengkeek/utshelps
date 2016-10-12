@@ -13,4 +13,8 @@
   <dimen name="material_text_display2">45sp</dimen>
   <dimen name="material_text_display3">56sp</dimen>
   <dimen name="material_text_display4">112sp</dimen>
+  
+  <!--Nav bar text size-->
+  <dimen name="nav_icon_dimen">32sp</dimen>
+  <dimen name="nav_text_size">13sp</dimen>
 </resources>
