@@ -74,8 +74,23 @@ namespace UTSHelps.Droid
 			sessionTime.Text = time;
 
 			TextView sessionPlace = row.FindViewById<TextView>(Resource.Id.sessionPlace);
-			var placesLeft = sessions[position].maximum - sessions[position].BookingCount;
-			sessionPlace.Text = placesLeft.ToString();
+			TextView sessionPlacesLeft = row.FindViewById<TextView>(Resource.Id.placesLeft);
+			int? placesLeft;
+			if (sessions[position].cutoff == null)
+			{
+				sessionPlacesLeft.Text = "Open";
+				sessionPlace.Text = "";
+			}
+			else
+			{
+				placesLeft = sessions[position].cutoff - sessions[position].BookingCount;
+				if (placesLeft < 0 || placesLeft == 0)
+				{
+					sessionPlacesLeft.Text = "Full";
+					sessionPlace.Text = "";
+				}
+				else sessionPlace.Text = placesLeft.ToString();
+			}
 
 			return row;
 		}

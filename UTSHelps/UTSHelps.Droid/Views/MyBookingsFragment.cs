@@ -22,6 +22,8 @@ namespace UTSHelps.Droid
 		private ListView bookingListView;
 		private BookingsAdapter adapter;
 		private string studentId;
+		private ProgressBar mBookingProgress;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -30,13 +32,15 @@ namespace UTSHelps.Droid
 			//mBookingWorkshops.Add(new Booking { topic = "Academic Test for 1st year nursing", starting = new DateTime(2013, 12, 8, 12, 30, 00), ending = new DateTime(2013, 12, 8, 14, 00, 00), campusID = 2 });
 			//mBookingWorkshops.Add(new Booking { topic = "Writing clinic 4", starting = new DateTime(2014, 1, 7, 9, 0, 00), ending = new DateTime(2014, 1, 7, 10, 00, 00), campusID = 3 });
 
-			Refresh(studentId);
+
         }
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.Fragment_MyBookings, container, false);
-
+			mBookingProgress = view.FindViewById<ProgressBar>(Resource.Id.mybooking_progress);
+			mBookingProgress.Visibility = ViewStates.Visible;
+			Refresh(studentId);
 			bookingListView = view.FindViewById<ListView>(Resource.Id.lstCurrentBooking);
 
 			adapter = new BookingsAdapter(this.Activity, mBookingWorkshops);
@@ -52,6 +56,7 @@ namespace UTSHelps.Droid
 			{
 				mBookingWorkshops = response.Results;
 				adapter.SwapItems(mBookingWorkshops);
+				mBookingProgress.Visibility = ViewStates.Gone;
 			}
 		}
     }
