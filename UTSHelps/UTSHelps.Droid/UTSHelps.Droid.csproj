@@ -78,6 +78,7 @@
     <Compile Include="Views\SessionAdapter.cs" />
     <Compile Include="Views\SessionsFragment.cs" />
     <Compile Include="Views\BookingWorkshopFragment.cs" />
+    <Compile Include="Views\StudentDetailsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -122,6 +123,7 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Fragment_BookingPage.axml" />
+    <AndroidResource Include="Resources\layout\Fragment_MyDetails.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
