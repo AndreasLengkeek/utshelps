@@ -3,9 +3,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -133,7 +130,8 @@
                 android:text="My Details"
                 android:id="@+id/settingsDetail"
                 android:layout_width="295.5dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="Details_Click" />
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -175,7 +173,8 @@
                 android:text="Logout"
                 android:id="@+id/settingsLogout"
                 android:layout_width="295.5dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:onClick="Logout_Click"  />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -43,6 +43,8 @@ namespace UTSHelps.Droid
 		{
 			View view = inflater.Inflate(Resource.Layout.Fragment_Sessions, container, false);
 
+            this.Activity.ActionBar.Title = "Choose a session";
+
 			TextView workshopSetsName = view.FindViewById<TextView>(Resource.Id.session_workshopName);
 			workshopSetsName.Text = workshopSetName;
 

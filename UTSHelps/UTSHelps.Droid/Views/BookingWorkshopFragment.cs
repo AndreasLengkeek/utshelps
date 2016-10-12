@@ -52,6 +52,8 @@ namespace UTSHelps.Droid
 		{
 			View view = inflater.Inflate(Resource.Layout.Fragment_BookingPage, container, false);
 
+            this.Activity.ActionBar.Title = "Workshop";
+
 			Refresh(workshopId);
 
 			txtworkshopName = view.FindViewById<TextView>(Resource.Id.workshopName);

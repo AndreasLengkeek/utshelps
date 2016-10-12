@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using UTSHelps.Droid.Helpers;
 
 namespace UTSHelps.Droid
 {
@@ -39,10 +40,12 @@ namespace UTSHelps.Droid
         {
             base.OnCreate(bundle);
 
-
 			studentId = Intent.GetStringExtra("studentId");
 			studentIdBundle = new Bundle();
 			studentIdBundle.PutString("studentId", studentId);
+
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetActionBar(toolbar);
 
             makeBooking = new MakeBookingFragment();
             myBookings = new MyBookingsFragment();
@@ -83,17 +86,17 @@ namespace UTSHelps.Droid
         void BookingPage_Click(object sender, EventArgs e)
 		{
             ReplaceFragment(myBookings);
-		}
+        }
 
 		void AddBookingPage_Click(object sender, EventArgs e)
 		{
 			ReplaceFragment(makeBooking);
-		}
+        }
 
 		void SettingsPage_Click(object sender, EventArgs e)
 		{
 			ReplaceFragment(settings);
-		}
+        }
 
         private void ReplaceFragment(Fragment selectedFragment)
         {
@@ -103,6 +106,26 @@ namespace UTSHelps.Droid
             transaction.Commit();
 
             currentFragment = selectedFragment;
+        }
+
+        [Java.Interop.Export()]
+        public void Search_Click(View view)
+        {
+            DialogHelper.ShowDialog(this, "Search", "Search Options!");
+        }
+
+        [Java.Interop.Export()]
+        public void Details_Click(View view)
+        {
+            var intent = new Intent(this, typeof(StudentDetailsActivity));
+            this.StartActivity(intent);
+        }
+
+        [Java.Interop.Export()]
+        public void Logout_Click(View view)
+        {
+            var intent = new Intent(this, typeof(LoginActivity));
+            this.StartActivity(intent);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace UTSHelps.Shared.Services
         /// </summary>
         public static async void Purge()
         {
-            await helpsClient.GetAsync("api/sessionId/workshopSets/as");
+            //await helpsClient.GetAsync("api/sessionId/workshopSets/as");
         }
 
         /// <summary>
