@@ -132,6 +132,12 @@ namespace UTSHelps.Droid
         {
             var newStudent = ParseView();
 
+            if (newStudent == null)
+            {
+                DialogHelper.ShowDialog(this, "An error occured", "You need to fill in all the fields");
+                return
+            }
+
             var progressDialog = DialogHelper.CreateProgressDialog("Registering...", this);
             progressDialog.Show();
             var response = await ServiceHelper.Student.Register(newStudent);
@@ -155,6 +161,11 @@ namespace UTSHelps.Droid
             var degreeSelected = FindViewById<RadioButton>(degree.CheckedRadioButtonId);
             var genderSelected = FindViewById<RadioButton>(gender.CheckedRadioButtonId);
 
+            if (BlankData())
+            {
+                return null;
+            }
+
             var newStudent = new RegisterRequest {
                 StudentId = studentId,
                 PreferredName = prefName.Text,
@@ -168,6 +179,12 @@ namespace UTSHelps.Droid
             };
 
             return newStudent;
+        }
+
+        private bool BlankData()
+        {
+            return String.IsNullOrEmpty(prefName.Text) || String.IsNullOrEmpty(altContact.Text)
+                || String.IsNullOrEmpty(date.Text) || String.IsNullOrEmpty(month.Text) || String.IsNullOrEmpty(year.Text);
         }
     }
 }
