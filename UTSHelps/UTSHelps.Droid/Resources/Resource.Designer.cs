@@ -218,19 +218,22 @@ namespace UTSHelps.Droid
 			public const int rounded_red_button = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int settingsIcon = 2130837520;
+			public const int rounded_rego_button = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int SignInBackground = 2130837521;
+			public const int settingsIcon = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int tick = 2130837522;
+			public const int SignInBackground = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int userAddIcon = 2130837523;
+			public const int tick = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int userIconGrey = 2130837524;
+			public const int userAddIcon = 2130837524;
+			
+			// aapt resource value: 0x7f020015
+			public const int userIconGrey = 2130837525;
 			
 			static Drawable()
 			{

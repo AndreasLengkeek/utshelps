@@ -18,18 +18,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout2"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp">
+                android:layout_marginTop="5sp"
+                android:layout_marginBottom="5sp"
+                android:layout_gravity="center">
                 <TextView
                     android:text="Student Registration"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:id="@+id/textView2"
                     android:textColor="#ffffffff"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="@dimen/material_text_headline"
+                    android:textStyle="bold" />
             </LinearLayout>
             <TextView
                 android:text="Preferred First Name"
@@ -46,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout1"
-                android:background="@color/white"
+                android:background="@drawable/rounded_rego_button"
                 android:layout_marginLeft="@dimen/textbox_spacing_sides"
                 android:layout_marginTop="@dimen/textbox_spacing_top"
                 android:layout_marginRight="@dimen/textbox_spacing_sides"
@@ -88,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout1"
-                android:background="@color/white"
+                android:background="@drawable/rounded_rego_button"
                 android:layout_marginLeft="@dimen/textbox_spacing_sides"
                 android:layout_marginTop="@dimen/textbox_spacing_top"
                 android:layout_marginRight="@dimen/textbox_spacing_sides"
@@ -130,7 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout1"
-                android:background="@color/white"
+                android:background="@drawable/rounded_rego_button"
                 android:layout_marginLeft="@dimen/textbox_spacing_sides"
                 android:layout_marginTop="@dimen/textbox_spacing_top"
                 android:layout_marginRight="@dimen/textbox_spacing_sides"
@@ -182,12 +183,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout1"
-                android:background="@color/white"
                 android:layout_marginLeft="@dimen/textbox_spacing_sides"
                 android:layout_marginTop="@dimen/textbox_spacing_top"
                 android:layout_marginRight="@dimen/textbox_spacing_sides"
                 android:layout_marginBottom="@dimen/textbox_spacing"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_rego_button">
                 <RadioGroup
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -232,7 +233,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout1"
-                android:background="@color/white"
+                android:background="@drawable/rounded_rego_button"
                 android:layout_marginLeft="@dimen/textbox_spacing_sides"
                 android:layout_marginRight="@dimen/textbox_spacing_sides"
                 android:layout_marginTop="@dimen/textbox_spacing_top">
@@ -259,7 +260,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearLayout1"
-                android:background="@color/white"
+                android:background="@drawable/rounded_rego_button"
                 android:layout_marginLeft="@dimen/textbox_spacing_sides"
                 android:layout_marginRight="@dimen/textbox_spacing_sides"
                 android:layout_marginTop="@dimen/textbox_spacing_top">
@@ -286,7 +287,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/linearLayout1"
-                android:background="@color/white"
+                android:background="@drawable/rounded_rego_button"
                 android:layout_marginLeft="@dimen/textbox_spacing_sides"
                 android:layout_marginTop="@dimen/textbox_spacing_top"
                 android:layout_marginRight="@dimen/textbox_spacing_sides"
@@ -327,9 +328,9 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/linearLayout1"
-                android:background="@color/white"
+                android:background="@drawable/rounded_rego_button"
                 android:layout_marginLeft="@dimen/textbox_spacing_sides"
                 android:layout_marginTop="@dimen/textbox_spacing_top"
                 android:layout_marginRight="@dimen/textbox_spacing_sides"
@@ -341,18 +342,19 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/regDegreeRadioGroup"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
                     <RadioButton
                         android:text="Undergraduate"
                         android:id="@+id/regDegreeUndergrad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true" />
+                        android:checked="true"
+                        android:layout_marginRight="15dp" />
                     <RadioButton
                         android:text="Postgraduate"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:id="@+id/regDegreePostGrad" />
                 </RadioGroup>
             </LinearLayout>
