@@ -120,7 +120,9 @@ namespace UTSHelps.Droid
 			}
 			else
 			{
-				Toast.MakeText(this.Activity, "Booking has Fail", ToastLength.Short).Show();
+				Toast.MakeText(this.Activity, response.DisplayMessage , ToastLength.Short).Show();
+
+				DialogHelper.ShowDialog(this.Activity, "Error", "You have already booked this");
 			}
 		}
 	}

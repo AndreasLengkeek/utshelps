@@ -15,6 +15,7 @@
 <dimen name="textbox_spacing_top">20sp</dimen>
 
 	<dimen name="spinner_spacing">40sp</dimen>
+	<dimen name="navigation_bottom_height">60dp</dimen>
 
 	
 </resources>

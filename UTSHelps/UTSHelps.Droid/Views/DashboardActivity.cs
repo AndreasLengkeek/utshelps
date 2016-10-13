@@ -10,13 +10,14 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using UTSHelps.Droid.Helpers;
+using Android.Content.PM;
 using Android.Graphics;
 using UTSHelps.Shared.Models;
 using UTSHelps.Droid.ViewModels;
 
 namespace UTSHelps.Droid
 {
-    [Activity(Label = "DashboardActivity")]
+	[Activity(Label = "DashboardActivity",ScreenOrientation = ScreenOrientation.Portrait)]
     public class DashboardActivity : MainActivity
     {
 		private string studentId;

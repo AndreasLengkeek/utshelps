@@ -84,7 +84,7 @@ namespace UTSHelps.Droid
 			else
 			{
 				placesLeft = sessions[position].cutoff - sessions[position].BookingCount;
-				if (placesLeft < 0 || placesLeft == 0)
+				if (placesLeft <= 0)
 				{
 					sessionPlacesLeft.Text = "Full";
 					sessionPlace.Text = "";

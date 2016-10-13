@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -12,7 +13,7 @@ using Android.Widget;
 
 namespace UTSHelps.Droid
 {
-    [Activity(Label = "RegistrationConfirmationActivity")]
+	[Activity(Label = "RegistrationConfirmationActivity", ScreenOrientation = ScreenOrientation.Portrait)]
     public class RegistrationConfirmationActivity : MainActivity
     {
         protected override int LayoutResource
