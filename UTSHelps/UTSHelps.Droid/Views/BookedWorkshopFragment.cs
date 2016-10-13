@@ -42,7 +42,6 @@ namespace UTSHelps.Droid
 			base.OnCreate(savedInstanceState);
 			workshopId = Arguments.GetInt("workshopId");
 			studentId = Arguments.GetString("studentId");
-			// Create your fragment here
 		}
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -85,6 +84,7 @@ namespace UTSHelps.Droid
 			txtBookedworkshopSessionTime.Text = workshop[0].StartDate.ToString("hhtt") + " - " + workshop[0].EndDate.ToString("hhtt");
 			txtBookedworkshopSessionDate.Text = workshop[0].StartDate.ToShortDateString();
 			txtBookedworkshopSessionDay.Text = workshop[0].StartDate.ToString("dddd");
+
 		}
 
 		async void Refresh(int workshopId)

@@ -22,6 +22,7 @@ namespace UTSHelps.Droid
 		private int workshopId;
 		private String studentId;
 		private Button bookWorkshopbtn;
+		private Button addWaitListbtn;
 		private List<Workshop> workshop = new List<Workshop>();
 		private ProgressBar workshopBookingProgressBar;
 
@@ -43,9 +44,6 @@ namespace UTSHelps.Droid
 			Bundle args = Arguments;
 			workshopId = args.GetInt("workshopId");
 			studentId = args.GetString("studentId");
-
-			//Refresh(workshopId);
-			// Create your fragment here
 		}
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -69,13 +67,15 @@ namespace UTSHelps.Droid
 			workshopBookingProgressBar = view.FindViewById<ProgressBar>(Resource.Id.workshopBooking_progress);
 			lnrWorkshopDetails = view.FindViewById<RelativeLayout>(Resource.Id.lnrBookingDetails);
 
+
 			Toast.MakeText(this.Activity, "The Workshop Id is " + workshopId, ToastLength.Short).Show();
 
+			addWaitListbtn = view.FindViewById<Button>(Resource.Id.workshopWaitlistBtn);
+			addWaitListbtn.Click += AddWaitListbtn_Click;
 			bookWorkshopbtn = view.FindViewById<Button>(Resource.Id.workshopBookingbtn);
 			bookWorkshopbtn.Click += BookWorkshopbtn_Click;
 
 			return view;
-			// return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 		}
 
 		private void SetView()
@@ -85,11 +85,28 @@ namespace UTSHelps.Droid
 			txtworkshopTime.Text = workshop[0].StartDate.ToString("hh:mm") + " - " + workshop[0].EndDate.ToString("hh:mm");
 			txtworkshopLocation.Text = workshop[0].campus;
 			txtworkshopDesciption.Text = workshop[0].description;
+			var places = workshop[0].cutoff - workshop[0].BookingCount;
 			txtworkshopPlaces.Text = workshop[0].BookingCount + "/" + workshop[0].cutoff;
 			txtworkshopSessionLocation.Text = workshop[0].campus;
 			txtworkshopSessionTime.Text = workshop[0].StartDate.ToString("hhtt") + " - " + workshop[0].EndDate.ToString("hhtt");
 			txtworkshopSessionDate.Text = workshop[0].StartDate.ToShortDateString();
 			txtworkshopSessionDay.Text = workshop[0].StartDate.ToString("dddd");
+
+			SetButton(places);
+		}
+
+		private void SetButton(int? places)
+		{
+			if (places <= 0)
+			{
+				addWaitListbtn.Visibility = ViewStates.Visible;
+				bookWorkshopbtn.Visibility = ViewStates.Gone;
+			}
+			else
+			{
+				bookWorkshopbtn.Visibility = ViewStates.Visible;
+				addWaitListbtn.Visibility = ViewStates.Gone;
+			}
 		}
 
 		private async void Refresh(int workshopID)
@@ -120,10 +137,13 @@ namespace UTSHelps.Droid
 			}
 			else
 			{
-				Toast.MakeText(this.Activity, response.DisplayMessage , ToastLength.Short).Show();
-
-				DialogHelper.ShowDialog(this.Activity, "Error", "You have already booked this");
+				DialogHelper.ShowDialog(this.Activity, "Error", response.DisplayMessage);
 			}
+		}
+
+		void AddWaitListbtn_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

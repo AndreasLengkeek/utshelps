@@ -11,5 +11,5 @@
 	<color name="Green_Booking">#00C932</color>
 	<color name="Green_Words">#90DE00</color>
 	<color name="Red_Cancel">#D6000B</color>
-
+	<color name="Wait_Orange">#FF8C00</color>
 </resources>

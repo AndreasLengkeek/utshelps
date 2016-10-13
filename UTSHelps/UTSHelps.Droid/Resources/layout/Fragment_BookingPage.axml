@@ -227,6 +227,17 @@
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
     <Button
+        android:text="@string/AddToWaitList"
+        android:id="@+id/workshopWaitlistBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@color/Wait_Orange"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/lnrWorkshopSessionLocation"
+        android:visibility="gone" />
+    <Button
         android:text="@string/BookWorkshopBtn"
         android:id="@+id/workshopBookingbtn"
         android:layout_width="match_parent"
@@ -235,5 +246,6 @@
         android:textColor="@color/white"
         android:background="@color/Green_Booking"
         android:layout_alignParentBottom="true"
-        android:layout_below="@id/lnrWorkshopSessionLocation" />
+        android:layout_below="@id/lnrWorkshopSessionLocation"
+        android:visibility="gone" />
 </RelativeLayout>
