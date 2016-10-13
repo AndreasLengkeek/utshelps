@@ -111,6 +111,7 @@ namespace UTSHelps.Droid
             currentFragment = selectedFragment;
         }
 
+        #region FragmentButtons
         [Java.Interop.Export()]
         public void Search_Click(View view)
         {
@@ -130,5 +131,24 @@ namespace UTSHelps.Droid
             var intent = new Intent(this, typeof(LoginActivity));
             this.StartActivity(intent);
         }
+
+        [Java.Interop.Export()]
+        public void ShowSearch_Click(View view)
+        {
+            var searchItems = FindViewById<LinearLayout>(Resource.Id.searchDropdown);
+            var searchIcon = FindViewById<FontAwesome>(Resource.Id.searchDropDownIcon);
+
+            if (searchItems.Visibility == ViewStates.Visible)
+            {
+                searchIcon.Text = Resources.GetString(Resource.String.fa_angle_down);
+                searchItems.Visibility = ViewStates.Gone;
+            }
+            else
+            {
+                searchIcon.Text = Resources.GetString(Resource.String.fa_angle_up);
+                searchItems.Visibility = ViewStates.Visible;
+            }
+        }
+        #endregion
     }
 }
