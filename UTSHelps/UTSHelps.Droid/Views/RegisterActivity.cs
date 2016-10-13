@@ -147,6 +147,7 @@ namespace UTSHelps.Droid
             if (response.IsSuccess)
             {
                 var intent = new Intent(this, typeof(RegistrationConfirmationActivity));
+                intent.PutExtra("studentId", newStudent.StudentId);
                 this.StartActivity(intent);
             }
             else

@@ -16,6 +16,7 @@ namespace UTSHelps.Droid
 	[Activity(Label = "RegistrationConfirmationActivity", ScreenOrientation = ScreenOrientation.Portrait)]
     public class RegistrationConfirmationActivity : MainActivity
     {
+        private string studentId;
         protected override int LayoutResource
         {
             get {
@@ -26,6 +27,7 @@ namespace UTSHelps.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            studentId = Intent.GetStringExtra("studentId");
         }
 
         [Java.Interop.Export()]
@@ -33,6 +35,7 @@ namespace UTSHelps.Droid
         {
             var intent = new Intent(this, typeof(DashboardActivity));
             intent.PutExtra("StartScreen", "MakeBooking");
+            intent.PutExtra("studentId", studentId);
             this.StartActivity(intent);
         }
 
@@ -40,6 +43,7 @@ namespace UTSHelps.Droid
         public void ContinueToApp(View view)
         {
             var intent = new Intent(this, typeof(DashboardActivity));
+            intent.PutExtra("studentId", studentId);
             this.StartActivity(intent);
         }
     }
