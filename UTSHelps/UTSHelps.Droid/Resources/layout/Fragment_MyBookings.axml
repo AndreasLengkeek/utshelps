@@ -20,7 +20,7 @@
             <ListView
                 android:id="@+id/lstCurrentBooking"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="400dp" />
             <TextView
                 android:text="Past Booking"
                 android:layout_width="match_parent"

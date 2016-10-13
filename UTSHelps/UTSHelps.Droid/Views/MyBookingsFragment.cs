@@ -23,6 +23,7 @@ namespace UTSHelps.Droid
 		private BookingsAdapter adapter;
 		private string studentId;
 		private ProgressBar mBookingProgress;
+		private BookedWorkshopFragment bookedFragment;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -45,8 +46,24 @@ namespace UTSHelps.Droid
 			adapter = new BookingsAdapter(this.Activity, mBookingWorkshops);
 			bookingListView.Adapter = adapter;
 
+			bookingListView.ItemClick += BookingListView_ItemClick;
+
             return view;
         }
+
+		void BookingListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+		{
+			Bundle args = new Bundle();
+			args.PutString("studentId", studentId);
+			args.PutInt("workshopId", mBookingWorkshops[e.Position].workshopId);
+
+			bookedFragment = new BookedWorkshopFragment();
+			bookedFragment.Arguments = args;
+			var trans = FragmentManager.BeginTransaction();
+			trans.Replace(Resource.Id.mainFragmentContainer, bookedFragment, "BookedFragment");
+			trans.AddToBackStack(null);
+			trans.Commit();
+		}
 
 		private async void Refresh(string studentId)
 		{

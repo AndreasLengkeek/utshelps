@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -17,7 +18,7 @@ using System.Globalization;
 
 namespace UTSHelps.Droid
 {
-    [Activity(Label = "RegisterActivity")]
+	[Activity(Label = "RegisterActivity", ScreenOrientation= ScreenOrientation.Portrait)]
     public class RegisterActivity : MainActivity
     {
         private string studentId;

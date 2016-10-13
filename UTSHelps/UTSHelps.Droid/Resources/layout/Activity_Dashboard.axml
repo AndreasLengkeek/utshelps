@@ -16,7 +16,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_marginTop="?android:attr/actionBarSize"
-            android:layout_marginBottom="46dp" />
+            android:layout_marginBottom="@dimen/navigation_bottom_height" />
     </LinearLayout>
     <include
         layout="@layout/nav_bottom" />

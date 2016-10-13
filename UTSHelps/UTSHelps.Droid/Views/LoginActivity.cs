@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content;
 using Android.Runtime;
+using Android.Content.PM;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
@@ -10,7 +11,7 @@ using UTSHelps.Shared.Models;
 
 namespace UTSHelps.Droid
 {
-    [Activity(Label = "UTSHelps", MainLauncher = true)]
+	[Activity(Label = "UTSHelps", MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class LoginActivity : MainActivity
     {
         private EditText studentId;

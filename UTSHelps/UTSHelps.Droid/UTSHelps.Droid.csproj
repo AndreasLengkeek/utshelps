@@ -79,6 +79,7 @@
     <Compile Include="Views\SessionsFragment.cs" />
     <Compile Include="Views\BookingWorkshopFragment.cs" />
     <Compile Include="Views\StudentDetailsActivity.cs" />
+    <Compile Include="Views\BookedWorkshopFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -128,6 +129,7 @@
     <AndroidResource Include="Resources\drawable\phone.png" />
     <AndroidResource Include="Resources\drawable\calender.png" />
     <AndroidResource Include="Resources\values\text_size.xml" />
+    <AndroidResource Include="Resources\layout\Fragment_BookedWorkshop.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
