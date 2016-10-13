@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/adapterWorkshop"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_width="match_parent"
         android:orientation="horizontal">
         <View
@@ -15,11 +15,10 @@
             android:background="@android:color/holo_blue_light" />
         <TextView
             android:id="@+id/workshopSets_text"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:text="Workshops"
-            android:paddingTop="10dp"
             android:paddingLeft="10dp"
-            android:paddingBottom="10dp" />
+            android:gravity="center_vertical" />
     </LinearLayout>
 </LinearLayout>
