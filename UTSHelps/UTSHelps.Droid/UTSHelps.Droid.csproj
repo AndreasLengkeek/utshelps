@@ -60,8 +60,6 @@
     <Compile Include="Helpers\FontAwesome.cs" />
     <Compile Include="Helpers\ServiceHelper.cs" />
     <Compile Include="Helpers\StringHelper.cs" />
-    <Compile Include="ViewModels\RegistrationCourseViewModel.cs" />
-    <Compile Include="ViewModels\RegistrationStudentInfoViewModel.cs" />
     <Compile Include="Views\DashboardActivity.cs" />
     <Compile Include="Views\LoginActivity.cs" />
     <Compile Include="Views\MainActivity.cs" />

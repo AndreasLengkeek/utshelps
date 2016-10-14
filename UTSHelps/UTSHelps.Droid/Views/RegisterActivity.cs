@@ -13,7 +13,6 @@ using Android.Widget;
 using UTSHelps.Droid.Helpers;
 using Android.Graphics;
 using UTSHelps.Shared.Models;
-using UTSHelps.Droid.ViewModels;
 using System.Globalization;
 
 namespace UTSHelps.Droid

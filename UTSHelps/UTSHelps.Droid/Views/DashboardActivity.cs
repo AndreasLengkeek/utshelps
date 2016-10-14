@@ -13,7 +13,6 @@ using UTSHelps.Droid.Helpers;
 using Android.Content.PM;
 using Android.Graphics;
 using UTSHelps.Shared.Models;
-using UTSHelps.Droid.ViewModels;
 
 namespace UTSHelps.Droid
 {
@@ -113,12 +112,6 @@ namespace UTSHelps.Droid
         }
 
         #region FragmentButtons
-        [Java.Interop.Export()]
-        public void Search_Click(View view)
-        {
-            DialogHelper.ShowDialog(this, "Search", "Search Options!");
-        }
-
         [Java.Interop.Export()]
         public void Details_Click(View view)
         {

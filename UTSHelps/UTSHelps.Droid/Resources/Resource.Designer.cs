@@ -269,14 +269,14 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f09000e
 			public const int Rego2BestContactNo = 2131296270;
 			
+			// aapt resource value: 0x7f090082
+			public const int action_add = 2131296386;
+			
 			// aapt resource value: 0x7f090080
-			public const int action_add = 2131296384;
+			public const int action_mybookings = 2131296384;
 			
-			// aapt resource value: 0x7f09007e
-			public const int action_mybookings = 2131296382;
-			
-			// aapt resource value: 0x7f090083
-			public const int action_settings = 2131296387;
+			// aapt resource value: 0x7f090085
+			public const int action_settings = 2131296389;
 			
 			// aapt resource value: 0x7f090032
 			public const int adapterWorkshop = 2131296306;
@@ -287,11 +287,11 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f09001f
 			public const int bookingsAdapter = 2131296287;
 			
-			// aapt resource value: 0x7f090067
-			public const int btnWorkshopSearch = 2131296359;
+			// aapt resource value: 0x7f090069
+			public const int btnWorkshopSearch = 2131296361;
 			
-			// aapt resource value: 0x7f090078
-			public const int button1 = 2131296376;
+			// aapt resource value: 0x7f09007a
+			public const int button1 = 2131296378;
 			
 			// aapt resource value: 0x7f090033
 			public const int colorWorkshop = 2131296307;
@@ -308,14 +308,14 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090023
 			public const int detail_workshop = 2131296291;
 			
-			// aapt resource value: 0x7f09007b
-			public const int edit_toolbar = 2131296379;
+			// aapt resource value: 0x7f09007d
+			public const int edit_toolbar = 2131296381;
 			
 			// aapt resource value: 0x7f090007
 			public const int forgotPassword = 2131296263;
 			
-			// aapt resource value: 0x7f09006d
-			public const int imageView1 = 2131296365;
+			// aapt resource value: 0x7f09006f
+			public const int imageView1 = 2131296367;
 			
 			// aapt resource value: 0x7f09000c
 			public const int imageView2 = 2131296268;
@@ -326,14 +326,14 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090009
 			public const int linearLayout2 = 2131296265;
 			
-			// aapt resource value: 0x7f09007c
-			public const int linearadd = 2131296380;
+			// aapt resource value: 0x7f09007e
+			public const int linearadd = 2131296382;
 			
-			// aapt resource value: 0x7f09007d
-			public const int linearbooking = 2131296381;
+			// aapt resource value: 0x7f09007f
+			public const int linearbooking = 2131296383;
 			
-			// aapt resource value: 0x7f090082
-			public const int linearsettings = 2131296386;
+			// aapt resource value: 0x7f090084
+			public const int linearsettings = 2131296388;
 			
 			// aapt resource value: 0x7f090037
 			public const int lnrBookedDate = 2131296311;
@@ -395,17 +395,17 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090004
 			public const int loginStudentId = 2131296260;
 			
+			// aapt resource value: 0x7f09006c
+			public const int lstCurrentBooking = 2131296364;
+			
+			// aapt resource value: 0x7f09006d
+			public const int lstPastBooking = 2131296365;
+			
+			// aapt resource value: 0x7f090075
+			public const int lstSessions = 2131296373;
+			
 			// aapt resource value: 0x7f09006a
-			public const int lstCurrentBooking = 2131296362;
-			
-			// aapt resource value: 0x7f09006b
-			public const int lstPastBooking = 2131296363;
-			
-			// aapt resource value: 0x7f090073
-			public const int lstSessions = 2131296371;
-			
-			// aapt resource value: 0x7f090068
-			public const int lstWorkshop = 2131296360;
+			public const int lstWorkshop = 2131296362;
 			
 			// aapt resource value: 0x7f090002
 			public const int mainFragmentContainer = 2131296258;
@@ -413,23 +413,23 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090001
 			public const int main_content = 2131296257;
 			
-			// aapt resource value: 0x7f090086
-			public const int menu_add = 2131296390;
-			
-			// aapt resource value: 0x7f090085
-			public const int menu_bookings = 2131296389;
-			
 			// aapt resource value: 0x7f090088
-			public const int menu_edit = 2131296392;
+			public const int menu_add = 2131296392;
 			
 			// aapt resource value: 0x7f090087
-			public const int menu_settings = 2131296391;
+			public const int menu_bookings = 2131296391;
+			
+			// aapt resource value: 0x7f09008a
+			public const int menu_edit = 2131296394;
+			
+			// aapt resource value: 0x7f090089
+			public const int menu_settings = 2131296393;
 			
 			// aapt resource value: 0x7f090022
 			public const int month = 2131296290;
 			
-			// aapt resource value: 0x7f09006c
-			public const int mybooking_progress = 2131296364;
+			// aapt resource value: 0x7f09006e
+			public const int mybooking_progress = 2131296366;
 			
 			// aapt resource value: 0x7f09002b
 			public const int noOfSession = 2131296299;
@@ -488,26 +488,32 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090008
 			public const int registration_content = 2131296264;
 			
-			// aapt resource value: 0x7f090071
-			public const int rego1StartButton = 2131296369;
+			// aapt resource value: 0x7f090073
+			public const int rego1StartButton = 2131296371;
 			
 			// aapt resource value: 0x7f09000d
 			public const int rego2PreferredFIrstName = 2131296269;
 			
-			// aapt resource value: 0x7f090070
-			public const int rego5ContinueBtn = 2131296368;
+			// aapt resource value: 0x7f090072
+			public const int rego5ContinueBtn = 2131296370;
 			
-			// aapt resource value: 0x7f09006f
-			public const int rego5NewBookingBtn = 2131296367;
+			// aapt resource value: 0x7f090071
+			public const int rego5NewBookingBtn = 2131296369;
 			
-			// aapt resource value: 0x7f090065
-			public const int searchDropDownIcon = 2131296357;
+			// aapt resource value: 0x7f090068
+			public const int searchCampus = 2131296360;
 			
-			// aapt resource value: 0x7f090066
-			public const int searchDropdown = 2131296358;
+			// aapt resource value: 0x7f090067
+			public const int searchDate = 2131296359;
 			
 			// aapt resource value: 0x7f090064
-			public const int searchText = 2131296356;
+			public const int searchDropDownIcon = 2131296356;
+			
+			// aapt resource value: 0x7f090065
+			public const int searchDropdown = 2131296357;
+			
+			// aapt resource value: 0x7f090066
+			public const int searchTopic = 2131296358;
 			
 			// aapt resource value: 0x7f09002e
 			public const int sessionEndDate = 2131296302;
@@ -527,29 +533,29 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f09002c
 			public const int sessionTime = 2131296300;
 			
+			// aapt resource value: 0x7f090076
+			public const int session_progress = 2131296374;
+			
 			// aapt resource value: 0x7f090074
-			public const int session_progress = 2131296372;
-			
-			// aapt resource value: 0x7f090072
-			public const int session_workshopName = 2131296370;
-			
-			// aapt resource value: 0x7f090077
-			public const int settingCalendarIcon = 2131296375;
-			
-			// aapt resource value: 0x7f090075
-			public const int settingVibIcon = 2131296373;
+			public const int session_workshopName = 2131296372;
 			
 			// aapt resource value: 0x7f090079
-			public const int settingsDetail = 2131296377;
+			public const int settingCalendarIcon = 2131296377;
 			
-			// aapt resource value: 0x7f09007a
-			public const int settingsLogout = 2131296378;
+			// aapt resource value: 0x7f090077
+			public const int settingVibIcon = 2131296375;
+			
+			// aapt resource value: 0x7f09007b
+			public const int settingsDetail = 2131296379;
+			
+			// aapt resource value: 0x7f09007c
+			public const int settingsLogout = 2131296380;
 			
 			// aapt resource value: 0x7f090063
 			public const int skillsetTxt = 2131296355;
 			
-			// aapt resource value: 0x7f09006e
-			public const int textView1 = 2131296366;
+			// aapt resource value: 0x7f090070
+			public const int textView1 = 2131296368;
 			
 			// aapt resource value: 0x7f09000a
 			public const int textView2 = 2131296266;
@@ -557,23 +563,23 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090027
 			public const int time = 2131296295;
 			
-			// aapt resource value: 0x7f090076
-			public const int toggleButton1 = 2131296374;
+			// aapt resource value: 0x7f090078
+			public const int toggleButton1 = 2131296376;
 			
 			// aapt resource value: 0x7f090000
 			public const int toolbar = 2131296256;
 			
-			// aapt resource value: 0x7f090081
-			public const int txtAdd = 2131296385;
+			// aapt resource value: 0x7f090083
+			public const int txtAdd = 2131296387;
 			
 			// aapt resource value: 0x7f090024
 			public const int txtWorkshop = 2131296292;
 			
-			// aapt resource value: 0x7f09007f
-			public const int txtbookings = 2131296383;
+			// aapt resource value: 0x7f090081
+			public const int txtbookings = 2131296385;
 			
-			// aapt resource value: 0x7f090084
-			public const int txtsettings = 2131296388;
+			// aapt resource value: 0x7f090086
+			public const int txtsettings = 2131296390;
 			
 			// aapt resource value: 0x7f090038
 			public const int workshopBookedDate = 2131296312;
@@ -665,8 +671,8 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090061
 			public const int workshopWaitlistBtn = 2131296353;
 			
-			// aapt resource value: 0x7f090069
-			public const int workshopsets_progress = 2131296361;
+			// aapt resource value: 0x7f09006b
+			public const int workshopsets_progress = 2131296363;
 			
 			static Id()
 			{

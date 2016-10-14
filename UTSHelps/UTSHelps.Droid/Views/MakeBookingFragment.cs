@@ -23,7 +23,7 @@ namespace UTSHelps.Droid
         private WorkshopAdapter workshopAdapter;
 		private ProgressBar workshopSetsProgress;
 		private SessionsFragment sFragment;
-		private String studentId;
+		private string studentId;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -37,8 +37,9 @@ namespace UTSHelps.Droid
             View view = inflater.Inflate(Resource.Layout.Fragment_MakeBooking, container, false);
 
             this.Activity.ActionBar.Title = "Make a Booking";
+            var searchBtn = view.FindViewById<Button>(Resource.Id.btnWorkshopSearch);
+            searchBtn.Click += Search;
 
-            //sets = new List<WorkshopSet>();
             workshopAdapter = new WorkshopAdapter(this.Activity, workshopSets);
             workshopListView = view.FindViewById<ListView>(Resource.Id.lstWorkshop);
             workshopListView.Adapter = workshopAdapter;
@@ -77,6 +78,28 @@ namespace UTSHelps.Droid
 				workshopAdapter.SwapItems(workshopSets);
 				workshopSetsProgress.Visibility = ViewStates.Gone;
             }
+        }
+
+        private void Search(object sender, EventArgs e)
+        {
+            var topic = this.View.FindViewById<TextView>(Resource.Id.searchTopic).Text;
+            var startDate = this.View.FindViewById<TextView>(Resource.Id.searchDate);
+            var EndDate = this.View.FindViewById<TextView>(Resource.Id.searchDate);
+            var campus = this.View.FindViewById<TextView>(Resource.Id.searchCampus).Text;
+
+            List<Workshop> workshops = new List<Workshop>();
+
+            IEnumerable<Workshop> query = workshops.ToList();
+            if (!String.IsNullOrEmpty(topic))
+            {
+                query = query.Where(w => w.topic.ToLower().Contains(topic.ToLower()));
+            }
+            if (!String.IsNullOrEmpty(campus))
+            {
+                query = query.Where(w => w.campus.ToLower().Contains(campus.ToLower()));
+            }
+
+            var results = query.ToList();
         }
     }
 }
