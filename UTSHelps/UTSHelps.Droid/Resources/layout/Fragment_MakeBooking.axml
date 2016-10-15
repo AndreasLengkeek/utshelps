@@ -3,70 +3,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:orientation="vertical"
+    <TextView
+        android:text="Choose a skillset"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RelativeLayout
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="Choose a skillset"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/skillsetTxt"
-                android:textSize="@dimen/material_text_title" />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:layout_alignParentRight="true"
-                android:onClick="ShowSearch_Click"
-                android:layout_marginTop="5dp">
-                <UTSHelps.Droid.Helpers.FontAwesome
-                    android:id="@+id/searchDropDownIcon"
-                    android:text="@string/fa_angle_down"
-                    android:textSize="@dimen/material_text_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </RelativeLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:id="@+id/searchDropdown"
-            android:visibility="visible"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/searchTopic"
-                android:hint="Topic"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <EditText
-                android:id="@+id/searchDate"
-                android:hint="Date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <EditText
-                android:id="@+id/searchCampus"
-                android:hint="Campus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <Button
-                    android:id="@+id/btnWorkshopSearch"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/material_text_title"
-                    android:text="Search..." />
-            </RelativeLayout>
-        </LinearLayout>
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:id="@+id/skillsetTxt"
+        android:textSize="@dimen/material_text_title" />
     <ListView
         android:id="@+id/lstWorkshop"
         android:layout_width="match_parent"

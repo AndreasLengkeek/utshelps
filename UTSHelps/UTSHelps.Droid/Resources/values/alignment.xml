@@ -1,21 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <!--Margin Values-->
+  <!-- Margin Values -->
   <dimen name="center_align_element">20sp</dimen>
   <dimen name="inside_tb">5sp</dimen>
   <dimen name="inside_lr">10sp</dimen>
 
 
 	<!-- Registration Dimensions-->
-<dimen name="icon_dimensions">25sp</dimen>
-<dimen name="icon_margin">10sp</dimen>
-<dimen name="textbox_spacing">10sp</dimen>
-<dimen name="textbox_spacing_sides">50sp</dimen>
+  <dimen name="icon_dimensions">25sp</dimen>
+  <dimen name="icon_margin">10sp</dimen>
+  <dimen name="textbox_spacing">10sp</dimen>
+  <dimen name="textbox_spacing_sides">50sp</dimen>
 
-<dimen name="textbox_spacing_top">20sp</dimen>
+  <dimen name="textbox_spacing_top">20sp</dimen>
 
-	<dimen name="spinner_spacing">40sp</dimen>
-	<dimen name="navigation_bottom_height">60dp</dimen>
+  <dimen name="spinner_spacing">40sp</dimen>
+  <dimen name="navigation_bottom_height">60dp</dimen>
 
-	
+  <!-- Search -->
+  <dimen name="form_margin">30dp</dimen>
 </resources>

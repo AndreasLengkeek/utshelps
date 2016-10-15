@@ -143,6 +143,12 @@ namespace UTSHelps.Droid
                 searchItems.Visibility = ViewStates.Visible;
             }
         }
+
+        [Java.Interop.Export()]
+        public void EditDate(View view)
+        {
+            DialogHelper.ShowDatePickerDialog(this, (TextView)view);
+        }
         #endregion
     }
 }
