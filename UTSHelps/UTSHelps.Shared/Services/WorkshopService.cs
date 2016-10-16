@@ -124,7 +124,7 @@ namespace UTSHelps.Shared.Services
 			return ResponseHelper.CreateGenericErrorResponse("An unknown error occured");
 		}
 
-		public async Task<GenericResponse> GetWaitListCount(int workshopId)
+		public async Task<WaitListCount> GetWaitListCount(int workshopId)
 		{
 			TestConnection();
 
@@ -135,7 +135,7 @@ namespace UTSHelps.Shared.Services
 				var result = await response.Content.ReadAsAsync<WaitListCount>();
 				return result;
 			}
-			return ResponseHelper.CreateGenericErrorResponse("Request failed");
+			return ResponseHelper.GetWaitListedErrorResponse("Request failed");
 		}
 
 		public async Task<WaitListed> IsWaitListed(int workshopId, string studentId)
@@ -149,7 +149,7 @@ namespace UTSHelps.Shared.Services
 				var result = await response.Content.ReadAsAsync<WaitListed>();
 				return result;
 			}
-			return ResponseHelper.CreateWaitListResponse("Request failed");
+			return ResponseHelper.CreateWaitListErrorResponse("Request failed");
 		}
     }
 }

@@ -43,9 +43,18 @@ namespace UTSHelps.Shared.Helpers
             };
         }
 
-		public static WaitListed CreateWaitListResponse(string message)
+		public static WaitListed CreateWaitListErrorResponse(string message)
 		{
 			return new WaitListed
+			{
+				IsSuccess = false,
+				DisplayMessage = message
+			};
+		}
+
+		public static WaitListCount GetWaitListedErrorResponse(string message)
+		{
+			return new WaitListCount
 			{
 				IsSuccess = false,
 				DisplayMessage = message

@@ -89,7 +89,11 @@ namespace UTSHelps.Droid
 					sessionPlacesLeft.Text = "Full";
 					sessionPlace.Text = "";
 				}
-				else sessionPlace.Text = placesLeft.ToString();
+				else 
+				{
+					sessionPlacesLeft.Text = " places left";
+					sessionPlace.Text = placesLeft.ToString();
+				}
 			}
 
 			return row;

@@ -155,6 +155,25 @@ namespace UTSHelps.Droid
 
 		async void AddWaitListbtn_Click(object sender, EventArgs e)
 		{
+			var waitListCountResponse = await ServiceHelper.Workshop.GetWaitListCount(workshopId);
+			if (waitListCountResponse.IsSuccess)
+			{
+				var builder = new AlertDialog.Builder(this.Activity);
+				builder.SetMessage("Your wait list number is #" + (waitListCountResponse.Count+1) );
+				builder.SetTitle("Do you want to continue");
+				builder.SetPositiveButton("Ok", (senderAlert, args) => {
+					AddWaitList();
+				});
+				builder.SetNegativeButton("Cancel", (senderAlert, args) =>{
+					
+				});
+				builder.Create().Show();
+			}
+
+		}
+
+		private async void AddWaitList()
+		{
 			var response = await ServiceHelper.Workshop.CreateWorkshopWaiting(workshopId, studentId);
 			if (response.IsSuccess)
 			{

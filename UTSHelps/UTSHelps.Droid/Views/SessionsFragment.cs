@@ -42,14 +42,13 @@ namespace UTSHelps.Droid
 			workshopSetID = args.GetInt("workshopSetID");
 			workshopSetName = args.GetString("workshopSetName");
 			studentId = args.GetString("studentId");
-
-			Refresh(workshopSetID);
 		}
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.Fragment_Sessions, container, false);
 
+			Refresh(workshopSetID);
             SetView(view);
 
             return view;
@@ -78,7 +77,7 @@ namespace UTSHelps.Droid
         void SessionListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
 		{
 			Bundle args = new Bundle();
-			args.PutInt("workshopId", sessionList[e.Position].WorkshopId);
+			args.PutInt("workshopId", sessions[e.Position].WorkshopId);
 			args.PutString("studentId", studentId);
 
 			bWorkshopFragment = new BookingWorkshopFragment();
