@@ -14,6 +14,7 @@ using Android.Widget;
 using UTSHelps.Droid.Helpers;
 using System.Threading.Tasks;
 using UTSHelps.Shared.Models;
+using UTSHelps.Shared;
 
 namespace UTSHelps.Droid
 {
@@ -23,6 +24,7 @@ namespace UTSHelps.Droid
 		private String studentId;
 		private Button bookWorkshopbtn;
 		private Button addWaitListbtn;
+		private Button removeWaitListbtn;
 		private List<Workshop> workshop = new List<Workshop>();
 		private ProgressBar workshopBookingProgressBar;
 
@@ -52,7 +54,7 @@ namespace UTSHelps.Droid
 
             this.Activity.ActionBar.Title = "Booking";
 
-			Refresh(workshopId);
+			Refresh(workshopId, studentId);
 
 			txtworkshopName = view.FindViewById<TextView>(Resource.Id.workshopName);
 			txtworkshopDate = view.FindViewById<TextView>(Resource.Id.workshopDate);
@@ -71,6 +73,7 @@ namespace UTSHelps.Droid
 			Toast.MakeText(this.Activity, "The Workshop Id is " + workshopId, ToastLength.Short).Show();
 
 			addWaitListbtn = view.FindViewById<Button>(Resource.Id.workshopWaitlistBtn);
+			removeWaitListbtn = view.FindViewById<Button>(Resource.Id.workshopRemoveWaitlistBtn);
 			addWaitListbtn.Click += AddWaitListbtn_Click;
 			bookWorkshopbtn = view.FindViewById<Button>(Resource.Id.workshopBookingbtn);
 			bookWorkshopbtn.Click += BookWorkshopbtn_Click;
@@ -78,7 +81,7 @@ namespace UTSHelps.Droid
 			return view;
 		}
 
-		private void SetView()
+		private void SetView(int workshopID, string studentID)
 		{
 			txtworkshopName.Text = workshop[0].topic;
 			txtworkshopDate.Text = workshop[0].StartDate.ToShortDateString() + " - " + workshop[0].EndDate.ToShortDateString();
@@ -92,29 +95,38 @@ namespace UTSHelps.Droid
 			txtworkshopSessionDate.Text = workshop[0].StartDate.ToShortDateString();
 			txtworkshopSessionDay.Text = workshop[0].StartDate.ToString("dddd");
 
-			SetButton(places);
+			SetButtonView(places, workshopID, studentID);
 		}
 
-		private void SetButton(int? places)
+		private async void SetButtonView(int? places, int workshopID, string studentID)
 		{
-			if (places <= 0)
+			var waitListResponse = await ServiceHelper.Workshop.IsWaitListed(workshopID, studentID);
+			if (waitListResponse.IsWaitListed)
+			{
+				bookWorkshopbtn.Visibility = ViewStates.Gone;
+				addWaitListbtn.Visibility = ViewStates.Gone;
+				removeWaitListbtn.Visibility = ViewStates.Visible;
+			}
+			else if (places <= 0)
 			{
 				addWaitListbtn.Visibility = ViewStates.Visible;
 				bookWorkshopbtn.Visibility = ViewStates.Gone;
+				removeWaitListbtn.Visibility = ViewStates.Gone;
 			}
 			else
 			{
 				bookWorkshopbtn.Visibility = ViewStates.Visible;
 				addWaitListbtn.Visibility = ViewStates.Gone;
+				removeWaitListbtn.Visibility = ViewStates.Gone;
 			}
 		}
 
-		private async void Refresh(int workshopID)
+		private async void Refresh(int workshopID, string studentID)
 		{
-			var response = await ServiceHelper.Workshop.GetWorkshop(workshopID);
-			if (response.IsSuccess)
+			var workshopResponse = await ServiceHelper.Workshop.GetWorkshop(workshopID);
+			if (workshopResponse.IsSuccess)
 			{
-				workshop = response.Results;
+				workshop = workshopResponse.Results;
 				if (workshop.Count == 0)
 				{
 					workshopBookingProgressBar.Visibility = ViewStates.Visible;
@@ -122,7 +134,7 @@ namespace UTSHelps.Droid
 				else
 				{
 					workshopBookingProgressBar.Visibility = ViewStates.Gone;
-					SetView();
+					SetView(workshopID,studentID);
 					lnrWorkshopDetails.Visibility = ViewStates.Visible;
 				}
 			}
@@ -141,9 +153,17 @@ namespace UTSHelps.Droid
 			}
 		}
 
-		void AddWaitListbtn_Click(object sender, EventArgs e)
+		async void AddWaitListbtn_Click(object sender, EventArgs e)
 		{
-
+			var response = await ServiceHelper.Workshop.CreateWorkshopWaiting(workshopId, studentId);
+			if (response.IsSuccess)
+			{
+				Toast.MakeText(this.Activity, "Added to Waitlist", ToastLength.Short).Show();
+			}
+			else
+			{
+				DialogHelper.ShowDialog(this.Activity, "Error", response.DisplayMessage);
+			}
 		}
 	}
 }

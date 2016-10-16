@@ -12,4 +12,22 @@
 	<color name="Green_Words">#90DE00</color>
 	<color name="Red_Cancel">#D6000B</color>
 	<color name="Wait_Orange">#FF8C00</color>
+
+	<color name="cat_1">#e91e63</color>
+	<color name="cat_2">#3f51b5</color>
+	<color name="cat_3">#00bcd4</color>
+	<color name="cat_4">#7b1fa2</color>
+	<color name="cat_5">#009688</color>
+	<color name="cat_6">#259b24</color>
+	<color name="cat_7">#03a9f4</color>
+	<color name="cat_8">#8bc34a</color>
+	<color name="cat_9">#673ab7</color>
+	<color name="cat_10">#ffc107</color>
+	<color name="cat_11">#ff9800</color>
+	<color name="cat_12">#00bcd4</color>
+	<color name="cat_13">#5677fc</color>
+	<color name="cat_14">#ff5722</color>
+	<color name="cat_15">#9c27b0</color>
+	<color name="cat_16">#0a7e07</color>
+	<color name="cat_17">#e51c23</color>
 </resources>

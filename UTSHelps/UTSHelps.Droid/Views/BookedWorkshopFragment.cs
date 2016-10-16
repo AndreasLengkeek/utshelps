@@ -112,11 +112,29 @@ namespace UTSHelps.Droid
 			if (response.IsSuccess)
 			{
 				Toast.MakeText(this.Activity, "Cancel successful", ToastLength.Short).Show();
+
+            	var builder = new AlertDialog.Builder(this.Activity);
+				builder.SetMessage("Cancel Successful");
+				builder.SetPositiveButton("Go to My Booking", (senderAlert, args) => {
+					Bundle bundle = new Bundle();
+					bundle.PutString("studentId", studentId);
+					MyBookingsFragment myBooking = new MyBookingsFragment();
+					myBooking.Arguments = bundle;
+					ChangePage(myBooking);
+				});
+				builder.Create().Show();
 			}
 			else
 			{
-				Toast.MakeText(this.Activity, response.DisplayMessage, ToastLength.Short).Show();
+				DialogHelper.ShowDialog(this.Activity, "Error", response.DisplayMessage);
 			}
+		}
+
+		void ChangePage(Fragment fragment)
+		{
+			var trans = FragmentManager.BeginTransaction();
+			trans.Replace(Resource.Id.mainFragmentContainer, fragment, "MyBooking");
+			trans.Commit();
 		}
 	}
 }

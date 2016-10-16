@@ -8,4 +8,5 @@
 	<string name="BookWorkshopBtn">Book this workshop</string>
 	<string name="CancelWorkshopBtn">Cancel this booking</string>
 	<string name="AddToWaitList">Add to waitlist</string>
+	<string name="RemoveWaitList">Remove from waitlist</string>
 </resources>

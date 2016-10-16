@@ -25,7 +25,7 @@ namespace UTSHelps.Shared.Services
                 var results = await response.Content.ReadAsAsync<Response<WorkshopSet>>();
                 return results;
             }
-            
+
             return ResponseHelper.CreateErrorResponse<WorkshopSet>("Could not find workshop sets");
         }
 
@@ -107,5 +107,49 @@ namespace UTSHelps.Shared.Services
             }
             return ResponseHelper.CreateGenericErrorResponse("An unknown error occurred, please try again");
         }
+
+		public async Task<GenericResponse> CreateWorkshopWaiting(int workshopId, string studentId)
+		{
+			if (!IsConnected())
+				return ResponseHelper.CreateGenericErrorResponse("No Network Connection");
+
+			var queryString = "workshopId=" + workshopId + "&studentId=" + studentId + "&userId=" + studentId;
+			var response = await helpsClient.PostAsync("api/workshop/wait/create?" + queryString, null);
+			if (response.IsSuccessStatusCode)
+			{
+				var result = await response.Content.ReadAsAsync<GenericResponse>();
+				return result;
+			}
+
+			return ResponseHelper.CreateGenericErrorResponse("An unknown error occured");
+		}
+
+		public async Task<GenericResponse> GetWaitListCount(int workshopId)
+		{
+			TestConnection();
+
+			var queryString = "workshopId=" + workshopId;
+			var response = await helpsClient.GetAsync("api/workshop/wait/count?" + queryString);
+			if (response.IsSuccessStatusCode)
+			{
+				var result = await response.Content.ReadAsAsync<WaitListCount>();
+				return result;
+			}
+			return ResponseHelper.CreateGenericErrorResponse("Request failed");
+		}
+
+		public async Task<WaitListed> IsWaitListed(int workshopId, string studentId)
+		{
+			TestConnection();
+
+			var queryString = "workshopId=" + workshopId + "&studentId=" + studentId;
+			var response = await helpsClient.GetAsync("api/workshop/wait?" + queryString);
+			if (response.IsSuccessStatusCode)
+			{
+				var result = await response.Content.ReadAsAsync<WaitListed>();
+				return result;
+			}
+			return ResponseHelper.CreateWaitListResponse("Request failed");
+		}
     }
 }

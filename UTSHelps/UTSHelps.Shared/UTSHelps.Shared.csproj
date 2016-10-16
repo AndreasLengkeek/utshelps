@@ -59,6 +59,8 @@
     <Compile Include="Services\MiscService.cs" />
     <Compile Include="Services\StudentService.cs" />
     <Compile Include="Services\WorkshopService.cs" />
+    <Compile Include="Models\WaitListCount.cs" />
+    <Compile Include="Models\WaitListed.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Mono.Android">
