@@ -36,6 +36,10 @@ namespace UTSHelps.Droid
 
         private string subFragment;
 
+        private TextView bookingPageTxt;
+        private TextView addBookingPageTxt;
+        private TextView settingsPageTxt;
+
         protected override int LayoutResource
         {
             get {
@@ -68,9 +72,15 @@ namespace UTSHelps.Droid
 			transaction.Add(Resource.Id.mainFragmentContainer, currentFragment, "MakeBooking_Fragment");
             transaction.Commit();
 
+            bookingPageTxt = FindViewById<TextView>(Resource.Id.txtbookings);
+            addBookingPageTxt = FindViewById<TextView>(Resource.Id.txtAdd);
+            settingsPageTxt = FindViewById<TextView>(Resource.Id.txtsettings);
+
             bookingPage = FindViewById<FontAwesome>(Resource.Id.action_mybookings);
             addBookingPage = FindViewById<FontAwesome>(Resource.Id.action_add);
             settingsPage = FindViewById<FontAwesome>(Resource.Id.action_settings);
+
+            SetInitialMenuHighlight(startPage);
 
             bookingPage.Click += BookingPage_Click;
 			addBookingPage.Click += AddBookingPage_Click;
@@ -81,6 +91,30 @@ namespace UTSHelps.Droid
         {
             subFragment = fragmentName;
             this.SetActionBar(toolbar);
+        }
+
+        private void SetInitialMenuHighlight(string page)
+        {
+            switch (page)
+            {
+                case "MakeBooking":
+                    ChangeMenuHighlight(addBookingPage, addBookingPageTxt);
+                    break;
+                case "Settings":
+                    ChangeMenuHighlight(settingsPage, settingsPageTxt);
+                    break;
+                default:
+                    ChangeMenuHighlight(bookingPage, bookingPageTxt);
+                    break;
+            }
+        }
+
+        private void ChangeMenuHighlight(FontAwesome menuIcon, TextView menuText)
+        {
+            ResetMenuIcons();
+
+            menuIcon.SetTextColor(Color.ParseColor("#FFFFFF"));
+            menuText.SetTextColor(Color.ParseColor("#FFFFFF"));
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -95,6 +129,7 @@ namespace UTSHelps.Droid
             }
             return base.OnCreateOptionsMenu(menu);
         }
+
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             var title = item.TitleFormatted.ToString();
@@ -132,7 +167,7 @@ namespace UTSHelps.Droid
                 }
                 else
                 {
-                    DialogHelper.ShowDialog(this, "Cannot add notes", response.DisplayMessage)
+                    DialogHelper.ShowDialog(this, "Cannot add notes", response.DisplayMessage);
                 }
             } else
             {
