@@ -172,9 +172,9 @@ namespace UTSHelps.Droid
 			builder.SetView(view);
 			builder.SetTitle("Add Notification");
 			builder.SetPositiveButton("OK", (sender, e) => {
-				RadioButton mins30radio = view.FindViewById<RadioButton>(Resource.Id.Minute30Radio);
-				RadioButton day1radio = view.FindViewById<RadioButton>(Resource.Id.Day1Radio);
-				RadioButton week1radio = view.FindViewById<RadioButton>(Resource.Id.Week1Radio);
+				//RadioButton mins30radio = view.FindViewById<RadioButton>(Resource.Id.Minute30Radio);
+				//RadioButton day1radio = view.FindViewById<RadioButton>(Resource.Id.Day1Radio);
+				//RadioButton week1radio = view.FindViewById<RadioButton>(Resource.Id.Week1Radio);
 				//add calendar function here
 			});
 			builder.SetNegativeButton("Cancel", (sender, e) => {
