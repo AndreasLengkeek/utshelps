@@ -88,7 +88,7 @@ namespace UTSHelps.Shared.Services
             return ResponseHelper.CreateGenericErrorResponse("An unknown error occured");
         }
 
-        public async Task<GenericResponse> AddNotes(int workshopId, string studentId, string notes)
+        public async Task<GenericResponse> AddNotes(int workshopId, string studentId, string notes, string attendanceCode = null)
         {
             if (!IsConnected())
                 return ResponseHelper.CreateGenericErrorResponse("No Network Connection");
@@ -97,6 +97,7 @@ namespace UTSHelps.Shared.Services
                 workshopId = workshopId,
                 studentId = studentId,
                 userId = studentId,
+                attended = attendanceCode != null ? 1 : 0,
                 notes = notes
             };
             var response = await helpsClient.PutAsJsonAsync("api/workshop/booking/update", request);

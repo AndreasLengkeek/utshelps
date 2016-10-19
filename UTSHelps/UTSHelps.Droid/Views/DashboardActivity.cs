@@ -117,6 +117,14 @@ namespace UTSHelps.Droid
                 builder.SetNegativeButton("Cancel", (sender, e) => { });
                 builder.Show();
             }
+            else if (title == "Record attendance")
+            {
+                var dialogLayout = Resource.Layout.AlertDialog_RecordAttendance;
+                var builder = DialogHelper.CreateCustomViewDialog(this, "Record attendance", LayoutInflater, dialogLayout);
+                builder.SetPositiveButton("Submit", RecordAttendance);
+                builder.SetNegativeButton("Cancel", (sender, e) => { });
+                builder.Show();
+            }
             else
             {
                 Toast.MakeText(this, "Action selected: " + item.TitleFormatted,
@@ -125,11 +133,46 @@ namespace UTSHelps.Droid
             return base.OnOptionsItemSelected(item);
         }
 
-        async void AddNote(object sender, DialogClickEventArgs e)
+        private async void RecordAttendance(object sender, DialogClickEventArgs e)
+        {
+            int workshopId;
+            string studentId;
+            GetIdsFromPref(out workshopId, out studentId);
+
+            var dialog = (AlertDialog)sender;
+            var attendanceCode = dialog.FindViewById<EditText>(Resource.Id.txtEnterPin).Text;
+
+            if (workshopId != 0 && studentId != null)
+            {
+                var response = await ServiceHelper.Workshop.AddNotes(workshopId, studentId, null, attendanceCode);
+                if (response.IsSuccess)
+                {
+                    Toast.MakeText(this, "Attendace has been recorded", ToastLength.Long).Show();
+                }
+                else
+                {
+                    DialogHelper.ShowDialog(this, "Cannot record attendance", response.DisplayMessage);
+                }
+            }
+            else
+            {
+
+                Toast.MakeText(this, "An unexpected error occured please try again later", ToastLength.Long).Show();
+            }
+        }
+
+        private void GetIdsFromPref(out int workshopId, out string studentId)
         {
             ISharedPreferences eprefs = this.GetSharedPreferences("MisPreferencias", FileCreationMode.Private);
-            var workshopId = eprefs.GetInt("workshopId", 0);
-            var studentId = eprefs.GetString("studentId", null);
+            workshopId = eprefs.GetInt("workshopId", 0);
+            studentId = eprefs.GetString("studentId", null);
+        }
+
+        async void AddNote(object sender, DialogClickEventArgs e)
+        {
+            int workshopId;
+            string studentId;
+            GetIdsFromPref(out workshopId, out studentId);
 
             var dialog = (AlertDialog)sender;
             var notes = dialog.FindViewById<EditText>(Resource.Id.txtAddNote);
@@ -196,6 +239,10 @@ namespace UTSHelps.Droid
             bookingPage.SetTextColor(Color.ParseColor("#B3FFFFFF"));
             addBookingPage.SetTextColor(Color.ParseColor("#B3FFFFFF"));
             settingsPage.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+
+            bookingPageTxt.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+            addBookingPageTxt.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+            settingsPageTxt.SetTextColor(Color.ParseColor("#B3FFFFFF"));
         }
 
         void BookingPage_Click(object sender, EventArgs e)

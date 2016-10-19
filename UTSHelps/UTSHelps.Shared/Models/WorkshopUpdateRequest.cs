@@ -12,5 +12,6 @@ namespace UTSHelps.Shared.Models
         public string studentId { get; set; }
         public string userId { get; set; }
         public string notes { get; set; }
+        public int attended { get; set; }
     }
 }
