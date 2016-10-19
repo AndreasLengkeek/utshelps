@@ -79,6 +79,8 @@
     <Compile Include="Views\StudentDetailsActivity.cs" />
     <Compile Include="Views\BookedWorkshopFragment.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
+    <Compile Include="Views\FragmentCurrentBooking.cs" />
+    <Compile Include="Views\FragmentPastBooking.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -129,6 +131,8 @@
     <AndroidResource Include="Resources\drawable\calender.png" />
     <AndroidResource Include="Resources\values\text_size.xml" />
     <AndroidResource Include="Resources\layout\Fragment_BookedWorkshop.axml" />
+    <AndroidResource Include="Resources\layout\Fragment_CurrentBooking.axml" />
+    <AndroidResource Include="Resources\layout\Fragment_PastBooking.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />

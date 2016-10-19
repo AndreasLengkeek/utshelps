@@ -3,46 +3,62 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ScrollView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="?android:attr/actionBarSize"
+        android:weightSum="100"
+        android:background="@color/background">
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/currentBookingTab"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="50"
+            android:weightSum="100"
+            android:orientation="vertical">
             <TextView
-                android:text="Current Bookings"
+                android:text="@string/CurrentBooking"
+                android:id="@+id/currentTxt"
+                android:textSize="20dp"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="30sp"
-                android:paddingLeft="10sp"
-                android:textSize="@dimen/material_text_title" />
-            <ListView
-                android:id="@+id/lstCurrentBooking"
+                android:layout_height="0dp"
+                android:layout_weight="96"
+                android:gravity="center" />
+            <View
+                android:id="@+id/currentTabSignifier"
                 android:layout_width="match_parent"
-                android:layout_height="400dp" />
-            <TextView
-                android:text="Past Booking"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/material_text_title"
-                android:paddingTop="30sp"
-                android:paddingLeft="10sp" />
-            <ListView
-                android:id="@+id/lstPastBooking"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:background="@color/white" />
         </LinearLayout>
-    </ScrollView>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:id="@+id/mybooking_progress"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/pastBookingTab"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="50"
+            android:weightSum="100"
+            android:orientation="vertical">
+            <TextView
+                android:text="@string/PastBooking"
+                android:id="@+id/pastTxt"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="96"
+                android:gravity="center" />
+            <View
+                android:id="@+id/pastTabSignifier"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:background="@color/white"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/myBookingFragment"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" />
 </LinearLayout>

@@ -13,17 +13,21 @@ using Android.Widget;
 using UTSHelps.Droid.Helpers;
 using System.Threading.Tasks;
 using UTSHelps.Shared.Models;
+using Android.Graphics;
 
 namespace UTSHelps.Droid
 {
     public class MyBookingsFragment : Fragment
     {
-		private List<Booking> mBookingWorkshops = new List<Booking>();
-		private ListView bookingListView;
-		private BookingsAdapter adapter;
 		private string studentId;
-		private ProgressBar mBookingProgress;
-		private BookedWorkshopFragment bookedFragment;
+		private FragmentCurrentBooking currentBooking;
+		private FragmentPastBooking pastBooking;
+		private LinearLayout currentBookingLayout;
+		private LinearLayout pastBookingLayout;
+		private View currentSignifier;
+		private View pastSignifier;
+		private TextView current;
+		private TextView past;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,44 +40,70 @@ namespace UTSHelps.Droid
             View view = inflater.Inflate(Resource.Layout.Fragment_MyBookings, container, false);
 
             this.Activity.ActionBar.Title = "My Bookings";
+			Bundle bundle = new Bundle();
+			bundle.PutString("studentId", studentId);
 
-            mBookingProgress = view.FindViewById<ProgressBar>(Resource.Id.mybooking_progress);
-			mBookingProgress.Visibility = ViewStates.Visible;
-			Refresh(studentId);
+			currentBooking = new FragmentCurrentBooking();
+			currentBooking.Arguments = bundle;
+			pastBooking = new FragmentPastBooking();
+			pastBooking.Arguments = bundle;
 
-			bookingListView = view.FindViewById<ListView>(Resource.Id.lstCurrentBooking);
+			currentBookingLayout = view.FindViewById<LinearLayout>(Resource.Id.currentBookingTab);
+			pastBookingLayout = view.FindViewById<LinearLayout>(Resource.Id.pastBookingTab);
+			currentSignifier = view.FindViewById<View>(Resource.Id.currentTabSignifier);
+			pastSignifier = view.FindViewById<View>(Resource.Id.pastTabSignifier);
+			current = view.FindViewById<TextView>(Resource.Id.currentTxt);
+			past = view.FindViewById<TextView>(Resource.Id.pastTxt);
 
-			adapter = new BookingsAdapter(this.Activity, mBookingWorkshops);
-			bookingListView.Adapter = adapter;
+			var trans = FragmentManager.BeginTransaction();
+			trans.Add(Resource.Id.myBookingFragment, currentBooking, "Current Booking");
+			past.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+			current.SetTextColor(Color.ParseColor("#FFFFFF"));
+			trans.Commit();
 
-			bookingListView.ItemClick += BookingListView_ItemClick;
+			currentBookingLayout.Click += CurrentBookingLayout_Click;
+			pastBookingLayout.Click += PastBookingLayout_Click;
 
             return view;
         }
+
+		void CurrentBookingLayout_Click(object sender, EventArgs e)
+		{
+			currentSignifier.Visibility = ViewStates.Visible;
+			pastSignifier.Visibility = ViewStates.Gone;
+
+			past.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+			current.SetTextColor(Color.ParseColor("#FFFFFF"));
+
+			var trans = FragmentManager.BeginTransaction();
+			trans.Replace(Resource.Id.myBookingFragment, currentBooking, "Current Booking");
+			trans.Commit();
+		}
+
+		void PastBookingLayout_Click(object sender, EventArgs e)
+		{
+			currentSignifier.Visibility = ViewStates.Gone;
+			pastSignifier.Visibility = ViewStates.Visible;
+
+			current.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+			past.SetTextColor(Color.ParseColor("#FFFFFF"));
+
+			var trans = FragmentManager.BeginTransaction();
+			trans.Replace(Resource.Id.myBookingFragment, pastBooking, "Past Booking");
+			trans.Commit();
+		}
 
 		void BookingListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
 		{
 			Bundle args = new Bundle();
 			args.PutString("studentId", studentId);
-			args.PutInt("workshopId", mBookingWorkshops[e.Position].workshopId);
-
-			bookedFragment = new BookedWorkshopFragment();
+			BookedWorkshopFragment bookedFragment = new BookedWorkshopFragment();
 			bookedFragment.Arguments = args;
+
 			var trans = FragmentManager.BeginTransaction();
 			trans.Replace(Resource.Id.mainFragmentContainer, bookedFragment, "BookedFragment");
 			trans.AddToBackStack(null);
 			trans.Commit();
-		}
-
-		private async void Refresh(string studentId)
-		{
-			var response = await ServiceHelper.Booking.GetBookings(studentId);
-			if (response.IsSuccess)
-			{
-				mBookingWorkshops = response.Results;
-				adapter.SwapItems(mBookingWorkshops);
-				mBookingProgress.Visibility = ViewStates.Gone;
-			}
 		}
     }
 }
