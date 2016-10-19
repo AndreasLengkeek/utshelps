@@ -77,6 +77,7 @@ namespace UTSHelps.Droid
 
 			var trans = FragmentManager.BeginTransaction();
 			trans.Replace(Resource.Id.myBookingFragment, currentBooking, "Current Booking");
+			trans.AddToBackStack(null);
 			trans.Commit();
 		}
 
@@ -90,6 +91,7 @@ namespace UTSHelps.Droid
 
 			var trans = FragmentManager.BeginTransaction();
 			trans.Replace(Resource.Id.myBookingFragment, pastBooking, "Past Booking");
+			trans.AddToBackStack(null);
 			trans.Commit();
 		}
 
