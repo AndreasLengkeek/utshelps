@@ -56,4 +56,14 @@
         android:requiresFadingEdge="horizontal"
         android:fadingEdge="none"
         android:shadowColor="#ffffffff" />
+    <TextView
+        android:text="Click here to go back to the login screen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/regLoginBackTxt"
+        android:textSize="@dimen/material_text_subhead"
+        android:textColor="@color/white"
+        android:layout_marginTop="50sp"
+        android:onClick="LoginBack" />
 </LinearLayout>

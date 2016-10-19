@@ -40,5 +40,12 @@ namespace UTSHelps.Droid
             intent.PutExtra("studentId", studentId);
             this.StartActivity(intent);
         }
+
+        [Java.Interop.Export()]
+        public void LoginBack(View view)
+        {
+            var intent = new Intent(this, typeof(LoginActivity));
+            this.StartActivity(intent);
+        }
     }
 }
