@@ -89,16 +89,29 @@ namespace UTSHelps.Droid
         void BookingPage_Click(object sender, EventArgs e)
 		{
             ReplaceFragment(myBookings);
+            ResetMenuIcons();
+            bookingPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
         }
 
-		void AddBookingPage_Click(object sender, EventArgs e)
+        private void ResetMenuIcons()
+        {
+            bookingPage.SetTextColor(Color.ParseColor("#FFFFFF"));
+            addBookingPage.SetTextColor(Color.ParseColor("#FFFFFF"));
+            settingsPage.SetTextColor(Color.ParseColor("#FFFFFF"));
+        }
+
+        void AddBookingPage_Click(object sender, EventArgs e)
 		{
 			ReplaceFragment(makeBooking);
+            ResetMenuIcons();
+            addBookingPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
         }
 
 		void SettingsPage_Click(object sender, EventArgs e)
 		{
 			ReplaceFragment(settings);
+            ResetMenuIcons();
+            settingsPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
         }
 
         private void ReplaceFragment(Fragment selectedFragment)
