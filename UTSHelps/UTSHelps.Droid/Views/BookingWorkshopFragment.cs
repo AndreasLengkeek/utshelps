@@ -170,7 +170,7 @@ namespace UTSHelps.Droid
 		{
 			var builder = new AlertDialog.Builder(this.Activity);
 			LayoutInflater inflater = this.Activity.LayoutInflater;
-			View view = inflater.Inflate(Resource.Layout.dialog_notifications, null, false);
+			View view = inflater.Inflate(Resource.Layout.AlertDialog_notifications, null, false);
 			builder.SetView(view);
 			builder.SetTitle("Add Notification");
 			builder.SetPositiveButton("OK", (sender, e) => {
