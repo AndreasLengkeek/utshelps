@@ -30,11 +30,12 @@
                 android:layout_marginTop="5dp">
                 <UTSHelps.Droid.Helpers.FontAwesome
                     android:id="@+id/searchDropDownIcon"
-                    android:text="@string/fa_angle_down"
+                    android:text="@string/fa_search_plus"
                     android:textColor="@color/Text"
                     android:textSize="@dimen/material_text_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent"
+                    android:gravity="center" />
             </LinearLayout>
         </RelativeLayout>
         <LinearLayout
@@ -43,74 +44,125 @@
             android:id="@+id/searchDropdown"
             android:visibility="gone"
             android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/searchTopic"
-                android:hint="Topic"
-                android:textSize="@dimen/material_text_body1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
             <LinearLayout
-                android:paddingRight="5dp"
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:orientation="vertical">
-                <TextView
-                    android:hint="Date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Mon, 10 Oct 2016"
-                    android:id="@+id/searchDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
-                    android:onClick="EditDate" />
-                <RelativeLayout
-                    android:minWidth="25px"
-                    android:minHeight="25px"
-                    android:layout_width="match_parent"
-                    android:layout_height="1.5dp"
-                    android:id="@+id/relativeLayout1"
-                    android:background="#999"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp" />
+                android:id="@+id/linearLayout1">
+                <UTSHelps.Droid.Helpers.FontAwesome
+                    android:id="@+id/clock_icon"
+                    android:layout_height="match_parent"
+                    android:layout_width="10sp"
+                    android:clickable="true"
+                    android:textColor="@color/Text_Gray"
+                    android:gravity="center"
+                    android:text="@string/fa_lightbulb_o"
+                    android:layout_marginRight="5sp"
+                    android:visibility="visible"
+                    android:layout_marginLeft="10sp" />
+                <EditText
+                    android:id="@+id/searchTopic"
+                    android:hint="Topic"
+                    android:textSize="@dimen/material_text_body1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10sp" />
             </LinearLayout>
-            <EditText
-                android:id="@+id/searchCampus"
-                android:hint="Campus"
-                android:textSize="@dimen/material_text_body1"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout4">
+                <UTSHelps.Droid.Helpers.FontAwesome
+                    android:id="@+id/clock_icon"
+                    android:layout_height="match_parent"
+                    android:layout_width="10sp"
+                    android:clickable="true"
+                    android:textColor="@color/Text_Gray"
+                    android:gravity="center"
+                    android:text="@string/fa_calendar_o"
+                    android:layout_marginRight="5sp"
+                    android:visibility="visible"
+                    android:layout_marginLeft="10sp" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Mon, 10 Oct 2016"
+                        android:id="@+id/searchDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="3dp"
+                        android:onClick="EditDate" />
+                    <RelativeLayout
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+                        android:id="@+id/relativeLayout1"
+                        android:background="#999"
+                        android:layout_marginRight="10sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout7">
+                <UTSHelps.Droid.Helpers.FontAwesome
+                    android:id="@+id/clock_icon"
+                    android:layout_height="match_parent"
+                    android:layout_width="10sp"
+                    android:clickable="true"
+                    android:textColor="@color/Text_Gray"
+                    android:gravity="center"
+                    android:text="@string/fa_map_marker"
+                    android:layout_marginRight="5sp"
+                    android:visibility="visible"
+                    android:layout_marginLeft="10sp" />
+                <EditText
+                    android:id="@+id/searchCampus"
+                    android:hint="Campus"
+                    android:textSize="@dimen/material_text_body1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10sp" />
+            </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/relativeLayout2">
                 <Button
                     android:id="@+id/btnWorkshopSearch"
                     android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/material_text_body1"
-                    android:text="Search..." />
+                    android:text="Search"
+                    android:background="@drawable/rounded_red_button"
+                    android:textColor="@color/white"
+                    android:layout_marginRight="10sp" />
             </RelativeLayout>
         </LinearLayout>
-    </LinearLayout>
-    <ListView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/lstSessions" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
+        <ListView
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:id="@+id/session_progress"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+            android:layout_width="match_parent"
+            android:id="@+id/lstSessions" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/session_progress"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

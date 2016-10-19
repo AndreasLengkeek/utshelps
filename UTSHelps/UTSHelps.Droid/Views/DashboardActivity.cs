@@ -295,12 +295,12 @@ namespace UTSHelps.Droid
 
             if (searchItems.Visibility == ViewStates.Visible)
             {
-                searchIcon.Text = Resources.GetString(Resource.String.fa_angle_down);
+                searchIcon.Text = Resources.GetString(Resource.String.fa_search_plus);
                 searchItems.Visibility = ViewStates.Gone;
             }
             else
             {
-                searchIcon.Text = Resources.GetString(Resource.String.fa_angle_up);
+                searchIcon.Text = Resources.GetString(Resource.String.fa_search_minus);
                 searchItems.Visibility = ViewStates.Visible;
             }
         }
