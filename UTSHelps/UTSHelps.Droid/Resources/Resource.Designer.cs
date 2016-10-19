@@ -467,17 +467,17 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090001
 			public const int main_content = 2131296257;
 			
+			// aapt resource value: 0x7f09008b
+			public const int menu_add = 2131296395;
+			
 			// aapt resource value: 0x7f09008a
-			public const int menu_add = 2131296394;
+			public const int menu_bookings = 2131296394;
 			
 			// aapt resource value: 0x7f090089
-			public const int menu_bookings = 2131296393;
+			public const int menu_preferences = 2131296393;
 			
 			// aapt resource value: 0x7f09008c
-			public const int menu_edit = 2131296396;
-			
-			// aapt resource value: 0x7f09008b
-			public const int menu_settings = 2131296395;
+			public const int menu_settings = 2131296396;
 			
 			// aapt resource value: 0x7f090022
 			public const int month = 2131296290;
@@ -812,10 +812,10 @@ namespace UTSHelps.Droid
 		{
 			
 			// aapt resource value: 0x7f080000
-			public const int edit_menus = 2131230720;
+			public const int booking_menu = 2131230720;
 			
 			// aapt resource value: 0x7f080001
-			public const int top_menus = 2131230721;
+			public const int edit_menus = 2131230721;
 			
 			static Menu()
 			{

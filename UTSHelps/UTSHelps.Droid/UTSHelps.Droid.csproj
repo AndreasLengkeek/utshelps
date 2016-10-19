@@ -222,7 +222,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_menu_search_holo_dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\menu\top_menus.xml" />
+    <AndroidResource Include="Resources\menu\booking_menu.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\edit_menus.xml" />

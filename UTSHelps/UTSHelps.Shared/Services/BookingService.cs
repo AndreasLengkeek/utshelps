@@ -15,9 +15,24 @@ namespace UTSHelps.Shared.Services
         {
         }
 
-        public async Task<Response<Booking>> GetBookings(string studentId)
+        public async Task<Response<Booking>> GetBookings(string studentId, bool? current = null)
         {
             var queryString = "studentId=" + studentId + "&active=true";
+
+            if (current.HasValue)
+            {
+                if (current.Value)
+                {
+                    queryString += "&startingDtBegin=" + DateTime.Now.ToString(DateFormat) + "&startingDtEnd=" +
+                                   DateTime.MaxValue.AddMonths(-1).ToString(DateFormat);
+                }
+                else
+                {
+                    queryString += "&startingDtBegin=" + DateTime.MinValue.AddYears(2000).ToString(DateFormat) +
+                                   "&startingDtEnd=" + DateTime.Now.ToString(DateFormat);
+                }
+            }
+
             var response = await helpsClient.GetAsync("api/workshop/booking/search?" + queryString);
             if (response.IsSuccessStatusCode)
             {
