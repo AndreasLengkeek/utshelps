@@ -93,30 +93,6 @@ namespace UTSHelps.Droid
             this.SetActionBar(toolbar);
         }
 
-        private void SetInitialMenuHighlight(string page)
-        {
-            switch (page)
-            {
-                case "MakeBooking":
-                    ChangeMenuHighlight(addBookingPage, addBookingPageTxt);
-                    break;
-                case "Settings":
-                    ChangeMenuHighlight(settingsPage, settingsPageTxt);
-                    break;
-                default:
-                    ChangeMenuHighlight(bookingPage, bookingPageTxt);
-                    break;
-            }
-        }
-
-        private void ChangeMenuHighlight(FontAwesome menuIcon, TextView menuText)
-        {
-            ResetMenuIcons();
-
-            menuIcon.SetTextColor(Color.ParseColor("#FFFFFF"));
-            menuText.SetTextColor(Color.ParseColor("#FFFFFF"));
-        }
-
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             if (subFragment == "Booked")
@@ -191,32 +167,52 @@ namespace UTSHelps.Droid
             }
         }
 
-        void BookingPage_Click(object sender, EventArgs e)
-		{
-            ReplaceFragment(myBookings);
+        private void SetInitialMenuHighlight(string page)
+        {
+            switch (page)
+            {
+                case "MakeBooking":
+                    ChangeMenuHighlight(addBookingPage, addBookingPageTxt);
+                    break;
+                case "Settings":
+                    ChangeMenuHighlight(settingsPage, settingsPageTxt);
+                    break;
+                default:
+                    ChangeMenuHighlight(bookingPage, bookingPageTxt);
+                    break;
+            }
+        }
+
+        private void ChangeMenuHighlight(FontAwesome menuIcon, TextView menuText)
+        {
             ResetMenuIcons();
-            bookingPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
+
+            menuIcon.SetTextColor(Color.ParseColor("#FFFFFF"));
+            menuText.SetTextColor(Color.ParseColor("#FFFFFF"));
         }
 
         private void ResetMenuIcons()
         {
-            bookingPage.SetTextColor(Color.ParseColor("#FFFFFF"));
-            addBookingPage.SetTextColor(Color.ParseColor("#FFFFFF"));
-            settingsPage.SetTextColor(Color.ParseColor("#FFFFFF"));
+            bookingPage.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+            addBookingPage.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+            settingsPage.SetTextColor(Color.ParseColor("#B3FFFFFF"));
         }
 
+        void BookingPage_Click(object sender, EventArgs e)
+		{
+            ReplaceFragment(myBookings);
+            ChangeMenuHighlight(bookingPage, bookingPageTxt);
+        }
         void AddBookingPage_Click(object sender, EventArgs e)
-		{
-			ReplaceFragment(makeBooking);
-            ResetMenuIcons();
-            addBookingPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
+        {
+            ReplaceFragment(makeBooking);
+            ChangeMenuHighlight(addBookingPage, addBookingPageTxt);
         }
 
-		void SettingsPage_Click(object sender, EventArgs e)
-		{
-			ReplaceFragment(settings);
-            ResetMenuIcons();
-            settingsPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
+        void SettingsPage_Click(object sender, EventArgs e)
+        {
+            ReplaceFragment(settings);
+            ChangeMenuHighlight(settingsPage, settingsPageTxt);
         }
 
         private void ReplaceFragment(Fragment selectedFragment)
