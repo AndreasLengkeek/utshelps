@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/lnrBookingDetails"
         android:layout_below="@id/toolbar"
-        android:visibility="gone">
+        android:visibility="visible">
         <TextView
             android:id="@+id/workshopName"
             android:layout_width="match_parent"
@@ -42,10 +42,10 @@
                 android:text="Date:"
                 android:layout_height="wrap_content"
                 android:layout_width="0dp"
-                android:layout_weight="40"
                 android:textColor="@color/Green_Words"
                 android:layout_marginLeft="5dp"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_weight="30" />
             <TextView
                 android:id="@+id/workshopDate"
                 android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             android:weightSum="100"
             android:id="@+id/lnrTime"
             android:layout_below="@+id/lnrDate">
-          <UTSHelps.Droid.Helpers.FontAwesome
+            <UTSHelps.Droid.Helpers.FontAwesome
                 android:id="@+id/time_icon"
                 android:layout_height="wrap_content"
                 android:layout_width="30sp"
@@ -78,7 +78,7 @@
                 android:text="Time:"
                 android:layout_height="wrap_content"
                 android:layout_width="0dp"
-                android:layout_weight="40"
+                android:layout_weight="30"
                 android:textColor="@color/Green_Words"
                 android:textSize="18sp"
                 android:layout_marginLeft="5dp" />
@@ -100,7 +100,7 @@
             android:weightSum="100"
             android:id="@+id/lnrLocation"
             android:layout_below="@+id/lnrTime">
-          <UTSHelps.Droid.Helpers.FontAwesome
+            <UTSHelps.Droid.Helpers.FontAwesome
                 android:id="@+id/location_icon"
                 android:layout_height="wrap_content"
                 android:layout_width="30sp"
@@ -114,7 +114,7 @@
                 android:text="Location:"
                 android:layout_height="wrap_content"
                 android:layout_width="0dp"
-                android:layout_weight="40"
+                android:layout_weight="30"
                 android:textColor="@color/Green_Words"
                 android:textSize="18sp"
                 android:layout_marginLeft="5dp" />
@@ -136,7 +136,7 @@
             android:weightSum="100"
             android:id="@+id/lnrPlaces"
             android:layout_below="@+id/lnrLocation">
-          <UTSHelps.Droid.Helpers.FontAwesome
+            <UTSHelps.Droid.Helpers.FontAwesome
                 android:id="@+id/places_icon"
                 android:layout_height="wrap_content"
                 android:layout_width="30sp"
@@ -150,7 +150,7 @@
                 android:text="Places:"
                 android:layout_height="wrap_content"
                 android:layout_width="0dp"
-                android:layout_weight="40"
+                android:layout_weight="30"
                 android:textColor="@color/Green_Words"
                 android:textSize="18sp"
                 android:layout_marginLeft="5dp" />
