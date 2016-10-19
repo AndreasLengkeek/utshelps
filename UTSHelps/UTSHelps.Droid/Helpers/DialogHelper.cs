@@ -33,6 +33,15 @@ namespace UTSHelps.Droid.Helpers
             return progDialog;
         }
 
+        public static AlertDialog.Builder CreateCustomViewDialog(Context context, string title, LayoutInflater inflater, int viewId)
+        {
+            var builder = new AlertDialog.Builder(context);
+            builder.SetTitle("Title");
+            var dialogView = inflater.Inflate(viewId, null);
+            builder.SetView(dialogView);
+            return builder;
+        }
+
         public static DatePickerDialog ShowDatePickerDialog(Context ctx, TextView text)
         {
             try
