@@ -18,6 +18,7 @@
             android:orientation="vertical">
             <TextView
                 android:text="@string/CurrentBooking"
+                android:id="@+id/currentTxt"
                 android:textSize="20dp"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
@@ -40,6 +41,7 @@
             android:orientation="vertical">
             <TextView
                 android:text="@string/PastBooking"
+                android:id="@+id/pastTxt"
                 android:textSize="20dp"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"

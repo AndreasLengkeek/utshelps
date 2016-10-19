@@ -13,19 +13,21 @@ using Android.Widget;
 using UTSHelps.Droid.Helpers;
 using System.Threading.Tasks;
 using UTSHelps.Shared.Models;
+using Android.Graphics;
 
 namespace UTSHelps.Droid
 {
     public class MyBookingsFragment : Fragment
     {
 		private string studentId;
-		private ProgressBar mBookingProgress;
 		private FragmentCurrentBooking currentBooking;
 		private FragmentPastBooking pastBooking;
 		private LinearLayout currentBookingLayout;
 		private LinearLayout pastBookingLayout;
 		private View currentSignifier;
 		private View pastSignifier;
+		private TextView current;
+		private TextView past;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -50,13 +52,17 @@ namespace UTSHelps.Droid
 			pastBookingLayout = view.FindViewById<LinearLayout>(Resource.Id.pastBookingTab);
 			currentSignifier = view.FindViewById<View>(Resource.Id.currentTabSignifier);
 			pastSignifier = view.FindViewById<View>(Resource.Id.pastTabSignifier);
-
-			currentBookingLayout.Click += CurrentBookingLayout_Click;
-			pastBookingLayout.Click += PastBookingLayout_Click;
+			current = view.FindViewById<TextView>(Resource.Id.currentTxt);
+			past = view.FindViewById<TextView>(Resource.Id.pastTxt);
 
 			var trans = FragmentManager.BeginTransaction();
 			trans.Add(Resource.Id.myBookingFragment, currentBooking, "Current Booking");
+			past.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+			current.SetTextColor(Color.ParseColor("#FFFFFF"));
 			trans.Commit();
+
+			currentBookingLayout.Click += CurrentBookingLayout_Click;
+			pastBookingLayout.Click += PastBookingLayout_Click;
 
             return view;
         }
@@ -65,6 +71,9 @@ namespace UTSHelps.Droid
 		{
 			currentSignifier.Visibility = ViewStates.Visible;
 			pastSignifier.Visibility = ViewStates.Gone;
+
+			past.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+			current.SetTextColor(Color.ParseColor("#FFFFFF"));
 
 			var trans = FragmentManager.BeginTransaction();
 			trans.Replace(Resource.Id.myBookingFragment, currentBooking, "Current Booking");
@@ -75,6 +84,9 @@ namespace UTSHelps.Droid
 		{
 			currentSignifier.Visibility = ViewStates.Gone;
 			pastSignifier.Visibility = ViewStates.Visible;
+
+			current.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+			past.SetTextColor(Color.ParseColor("#FFFFFF"));
 
 			var trans = FragmentManager.BeginTransaction();
 			trans.Replace(Resource.Id.myBookingFragment, pastBooking, "Past Booking");
