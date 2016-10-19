@@ -49,7 +49,16 @@ namespace UTSHelps.Droid
 			View view = inflater.Inflate(Resource.Layout.Fragment_BookedWorkshop, container, false);
 			this.Activity.ActionBar.Title = "Booking";
 
-			Refresh(workshopId);
+            ISharedPreferences eprefs = Context.GetSharedPreferences("MisPreferencias", FileCreationMode.Private);
+            var editor = eprefs.Edit();
+            editor.PutInt("workshopId", workshopId);
+            editor.PutString("studentId", studentId);
+            editor.Commit();
+
+            var dashboard = (DashboardActivity)this.Activity;
+            dashboard.SetMenu("Booked");
+
+            Refresh(workshopId);
 
 			txtBookedworkshopName = view.FindViewById<TextView>(Resource.Id.workshopBookedName);
 			txtBookedworkshopDate = view.FindViewById<TextView>(Resource.Id.workshopBookedDate);
@@ -72,7 +81,14 @@ namespace UTSHelps.Droid
 			return view;
 		}
 
-		private void SetView()
+        public override void OnDestroyView()
+        {
+            var dashboard = (DashboardActivity)this.Activity;
+            dashboard.SetMenu("");
+            base.OnDestroyView();
+        }
+
+        private void SetView()
 		{
 			txtBookedworkshopName.Text = workshop[0].topic;
 			txtBookedworkshopDate.Text = workshop[0].StartDate.ToShortDateString() + " - " + workshop[0].EndDate.ToShortDateString();
@@ -84,7 +100,6 @@ namespace UTSHelps.Droid
 			txtBookedworkshopSessionTime.Text = workshop[0].StartDate.ToString("hhtt") + " - " + workshop[0].EndDate.ToString("hhtt");
 			txtBookedworkshopSessionDate.Text = workshop[0].StartDate.ToShortDateString();
 			txtBookedworkshopSessionDay.Text = workshop[0].StartDate.ToString("dddd");
-
 		}
 
 		async void Refresh(int workshopId)

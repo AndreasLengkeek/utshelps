@@ -129,6 +129,9 @@
     <AndroidResource Include="Resources\drawable\calender.png" />
     <AndroidResource Include="Resources\values\text_size.xml" />
     <AndroidResource Include="Resources\layout\Fragment_BookedWorkshop.axml" />
+    <AndroidResource Include="Resources\layout\AlertDialog_AddNotes.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -254,6 +257,9 @@
     <AndroidResource Include="Resources\drawable\rounded_rego_button.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\menu\blank_menu.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
