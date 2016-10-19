@@ -60,6 +60,7 @@ namespace UTSHelps.Droid
 		{
 			Bundle args = new Bundle();
 			args.PutString("studentId", studentId);
+			args.PutInt("workshopId", pastBooking[e.Position].workshopId);
 			bookedFragment = new BookedWorkshopFragment();
 			bookedFragment.Arguments = args;
 

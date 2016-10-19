@@ -146,11 +146,32 @@ namespace UTSHelps.Droid
 			if (response.IsSuccess)
 			{
 				Toast.MakeText(this.Activity, "Booking is Success", ToastLength.Short).Show();
+				SetReminder();
 			}
 			else
 			{
 				DialogHelper.ShowDialog(this.Activity, "Error", response.DisplayMessage);
 			}
+		}
+
+		void SetReminder()
+		{
+			var builder = new AlertDialog.Builder(this.Activity);
+			builder.SetTitle("Booking is successful");
+			builder.SetMessage("Do you want to set a reminder");
+			builder.SetPositiveButton("Yes", (sender, args) =>
+			{
+				SetReminderConfirmation();
+			});
+			builder.SetNegativeButton("No", (sender, args) => {
+				
+			});
+			builder.Create().Show();
+		}
+
+		void SetReminderConfirmation()
+		{
+			
 		}
 
 		async void AddWaitListbtn_Click(object sender, EventArgs e)
@@ -159,9 +180,9 @@ namespace UTSHelps.Droid
 			if (waitListCountResponse.IsSuccess)
 			{
 				var builder = new AlertDialog.Builder(this.Activity);
-				builder.SetMessage("Your wait list number is #" + (waitListCountResponse.Count+1) );
+				builder.SetMessage("There is " + waitListCountResponse.Count + "in the waiting list" );
 				builder.SetTitle("Do you want to continue");
-				builder.SetPositiveButton("Ok", (senderAlert, args) => {
+				builder.SetPositiveButton("OK", (senderAlert, args) => {
 					AddWaitList();
 				});
 				builder.SetNegativeButton("Cancel", (senderAlert, args) =>{

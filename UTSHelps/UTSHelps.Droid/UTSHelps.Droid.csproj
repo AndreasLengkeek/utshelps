@@ -133,6 +133,7 @@
     <AndroidResource Include="Resources\layout\Fragment_BookedWorkshop.axml" />
     <AndroidResource Include="Resources\layout\Fragment_CurrentBooking.axml" />
     <AndroidResource Include="Resources\layout\Fragment_PastBooking.axml" />
+    <AndroidResource Include="Resources\layout\dialog_notifications.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
