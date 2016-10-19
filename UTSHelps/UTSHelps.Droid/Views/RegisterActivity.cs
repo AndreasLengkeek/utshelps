@@ -24,9 +24,7 @@ namespace UTSHelps.Droid
 
         private TextView prefName;
         private TextView altContact;
-        private TextView date;
-        private TextView month;
-        private TextView year;
+        private TextView dob;
         private Spinner country;
         private Spinner language;
         private RadioGroup status;
@@ -53,9 +51,7 @@ namespace UTSHelps.Droid
         {
             prefName = FindViewById<TextView>(Resource.Id.rego2PreferredFIrstName);
             altContact = FindViewById<TextView>(Resource.Id.Rego2BestContactNo);
-            date = FindViewById<TextView>(Resource.Id.regDobDate);
-            month = FindViewById<TextView>(Resource.Id.regDobMonth);
-            year = FindViewById<TextView>(Resource.Id.regDobYear);
+            dob = FindViewById<TextView>(Resource.Id.regDobTxt);
             country = FindViewById<Spinner>(Resource.Id.regCountrySpinner);
             language = FindViewById<Spinner>(Resource.Id.regLanguageSpinner);
             status = FindViewById<RadioGroup>(Resource.Id.regStatusRadioGroup);
@@ -163,15 +159,18 @@ namespace UTSHelps.Droid
 
         private RegisterRequest ParseView()
         {
-            var birthDate = GetBirthDate(date, month, year);
             var statusSelected = FindViewById<RadioButton>(status.CheckedRadioButtonId);
             var degreeSelected = FindViewById<RadioButton>(degree.CheckedRadioButtonId);
             var genderSelected = FindViewById<RadioButton>(gender.CheckedRadioButtonId);
+
+            
 
             if (BlankData())
             {
                 return null;
             }
+
+            var birthDate = ParseDate(dob.Text);
 
             var newStudent = new RegisterRequest {
                 StudentId = studentId,
@@ -188,10 +187,15 @@ namespace UTSHelps.Droid
             return newStudent;
         }
 
+        private DateTime ParseDate(string date)
+        {
+            return DateTime.ParseExact(date, "ddd, dd MMM yyyy", CultureInfo.InvariantCulture);
+        }
+
         private bool BlankData()
         {
             return String.IsNullOrEmpty(prefName.Text) || String.IsNullOrEmpty(altContact.Text)
-                || String.IsNullOrEmpty(date.Text) || String.IsNullOrEmpty(month.Text) || String.IsNullOrEmpty(year.Text);
+                || String.IsNullOrEmpty(dob.Text) || dob.Text.Contains("Click here to select your DOB...");
         }
     }
 }
