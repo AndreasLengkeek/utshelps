@@ -29,6 +29,10 @@ namespace UTSHelps.Droid
         private FontAwesome bookingPage;
         private FontAwesome addBookingPage;
         private FontAwesome settingsPage;
+        
+        private TextView bookingPageTxt;
+        private TextView addBookingPageTxt;
+        private TextView settingsPageTxt;
 
         private Fragment currentFragment;
 
@@ -68,9 +72,31 @@ namespace UTSHelps.Droid
             addBookingPage = FindViewById<FontAwesome>(Resource.Id.action_add);
             settingsPage = FindViewById<FontAwesome>(Resource.Id.action_settings);
 
+            bookingPageTxt = FindViewById<TextView>(Resource.Id.txtbookings);
+            addBookingPageTxt = FindViewById<TextView>(Resource.Id.txtAdd);
+            settingsPageTxt = FindViewById<TextView>(Resource.Id.txtsettings);
+
+            SetInitialMenuHighlight(startPage);
+
             bookingPage.Click += BookingPage_Click;
 			addBookingPage.Click += AddBookingPage_Click;
 			settingsPage.Click += SettingsPage_Click;
+        }
+
+        private void SetInitialMenuHighlight(string page)
+        {
+            switch (page)
+            {
+                case "MakeBooking":
+                    ChangeMenuHighlight(addBookingPage, addBookingPageTxt);
+                    break;
+                case "Settings":
+                    ChangeMenuHighlight(settingsPage, settingsPageTxt);
+                    break;
+                default:
+                    ChangeMenuHighlight(bookingPage, bookingPageTxt);
+                    break;
+            }
         }
 
         private Fragment GetStartScreen(string page)
@@ -89,29 +115,39 @@ namespace UTSHelps.Droid
         void BookingPage_Click(object sender, EventArgs e)
 		{
             ReplaceFragment(myBookings);
+            ChangeMenuHighlight(bookingPage, bookingPageTxt);
+        }
+
+        void AddBookingPage_Click(object sender, EventArgs e)
+        {
+            ReplaceFragment(makeBooking);
+            ChangeMenuHighlight(addBookingPage, addBookingPageTxt);
+        }
+
+        void SettingsPage_Click(object sender, EventArgs e)
+        {
+            ReplaceFragment(settings);
+            ChangeMenuHighlight(settingsPage, settingsPageTxt);
+        }
+
+        private void ChangeMenuHighlight(FontAwesome menuIcon, TextView menuText)
+        {
             ResetMenuIcons();
-            bookingPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
+            menuIcon.SetTextColor(Color.ParseColor("#FFFFFF"));
+            menuText.SetTextColor(Color.ParseColor("#FFFFFF"));
         }
 
         private void ResetMenuIcons()
         {
-            bookingPage.SetTextColor(Color.ParseColor("#FFFFFF"));
-            addBookingPage.SetTextColor(Color.ParseColor("#FFFFFF"));
-            settingsPage.SetTextColor(Color.ParseColor("#FFFFFF"));
-        }
-
-        void AddBookingPage_Click(object sender, EventArgs e)
-		{
-			ReplaceFragment(makeBooking);
-            ResetMenuIcons();
+            // Menu icons
+            bookingPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
             addBookingPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
-        }
-
-		void SettingsPage_Click(object sender, EventArgs e)
-		{
-			ReplaceFragment(settings);
-            ResetMenuIcons();
             settingsPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
+
+            // Menu text
+            bookingPageTxt.SetTextColor(Color.ParseColor("#80FFFFFF"));
+            addBookingPageTxt.SetTextColor(Color.ParseColor("#80FFFFFF"));
+            settingsPageTxt.SetTextColor(Color.ParseColor("#80FFFFFF"));
         }
 
         private void ReplaceFragment(Fragment selectedFragment)

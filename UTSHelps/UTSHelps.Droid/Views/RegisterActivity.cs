@@ -128,6 +128,12 @@ namespace UTSHelps.Droid
         }
 
         [Java.Interop.Export()]
+        public void EditDate(View view)
+        {
+            DialogHelper.ShowDatePickerDialog(this, (TextView)view);
+        }
+
+        [Java.Interop.Export()]
         public async void Register(View view)
         {
             var newStudent = ParseView();

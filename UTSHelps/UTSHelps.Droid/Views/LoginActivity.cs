@@ -47,7 +47,7 @@ namespace UTSHelps.Droid
                 return;
             }
 
-            var progress = DialogHelper.CreateProgressDialog("Click me for something amazing", this);
+            var progress = DialogHelper.CreateProgressDialog("Signing in...", this);
             progress.Show();
             var response = (StudentResponse)await ServiceHelper.Student.GetStudent(studentId.Text.ToInt());
             progress.Hide();
