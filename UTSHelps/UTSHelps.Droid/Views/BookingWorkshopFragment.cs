@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using UTSHelps.Shared.Models;
 using UTSHelps.Shared;
 using Android.Provider;
+using Java.Util;
 
 namespace UTSHelps.Droid
 {
@@ -177,11 +178,27 @@ namespace UTSHelps.Droid
 				//RadioButton day1radio = view.FindViewById<RadioButton>(Resource.Id.Day1Radio);
 				//RadioButton week1radio = view.FindViewById<RadioButton>(Resource.Id.Week1Radio);
 				//add calendar function here
+				SetCalendar();
 			});
 			builder.SetNegativeButton("Cancel", (sender, e) => {
 				
 			});
 			builder.Create().Show();
+		}
+
+		void SetCalendar()
+		{
+			ContentValues values = new ContentValues();
+			values.Put(CalendarContract.Events.InterfaceConsts.CalendarId, 1);
+			values.Put(CalendarContract.Events.InterfaceConsts.Dtstart, (long)(workshop[0].StartDate.Date - new DateTime(1970,1,1)).TotalMilliseconds);
+			values.Put(CalendarContract.Events.InterfaceConsts.Dtend, (long)(workshop[0].EndDate.Date - new DateTime(1970, 1, 1)).TotalMilliseconds);
+			values.Put(CalendarContract.Events.InterfaceConsts.EventTimezone, "UTC");
+			values.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone, "UTC");
+			values.Put(CalendarContract.Events.InterfaceConsts.Title, workshop[0].topic);
+			values.Put(CalendarContract.Events.InterfaceConsts.Description, workshop[0].description);
+			values.Put(CalendarContract.Events.InterfaceConsts.EventLocation, workshop[0].campus);
+			var calendar = this.Activity.ContentResolver.Insert(CalendarContract.Events.ContentUri, values);
+			var eventID = long.Parse(calendar.LastPathSegment);
 		}
 
 		async void AddWaitListbtn_Click(object sender, EventArgs e)

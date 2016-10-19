@@ -72,7 +72,7 @@ namespace UTSHelps.Droid
 
 		async void Refresh(string studentId, bool v)
 		{
-			var response = await ServiceHelper.Booking.GetBookings(studentId, false);
+			var response = await ServiceHelper.Booking.GetBookings(studentId, v);
 			if (response.IsSuccess)
 			{
 				pastBooking = response.Results;
