@@ -24,7 +24,6 @@ namespace UTSHelps.Droid
 		private String studentId;
 		private Button bookWorkshopbtn;
 		private Button addWaitListbtn;
-		private Button removeWaitListbtn;
 		private List<Workshop> workshop = new List<Workshop>();
 		private ProgressBar workshopBookingProgressBar;
 
@@ -73,7 +72,6 @@ namespace UTSHelps.Droid
 			Toast.MakeText(this.Activity, "The Workshop Id is " + workshopId, ToastLength.Short).Show();
 
 			addWaitListbtn = view.FindViewById<Button>(Resource.Id.workshopWaitlistBtn);
-			removeWaitListbtn = view.FindViewById<Button>(Resource.Id.workshopRemoveWaitlistBtn);
 			addWaitListbtn.Click += AddWaitListbtn_Click;
 			bookWorkshopbtn = view.FindViewById<Button>(Resource.Id.workshopBookingbtn);
 			bookWorkshopbtn.Click += BookWorkshopbtn_Click;
@@ -105,19 +103,16 @@ namespace UTSHelps.Droid
 			{
 				bookWorkshopbtn.Visibility = ViewStates.Gone;
 				addWaitListbtn.Visibility = ViewStates.Gone;
-				removeWaitListbtn.Visibility = ViewStates.Visible;
 			}
 			else if (places <= 0)
 			{
 				addWaitListbtn.Visibility = ViewStates.Visible;
 				bookWorkshopbtn.Visibility = ViewStates.Gone;
-				removeWaitListbtn.Visibility = ViewStates.Gone;
 			}
 			else
 			{
 				bookWorkshopbtn.Visibility = ViewStates.Visible;
 				addWaitListbtn.Visibility = ViewStates.Gone;
-				removeWaitListbtn.Visibility = ViewStates.Gone;
 			}
 		}
 
@@ -171,7 +166,21 @@ namespace UTSHelps.Droid
 
 		void SetReminderConfirmation()
 		{
-			
+			var builder = new AlertDialog.Builder(this.Activity);
+			LayoutInflater inflater = this.Activity.LayoutInflater;
+			View view = inflater.Inflate(Resource.Layout.dialog_notifications, null, false);
+			builder.SetView(view);
+			builder.SetTitle("Add Notification");
+			builder.SetPositiveButton("OK", (sender, e) => {
+				//RadioButton mins30radio = view.FindViewById<RadioButton>(Resource.Id.Minute30Radio);
+				//RadioButton day1radio = view.FindViewById<RadioButton>(Resource.Id.Day1Radio);
+				//RadioButton week1radio = view.FindViewById<RadioButton>(Resource.Id.Week1Radio);
+				//add calendar function here
+			});
+			builder.SetNegativeButton("Cancel", (sender, e) => {
+				
+			});
+			builder.Create().Show();
 		}
 
 		async void AddWaitListbtn_Click(object sender, EventArgs e)
