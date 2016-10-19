@@ -133,6 +133,7 @@ namespace UTSHelps.Droid
         private void ChangeMenuHighlight(FontAwesome menuIcon, TextView menuText)
         {
             ResetMenuIcons();
+
             menuIcon.SetTextColor(Color.ParseColor("#FFFFFF"));
             menuText.SetTextColor(Color.ParseColor("#FFFFFF"));
         }
@@ -140,14 +141,14 @@ namespace UTSHelps.Droid
         private void ResetMenuIcons()
         {
             // Menu icons
-            bookingPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
-            addBookingPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
-            settingsPage.SetTextColor(Color.ParseColor("#80FFFFFF"));
+            bookingPage.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+            addBookingPage.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+            settingsPage.SetTextColor(Color.ParseColor("#B3FFFFFF"));
 
             // Menu text
-            bookingPageTxt.SetTextColor(Color.ParseColor("#80FFFFFF"));
-            addBookingPageTxt.SetTextColor(Color.ParseColor("#80FFFFFF"));
-            settingsPageTxt.SetTextColor(Color.ParseColor("#80FFFFFF"));
+            bookingPageTxt.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+            addBookingPageTxt.SetTextColor(Color.ParseColor("#B3FFFFFF"));
+            settingsPageTxt.SetTextColor(Color.ParseColor("#B3FFFFFF"));
         }
 
         private void ReplaceFragment(Fragment selectedFragment)
