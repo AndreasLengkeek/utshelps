@@ -36,7 +36,7 @@ namespace UTSHelps.Droid.Helpers
         public static AlertDialog.Builder CreateCustomViewDialog(Context context, string title, LayoutInflater inflater, int viewId)
         {
             var builder = new AlertDialog.Builder(context);
-            builder.SetTitle("Title");
+            builder.SetTitle(title);
             var dialogView = inflater.Inflate(viewId, null);
             builder.SetView(dialogView);
             return builder;
