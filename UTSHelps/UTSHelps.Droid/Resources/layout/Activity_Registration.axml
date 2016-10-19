@@ -135,7 +135,11 @@
                 android:layout_marginLeft="@dimen/textbox_spacing_sides"
                 android:layout_marginTop="@dimen/textbox_spacing_top"
                 android:layout_marginRight="@dimen/textbox_spacing_sides"
-                android:layout_marginBottom="@dimen/textbox_spacing">
+                android:layout_marginBottom="@dimen/textbox_spacing"
+                android:paddingLeft="5sp"
+                android:paddingRight="5sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp">
                 <ImageView
                     android:src="@drawable/calender"
                     android:layout_width="@dimen/icon_dimensions"
@@ -145,27 +149,14 @@
                     android:adjustViewBounds="true"
                     android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/icon_margin" />
-                <EditText
-                    android:inputType="number"
+                <TextView
+                    android:text="Click here to select your DOB..."
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/regDobDate"
-                    android:hint="DD"
-                    android:maxLength="2" />
-                <EditText
-                    android:inputType="number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/regDobMonth"
-                    android:hint="MM"
-                    android:maxLength="2" />
-                <EditText
-                    android:inputType="number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/regDobYear"
-                    android:hint="YYYY"
-                    android:maxLength="4" />
+                    android:layout_height="match_parent"
+                    android:id="@+id/regDobTxt"
+                    android:textColor="@color/Text"
+                    android:gravity="center"
+                    android:onClick="EditDate" />
             </LinearLayout>
             <TextView
                 android:text="Gender"
