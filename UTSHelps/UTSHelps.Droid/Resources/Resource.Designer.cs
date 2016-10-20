@@ -479,9 +479,6 @@ namespace UTSHelps.Droid
 			// aapt resource value: 0x7f090027
 			public const int location = 2131296295;
 			
-			// aapt resource value: 0x7f090028
-			public const int locationName = 2131296296;
-			
 			// aapt resource value: 0x7f090043
 			public const int location_icon = 2131296323;
 			
@@ -691,6 +688,9 @@ namespace UTSHelps.Droid
 			
 			// aapt resource value: 0x7f090035
 			public const int txtAddNote = 2131296309;
+			
+			// aapt resource value: 0x7f090028
+			public const int txtAttended = 2131296296;
 			
 			// aapt resource value: 0x7f09003a
 			public const int txtEnterPin = 2131296314;
