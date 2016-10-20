@@ -61,8 +61,17 @@ namespace UTSHelps.Droid
 			sessionLocation.Text = sessions[position].campus;
 
 			TextView sessionAvailability = row.FindViewById<TextView>(Resource.Id.noOfSession);
-			sessionAvailability.Text = sessions[position].NumOfWeeks.ToString();
+            var sessionCount = sessions[position].NumOfWeeks.ToString();
 
+            if (sessionCount.Equals(""))
+            {
+                sessionAvailability.Text = sessionCount;
+            }
+            else
+            {
+                sessionAvailability.Text = "1";
+            }
+            
 			TextView sessionStartDate = row.FindViewById<TextView>(Resource.Id.sessionStartDate);
 			sessionStartDate.Text = sessions[position].StartDate.ToShortDateString();
 
