@@ -76,8 +76,6 @@ namespace UTSHelps.Droid
 			workshopBookedProgressBar = view.FindViewById<ProgressBar>(Resource.Id.workshopBooked_progress);
 			addReminder = view.FindViewById<Button>(Resource.Id.addReminderBtn);
 
-			//Toast.MakeText(this.Activity, "The Workshop Id is " + workshopId, ToastLength.Short).Show();
-
 			addReminder.Click += AddReminder_Click;
 
 			cancelButton = view.FindViewById<Button>(Resource.Id.workshopCancelbtn);
@@ -256,8 +254,6 @@ namespace UTSHelps.Droid
 			var response = await ServiceHelper.Workshop.CancelWorkshopBooking(workshopId, studentId);
 			if (response.IsSuccess)
 			{
-				Toast.MakeText(this.Activity, "Cancel successful", ToastLength.Short).Show();
-
             	var builder = new AlertDialog.Builder(this.Activity);
                 builder.SetTitle("Cancellation Confirmed!");
 				builder.SetMessage("You have successfully cancelled this booking");

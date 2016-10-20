@@ -72,9 +72,6 @@ namespace UTSHelps.Droid
 			workshopBookingProgressBar = view.FindViewById<ProgressBar>(Resource.Id.workshopBooking_progress);
 			lnrWorkshopDetails = view.FindViewById<RelativeLayout>(Resource.Id.lnrBookingDetails);
 
-
-			//Toast.MakeText(this.Activity, "The Workshop Id is " + workshopId, ToastLength.Short).Show();
-
 			addWaitListbtn = view.FindViewById<Button>(Resource.Id.workshopWaitlistBtn);
 			addWaitListbtn.Click += AddWaitListbtn_Click;
 			bookWorkshopbtn = view.FindViewById<Button>(Resource.Id.workshopBookingbtn);
@@ -154,7 +151,6 @@ namespace UTSHelps.Droid
 			var response = await ServiceHelper.Workshop.CreateWorkshopBooking(workshopId, studentId);
 			if (response.IsSuccess)
 			{
-				Toast.MakeText(this.Activity, "Booking Success!", ToastLength.Short).Show();
 				SetReminder();
 			}
 			else
