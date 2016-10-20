@@ -66,7 +66,7 @@ namespace UTSHelps.Droid
             sessionAdapter = new SessionAdapter(this.Activity, sessionList);
             sessionListView = view.FindViewById<ListView>(Resource.Id.lstSessions);
             sessionListView.Adapter = sessionAdapter;
-            Toast.MakeText(this.Activity, "The WorkshopSets Id is " + workshopSetID, ToastLength.Short).Show();
+            //Toast.MakeText(this.Activity, "The WorkshopSets Id is " + workshopSetID, ToastLength.Short).Show();
 
             sessionsProgressBar = view.FindViewById<ProgressBar>(Resource.Id.session_progress);
             sessionsProgressBar.Visibility = ViewStates.Visible;

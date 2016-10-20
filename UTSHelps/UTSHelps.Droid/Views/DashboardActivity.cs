@@ -147,7 +147,7 @@ namespace UTSHelps.Droid
                 var response = await ServiceHelper.Workshop.AddNotes(workshopId, studentId, null, attendanceCode);
                 if (response.IsSuccess)
                 {
-                    Toast.MakeText(this, "Attendace has been recorded", ToastLength.Long).Show();
+                    Toast.MakeText(this, "Attendance has been recorded", ToastLength.Long).Show();
                 }
                 else
                 {

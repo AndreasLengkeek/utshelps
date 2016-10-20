@@ -73,7 +73,7 @@ namespace UTSHelps.Droid
 			lnrWorkshopDetails = view.FindViewById<RelativeLayout>(Resource.Id.lnrBookingDetails);
 
 
-			Toast.MakeText(this.Activity, "The Workshop Id is " + workshopId, ToastLength.Short).Show();
+			//Toast.MakeText(this.Activity, "The Workshop Id is " + workshopId, ToastLength.Short).Show();
 
 			addWaitListbtn = view.FindViewById<Button>(Resource.Id.workshopWaitlistBtn);
 			addWaitListbtn.Click += AddWaitListbtn_Click;
@@ -154,7 +154,7 @@ namespace UTSHelps.Droid
 			var response = await ServiceHelper.Workshop.CreateWorkshopBooking(workshopId, studentId);
 			if (response.IsSuccess)
 			{
-				Toast.MakeText(this.Activity, "Booking is Success", ToastLength.Short).Show();
+				Toast.MakeText(this.Activity, "Booking Success!", ToastLength.Short).Show();
 				SetReminder();
 			}
 			else
@@ -279,9 +279,9 @@ namespace UTSHelps.Droid
 			if (waitListCountResponse.IsSuccess)
 			{
 				var builder = new AlertDialog.Builder(this.Activity);
-				builder.SetMessage("There is " + waitListCountResponse.Count + "in the waiting list" );
+				builder.SetMessage("There is " + waitListCountResponse.Count + " in the wait list" );
 				builder.SetTitle("Do you want to continue");
-				builder.SetPositiveButton("OK", (senderAlert, args) => {
+				builder.SetPositiveButton("Add to waitlist", (senderAlert, args) => {
 					AddWaitList();
 				});
 				builder.SetNegativeButton("Cancel", (senderAlert, args) =>{
@@ -297,7 +297,7 @@ namespace UTSHelps.Droid
 			var response = await ServiceHelper.Workshop.CreateWorkshopWaiting(workshopId, studentId);
 			if (response.IsSuccess)
 			{
-				Toast.MakeText(this.Activity, "Added to Waitlist", ToastLength.Short).Show();
+				Toast.MakeText(this.Activity, "Added to waitlist", ToastLength.Short).Show();
 			}
 			else
 			{

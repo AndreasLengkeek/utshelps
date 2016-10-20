@@ -73,7 +73,7 @@ namespace UTSHelps.Droid
 			lnrBookedWorkshopDetails = view.FindViewById<RelativeLayout>(Resource.Id.lnrBookedDetails);
 			workshopBookedProgressBar = view.FindViewById<ProgressBar>(Resource.Id.workshopBooked_progress);
 
-			Toast.MakeText(this.Activity, "The Workshop Id is " + workshopId, ToastLength.Short).Show();
+			//Toast.MakeText(this.Activity, "The Workshop Id is " + workshopId, ToastLength.Short).Show();
 
 			cancelButton = view.FindViewById<Button>(Resource.Id.workshopCancelbtn);
 			cancelButton.Click += CancelButton_Click;

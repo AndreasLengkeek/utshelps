@@ -87,7 +87,7 @@ namespace UTSHelps.Droid
 				if (placesLeft <= 0)
 				{
 					sessionPlacesLeft.Text = "Full";
-					sessionPlace.Text = "";
+                    sessionPlace.Text = "";
 				}
 				else 
 				{
