@@ -173,9 +173,23 @@ namespace UTSHelps.Droid
 				SetReminderConfirmation();
 			});
 			builder.SetNegativeButton("No", (sender, args) => {
-				
+				GoToWorkshopBooked();
 			});
 			builder.Create().Show();
+		}
+
+		void GoToWorkshopBooked()
+		{
+			Bundle bundle = new Bundle();
+			bundle.PutInt("workshopId", workshopId);
+			bundle.PutString("studentId", studentId);
+
+			BookedWorkshopFragment bookedWorkshop = new BookedWorkshopFragment();
+			bookedWorkshop.Arguments = bundle;
+
+			var trans = FragmentManager.BeginTransaction();
+			trans.Replace(Resource.Id.mainFragmentContainer, bookedWorkshop, "BookedFragment");
+			trans.Commit();
 		}
 
 		void SetReminderConfirmation()
@@ -201,11 +215,11 @@ namespace UTSHelps.Droid
 				{
 					SetCalendarWeek();
 				}
-
+				GoToWorkshopBooked();
 				//add calendar function here
 			});
 			builder.SetNegativeButton("Cancel", (sender, e) => {
-				
+				GoToWorkshopBooked();
 			});
 			builder.Create().Show();
 		}
