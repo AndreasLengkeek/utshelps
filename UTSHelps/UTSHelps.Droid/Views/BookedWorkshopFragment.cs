@@ -14,6 +14,7 @@ using Android.Widget;
 using UTSHelps.Droid.Helpers;
 using System.Threading.Tasks;
 using UTSHelps.Shared.Models;
+using Android.Provider;
 
 namespace UTSHelps.Droid
 {
@@ -36,6 +37,7 @@ namespace UTSHelps.Droid
 		private TextView txtBookedworkshopDesciption;
 		private TextView txtBookedworkshopSessionDay;
 		private RelativeLayout lnrBookedWorkshopDetails;
+		private Button addReminder;
 
 		public override void OnCreate(Bundle savedInstanceState)
 		{
@@ -72,8 +74,11 @@ namespace UTSHelps.Droid
 			txtBookedworkshopSessionDay = view.FindViewById<TextView>(Resource.Id.workshopBookedSessionDay);
 			lnrBookedWorkshopDetails = view.FindViewById<RelativeLayout>(Resource.Id.lnrBookedDetails);
 			workshopBookedProgressBar = view.FindViewById<ProgressBar>(Resource.Id.workshopBooked_progress);
+			addReminder = view.FindViewById<Button>(Resource.Id.addReminderBtn);
 
 			//Toast.MakeText(this.Activity, "The Workshop Id is " + workshopId, ToastLength.Short).Show();
+
+			addReminder.Click += AddReminder_Click;
 
 			cancelButton = view.FindViewById<Button>(Resource.Id.workshopCancelbtn);
 			cancelButton.Click += CancelButton_Click;
@@ -81,7 +86,125 @@ namespace UTSHelps.Droid
 			return view;
 		}
 
-        public override void OnDestroyView()
+		void AddReminder_Click(object sender, EventArgs e)
+		{
+			SetReminder();
+		}
+
+		void SetReminder()
+		{
+			var builder = new AlertDialog.Builder(this.Activity);
+			builder.SetTitle("Booking Confirmed!");
+			builder.SetMessage("Would you like to set a reminder?");
+			builder.SetPositiveButton("Yes", (sender, args) =>
+			{
+				SetReminderConfirmation();
+			});
+			builder.SetNegativeButton("No", (sender, args) =>
+			{
+				
+			});
+			builder.Create().Show();
+		}
+
+		void SetReminderConfirmation()
+		{
+			var builder = new AlertDialog.Builder(this.Activity);
+			LayoutInflater inflater = this.Activity.LayoutInflater;
+			View view = inflater.Inflate(Resource.Layout.AlertDialog_notifications, null, false);
+			builder.SetView(view);
+			builder.SetTitle("Add Notification");
+			builder.SetPositiveButton("OK", (sender, e) =>
+			{
+				RadioButton mins30radio = view.FindViewById<RadioButton>(Resource.Id.Minute30Radio);
+				RadioButton day1radio = view.FindViewById<RadioButton>(Resource.Id.Day1Radio);
+				RadioButton week1radio = view.FindViewById<RadioButton>(Resource.Id.Week1Radio);
+				if (mins30radio.Checked)
+				{
+					SetCalendarMins();
+				}
+				else if (day1radio.Checked)
+				{
+					SetCalendarDay();
+				}
+				else if (week1radio.Checked)
+				{
+					SetCalendarWeek();
+				}
+
+				//add calendar function here
+			});
+			builder.SetNegativeButton("Cancel", (sender, e) =>
+			{
+				
+			});
+			builder.Create().Show();
+		}
+
+		void SetCalendarMins()
+		{
+			ContentValues values = new ContentValues();
+			values.Put(CalendarContract.Events.InterfaceConsts.CalendarId, 1);
+			values.Put(CalendarContract.Events.InterfaceConsts.Dtstart, (long)(workshop[0].StartDate.Date - new DateTime(1970, 1, 1)).TotalMilliseconds);
+			values.Put(CalendarContract.Events.InterfaceConsts.Dtend, (long)(workshop[0].EndDate.Date - new DateTime(1970, 1, 1)).TotalMilliseconds);
+			values.Put(CalendarContract.Events.InterfaceConsts.EventTimezone, "UTC");
+			values.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone, "UTC");
+			values.Put(CalendarContract.Events.InterfaceConsts.Title, workshop[0].topic);
+			values.Put(CalendarContract.Events.InterfaceConsts.Description, workshop[0].description);
+			values.Put(CalendarContract.Events.InterfaceConsts.EventLocation, workshop[0].campus);
+			var calendar = this.Activity.ContentResolver.Insert(CalendarContract.Events.ContentUri, values);
+			var eventID = long.Parse(calendar.LastPathSegment);
+
+			ContentValues reminderValues = new ContentValues();
+			reminderValues.Put(CalendarContract.Reminders.InterfaceConsts.Minutes, 30);
+			reminderValues.Put(CalendarContract.Reminders.InterfaceConsts.EventId, eventID);
+			reminderValues.Put(CalendarContract.Reminders.InterfaceConsts.Method, 1);
+			var reminder = this.Activity.ContentResolver.Insert(CalendarContract.Reminders.ContentUri, reminderValues);
+		}
+
+		void SetCalendarDay()
+		{
+			ContentValues values = new ContentValues();
+			values.Put(CalendarContract.Events.InterfaceConsts.CalendarId, 1);
+			values.Put(CalendarContract.Events.InterfaceConsts.Dtstart, (long)(workshop[0].StartDate.Date - new DateTime(1970, 1, 1)).TotalMilliseconds);
+			values.Put(CalendarContract.Events.InterfaceConsts.Dtend, (long)(workshop[0].EndDate.Date - new DateTime(1970, 1, 1)).TotalMilliseconds);
+			values.Put(CalendarContract.Events.InterfaceConsts.EventTimezone, "UTC");
+			values.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone, "UTC");
+			values.Put(CalendarContract.Events.InterfaceConsts.Title, workshop[0].topic);
+			values.Put(CalendarContract.Events.InterfaceConsts.Description, workshop[0].description);
+			values.Put(CalendarContract.Events.InterfaceConsts.EventLocation, workshop[0].campus);
+			var calendar = this.Activity.ContentResolver.Insert(CalendarContract.Events.ContentUri, values);
+			var eventID = long.Parse(calendar.LastPathSegment);
+
+			ContentValues reminderValues = new ContentValues();
+			reminderValues.Put(CalendarContract.Reminders.InterfaceConsts.Minutes, 1440);
+			reminderValues.Put(CalendarContract.Reminders.InterfaceConsts.EventId, eventID);
+			reminderValues.Put(CalendarContract.Reminders.InterfaceConsts.Method, 1);
+			var reminder = this.Activity.ContentResolver.Insert(CalendarContract.Reminders.ContentUri, reminderValues);
+		}
+
+		void SetCalendarWeek()
+		{
+			ContentValues values = new ContentValues();
+			values.Put(CalendarContract.Events.InterfaceConsts.CalendarId, 1);
+			values.Put(CalendarContract.Events.InterfaceConsts.Dtstart, (long)(workshop[0].StartDate.Date - new DateTime(1970, 1, 1)).TotalMilliseconds);
+			values.Put(CalendarContract.Events.InterfaceConsts.Dtend, (long)(workshop[0].EndDate.Date - new DateTime(1970, 1, 1)).TotalMilliseconds);
+			values.Put(CalendarContract.Events.InterfaceConsts.EventTimezone, "UTC");
+			values.Put(CalendarContract.Events.InterfaceConsts.EventEndTimezone, "UTC");
+			values.Put(CalendarContract.Events.InterfaceConsts.Title, workshop[0].topic);
+			values.Put(CalendarContract.Events.InterfaceConsts.Description, workshop[0].description);
+			values.Put(CalendarContract.Events.InterfaceConsts.EventLocation, workshop[0].campus);
+			var calendar = this.Activity.ContentResolver.Insert(CalendarContract.Events.ContentUri, values);
+			var eventID = long.Parse(calendar.LastPathSegment);
+
+			ContentValues reminderValues = new ContentValues();
+			reminderValues.Put(CalendarContract.Reminders.InterfaceConsts.Minutes, 10080);
+			reminderValues.Put(CalendarContract.Reminders.InterfaceConsts.EventId, eventID);
+			reminderValues.Put(CalendarContract.Reminders.InterfaceConsts.Method, 1);
+			var reminder = this.Activity.ContentResolver.Insert(CalendarContract.Reminders.ContentUri, reminderValues);
+		}
+
+		public override void OnDestroyView()
         {
             var dashboard = (DashboardActivity)this.Activity;
             dashboard.SetMenu("");
