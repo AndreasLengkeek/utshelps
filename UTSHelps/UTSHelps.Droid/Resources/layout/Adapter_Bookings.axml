@@ -54,7 +54,7 @@
                 android:orientation="horizontal"
                 android:id="@+id/dateNtime"
                 android:layout_marginTop="5sp">
-              <UTSHelps.Droid.Helpers.FontAwesome
+                <UTSHelps.Droid.Helpers.FontAwesome
                     android:id="@+id/clock_icon"
                     android:layout_height="wrap_content"
                     android:layout_width="15sp"
@@ -64,14 +64,14 @@
                     android:text="@string/fa_calendar_o"
                     android:layout_marginLeft="10sp"
                     android:layout_marginRight="5sp" />
-              <TextView
+                <TextView
                     android:id="@+id/day"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="Thu 09/09/2016"
                     android:textColor="@color/Text_Gray"
-                    android:layout_marginRight="10sp"/>
-              <UTSHelps.Droid.Helpers.FontAwesome
+                    android:layout_marginRight="10sp" />
+                <UTSHelps.Droid.Helpers.FontAwesome
                     android:id="@+id/clock_icon"
                     android:layout_height="wrap_content"
                     android:layout_width="15sp"
@@ -85,21 +85,26 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="02:00 - 03:00"
-                    android:textColor="@color/Text_Gray"/>
+                    android:textColor="@color/Text_Gray" />
             </LinearLayout>
             <LinearLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/location"
                 android:orientation="horizontal">
+              <UTSHelps.Droid.Helpers.FontAwesome
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="@string/fa_check"
+                  android:textColor="@color/Text_Gray"
+                  android:gravity="center"
+                  android:layout_marginLeft="10sp" />
                 <TextView
-                    android:id="@+id/locationName"
+                    android:id="@+id/txtAttended"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="CB11.00.401"
                     android:textColor="@color/Text_Gray"
-                    android:paddingLeft="10dp"
-                    android:visibility="gone" />
+                    android:paddingLeft="10dp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

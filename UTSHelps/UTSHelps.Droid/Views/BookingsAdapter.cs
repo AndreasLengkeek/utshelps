@@ -63,16 +63,20 @@ namespace UTSHelps.Droid
 			TextView txtWorkshopTime = row.FindViewById<TextView>(Resource.Id.time);
 			txtWorkshopTime.Text = mBookingList[position].starting.ToString("hh:mm") + " - " + mBookingList[position].ending.ToString("hh:mm");
 
-			TextView txtWorkshopLocation = row.FindViewById<TextView>(Resource.Id.locationName);
-			txtWorkshopLocation.Text = mBookingList[position].campusID.ToString();
-
 			TextView txtWorkshopDateStamp = row.FindViewById<TextView>(Resource.Id.date);
 			txtWorkshopDateStamp.Text = mBookingList[position].starting.ToString("dd");
 
 			TextView txtWorkshopMonthStamp = row.FindViewById<TextView>(Resource.Id.month);
 			txtWorkshopMonthStamp.Text = mBookingList[position].starting.ToString("MMM");
 
-			return row;
+
+            var attended = mBookingList[position].attended.HasValue && mBookingList[position].attended.Value == 1 
+                                            ? "Attended" : "Not Attended";
+
+            TextView txtAttended = row.FindViewById<TextView>(Resource.Id.txtAttended);
+            txtAttended.Text = attended;
+
+            return row;
 		}
 	}
 }
