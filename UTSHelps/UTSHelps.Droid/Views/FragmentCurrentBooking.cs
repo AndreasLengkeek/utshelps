@@ -19,7 +19,7 @@ namespace UTSHelps.Droid
 	public class FragmentCurrentBooking : Fragment
 	{
 		private List<Booking> currentBooking;
-		private BookingsAdapter adapter;
+		private CurrentBookingsAdapter adapter;
 		private ListView currentListView;
 		private BookedWorkshopFragment bookedFragment;
 		private ProgressBar currentProgress;
@@ -39,7 +39,7 @@ namespace UTSHelps.Droid
 			Refresh(studentId, true);
 			currentProgress = view.FindViewById<ProgressBar>(Resource.Id.current_progress);
 			currentListView = view.FindViewById<ListView>(Resource.Id.currentBookingList);
-			adapter = new BookingsAdapter(this.Activity, currentBooking);
+			adapter = new CurrentBookingsAdapter(this.Activity, currentBooking);
 			currentListView.Adapter = adapter;
 			if (adapter.Count == 0)
 			{

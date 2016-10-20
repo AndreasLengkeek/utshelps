@@ -81,6 +81,7 @@
     <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Views\FragmentCurrentBooking.cs" />
     <Compile Include="Views\FragmentPastBooking.cs" />
+    <Compile Include="Views\CurrentBookingsAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
