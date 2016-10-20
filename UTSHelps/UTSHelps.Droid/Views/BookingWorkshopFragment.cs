@@ -39,6 +39,7 @@ namespace UTSHelps.Droid
 		private TextView txtworkshopSessionDate;
 		private TextView txtworkshopDesciption;
 		private TextView txtworkshopSessionDay;
+		private TextView txtWaitListed;
 		private RelativeLayout lnrWorkshopDetails;
 
 		public override void OnCreate(Bundle savedInstanceState)
@@ -67,6 +68,7 @@ namespace UTSHelps.Droid
 			txtworkshopSessionTime = view.FindViewById<TextView>(Resource.Id.workshopSessionTime);
 			txtworkshopSessionDate = view.FindViewById<TextView>(Resource.Id.workshopSessionDate);
 			txtworkshopSessionDay = view.FindViewById<TextView>(Resource.Id.workshopSessionDay);
+			txtWaitListed = view.FindViewById<TextView>(Resource.Id.workshopWaitListedTxt);
 			workshopBookingProgressBar = view.FindViewById<ProgressBar>(Resource.Id.workshopBooking_progress);
 			lnrWorkshopDetails = view.FindViewById<RelativeLayout>(Resource.Id.lnrBookingDetails);
 
@@ -88,8 +90,15 @@ namespace UTSHelps.Droid
 			txtworkshopTime.Text = workshop[0].StartDate.ToString("hh:mm") + " - " + workshop[0].EndDate.ToString("hh:mm");
 			txtworkshopLocation.Text = workshop[0].campus;
 			txtworkshopDesciption.Text = workshop[0].description;
+			if (workshop[0].cutoff == null)
+			{
+				txtworkshopPlaces.Text = "Open";
+			}
+			else
+			{
+				txtworkshopPlaces.Text = workshop[0].BookingCount + "/" + workshop[0].cutoff;
+			}
 			var places = workshop[0].cutoff - workshop[0].BookingCount;
-			txtworkshopPlaces.Text = workshop[0].BookingCount + "/" + workshop[0].cutoff;
 			txtworkshopSessionLocation.Text = workshop[0].campus;
 			txtworkshopSessionTime.Text = workshop[0].StartDate.ToString("hhtt") + " - " + workshop[0].EndDate.ToString("hhtt");
 			txtworkshopSessionDate.Text = workshop[0].StartDate.ToShortDateString();
@@ -105,16 +114,19 @@ namespace UTSHelps.Droid
 			{
 				bookWorkshopbtn.Visibility = ViewStates.Gone;
 				addWaitListbtn.Visibility = ViewStates.Gone;
+				txtWaitListed.Visibility = ViewStates.Visible;
 			}
 			else if (places <= 0)
 			{
 				addWaitListbtn.Visibility = ViewStates.Visible;
 				bookWorkshopbtn.Visibility = ViewStates.Gone;
+				txtWaitListed.Visibility = ViewStates.Gone;
 			}
 			else
 			{
 				bookWorkshopbtn.Visibility = ViewStates.Visible;
 				addWaitListbtn.Visibility = ViewStates.Gone;
+				txtWaitListed.Visibility = ViewStates.Gone;
 			}
 		}
 

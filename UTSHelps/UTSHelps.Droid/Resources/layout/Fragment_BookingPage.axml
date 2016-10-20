@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/lnrBookingDetails"
         android:layout_below="@id/toolbar"
-        android:visibility="visible">
+        android:visibility="gone">
         <TextView
             android:id="@+id/workshopName"
             android:layout_width="match_parent"
@@ -288,4 +288,16 @@
         android:layout_alignParentBottom="true"
         android:layout_below="@id/lnrWorkshopSessionLocation"
         android:visibility="gone" />
+    <TextView
+        android:id="@+id/workshopWaitListedTxt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:background="@color/Wait_Orange"
+        android:layout_below="@id/lnrWorkshopSessionLocation"
+        android:layout_alignParentBottom="true"
+        android:text="You are wait listed"
+        android:visibility="gone"
+        android:gravity="center" />
 </RelativeLayout>
