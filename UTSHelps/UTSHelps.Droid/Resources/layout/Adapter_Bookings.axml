@@ -52,21 +52,40 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:id="@+id/dateNtime">
-                <TextView
+                android:id="@+id/dateNtime"
+                android:layout_marginTop="5sp">
+              <UTSHelps.Droid.Helpers.FontAwesome
+                    android:id="@+id/clock_icon"
+                    android:layout_height="wrap_content"
+                    android:layout_width="15sp"
+                    android:clickable="true"
+                    android:textColor="@color/Text_Gray"
+                    android:gravity="center"
+                    android:text="@string/fa_calendar_o"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginRight="5sp" />
+              <TextView
                     android:id="@+id/day"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="Thu 09/09/2016"
                     android:textColor="@color/Text_Gray"
-                    android:paddingLeft="10dp" />
+                    android:layout_marginRight="10sp"/>
+              <UTSHelps.Droid.Helpers.FontAwesome
+                    android:id="@+id/clock_icon"
+                    android:layout_height="wrap_content"
+                    android:layout_width="15sp"
+                    android:clickable="true"
+                    android:textColor="@color/Text_Gray"
+                    android:gravity="center"
+                    android:text="@string/fa_clock_o"
+                    android:layout_marginRight="5sp" />
                 <TextView
                     android:id="@+id/time"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:text="02:00 - 03:00"
-                    android:textColor="@color/Text_Gray"
-                    android:paddingLeft="5dp" />
+                    android:textColor="@color/Text_Gray"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_height="wrap_content"
@@ -79,7 +98,8 @@
                     android:layout_width="wrap_content"
                     android:text="CB11.00.401"
                     android:textColor="@color/Text_Gray"
-                    android:paddingLeft="10dp" />
+                    android:paddingLeft="10dp"
+                    android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

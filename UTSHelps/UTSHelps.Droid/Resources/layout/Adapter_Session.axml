@@ -62,16 +62,16 @@
                     android:text="10-12pm"
                     android:textColor="@color/Text_Gray"
                     android:paddingRight="5dp" />
-              <UTSHelps.Droid.Helpers.FontAwesome
-                      android:id="@+id/calender_icon"
-                      android:layout_height="wrap_content"
-                      android:layout_width="15sp"
-                      android:clickable="true"
-                      android:textColor="@color/Text_Gray"
-                      android:gravity="center"
-                      android:text="@string/fa_calendar_o"
-                      android:layout_marginLeft="5sp"
-                      android:layout_marginRight="5sp" />
+                <UTSHelps.Droid.Helpers.FontAwesome
+                    android:id="@+id/calender_icon"
+                    android:layout_height="wrap_content"
+                    android:layout_width="15sp"
+                    android:clickable="true"
+                    android:textColor="@color/Text_Gray"
+                    android:gravity="center"
+                    android:text="@string/fa_calendar_o"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="5sp" />
                 <TextView
                     android:id="@+id/sessionStartDate"
                     android:layout_width="wrap_content"
@@ -90,27 +90,27 @@
                     android:textColor="@color/Text_Gray"
                     android:text="10/8/2016" />
             </LinearLayout>
-          <LinearLayout
+            <LinearLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:paddingBottom="5dp">
-              <UTSHelps.Droid.Helpers.FontAwesome
-                  android:id="@+id/calender_icon"
-                  android:layout_height="wrap_content"
-                  android:layout_width="15sp"
-                  android:clickable="true"
-                  android:textColor="@color/Text_Gray"
-                  android:gravity="center"
-                  android:text="@string/fa_map_marker"
-                  android:layout_marginRight="5sp" />
-              <TextView
-                  android:id="@+id/sessionLocation"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:text="CB11.01.412"
-                  android:textColor="@color/Text_Gray" />
-          </LinearLayout>
+                <UTSHelps.Droid.Helpers.FontAwesome
+                    android:id="@+id/calender_icon"
+                    android:layout_height="wrap_content"
+                    android:layout_width="15sp"
+                    android:clickable="true"
+                    android:textColor="@color/Text_Gray"
+                    android:gravity="center"
+                    android:text="@string/fa_map_marker"
+                    android:layout_marginRight="5sp" />
+                <TextView
+                    android:id="@+id/sessionLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CB11.01.412"
+                    android:textColor="@color/Text_Gray" />
+            </LinearLayout>
             <RelativeLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
