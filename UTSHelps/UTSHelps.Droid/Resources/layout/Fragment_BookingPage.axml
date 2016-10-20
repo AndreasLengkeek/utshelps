@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/lnrBookingDetails"
         android:layout_below="@id/toolbar"
-        android:visibility="visible">
+        android:visibility="gone">
         <TextView
             android:id="@+id/workshopName"
             android:layout_width="match_parent"
