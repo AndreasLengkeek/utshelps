@@ -95,7 +95,14 @@ namespace UTSHelps.Droid
 			txtBookedworkshopTime.Text = workshop[0].StartDate.ToString("hh:mm") + " - " + workshop[0].EndDate.ToString("hh:mm");
 			txtBookedworkshopLocation.Text = workshop[0].campus;
 			txtBookedworkshopDesciption.Text = workshop[0].description;
-			txtBookedworkshopPlaces.Text = workshop[0].BookingCount + "/" + workshop[0].cutoff;
+			if (workshop[0].cutoff == null)
+			{
+				txtBookedworkshopPlaces.Text = "Open";
+			}
+			else
+			{ 
+				txtBookedworkshopPlaces.Text = workshop[0].BookingCount + "/" + workshop[0].cutoff;
+			}
 			txtBookedworkshopSessionLocation.Text = workshop[0].campus;
 			txtBookedworkshopSessionTime.Text = workshop[0].StartDate.ToString("hhtt") + " - " + workshop[0].EndDate.ToString("hhtt");
 			txtBookedworkshopSessionDate.Text = workshop[0].StartDate.ToShortDateString();
