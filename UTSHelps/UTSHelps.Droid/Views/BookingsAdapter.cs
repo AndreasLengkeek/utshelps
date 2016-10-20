@@ -4,6 +4,7 @@ using Android.Content;
 using Android.Widget;
 using Android.Views;
 using UTSHelps.Shared.Models;
+using UTSHelps.Droid.Helpers;
 
 namespace UTSHelps.Droid
 {
@@ -72,6 +73,16 @@ namespace UTSHelps.Droid
 
             var attended = mBookingList[position].attended.HasValue && mBookingList[position].attended.Value == 1 
                                             ? "Attended" : "Not Attended";
+
+            FontAwesome attendedIcon = row.FindViewById<FontAwesome>(Resource.Id.txtAttendedIcon);
+            if (attended == "Not Attended")
+            {
+                attendedIcon.Text = context.Resources.GetString(Resource.String.fa_times);
+            }
+            else
+            {
+                attendedIcon.Text = context.Resources.GetString(Resource.String.fa_check);
+            }
 
             TextView txtAttended = row.FindViewById<TextView>(Resource.Id.txtAttended);
             txtAttended.Text = attended;

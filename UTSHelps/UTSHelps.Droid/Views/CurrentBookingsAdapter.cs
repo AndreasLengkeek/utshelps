@@ -4,6 +4,8 @@ using Android.Content;
 using Android.Widget;
 using UTSHelps.Shared.Models;
 using Android.Views;
+using UTSHelps.Droid.Helpers;
+using Android.Content.Res;
 
 namespace UTSHelps.Droid
 {
@@ -67,6 +69,9 @@ namespace UTSHelps.Droid
 
 			TextView txtWorkshopMonthStamp = row.FindViewById<TextView>(Resource.Id.month);
 			txtWorkshopMonthStamp.Text = "Days";
+
+            FontAwesome attendedIcon = row.FindViewById<FontAwesome>(Resource.Id.txtAttendedIcon);
+            attendedIcon.Text = context.Resources.GetString(Resource.String.fa_times);
 
             TextView txtAttended = row.FindViewById<TextView>(Resource.Id.txtAttended);
             txtAttended.Text = "Not Attended";
