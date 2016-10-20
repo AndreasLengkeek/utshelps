@@ -166,8 +166,8 @@ namespace UTSHelps.Droid
 		void SetReminder()
 		{
 			var builder = new AlertDialog.Builder(this.Activity);
-			builder.SetTitle("Booking is successful");
-			builder.SetMessage("Do you want to set a reminder");
+			builder.SetTitle("Booking Confirmed!");
+			builder.SetMessage("Would you like to set a reminder?");
 			builder.SetPositiveButton("Yes", (sender, args) =>
 			{
 				SetReminderConfirmation();

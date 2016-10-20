@@ -136,8 +136,9 @@ namespace UTSHelps.Droid
 				Toast.MakeText(this.Activity, "Cancel successful", ToastLength.Short).Show();
 
             	var builder = new AlertDialog.Builder(this.Activity);
-				builder.SetMessage("Cancel Successful");
-				builder.SetPositiveButton("Go to My Booking", (senderAlert, args) => {
+                builder.SetTitle("Cancellation Confirmed!");
+				builder.SetMessage("You have successfully cancelled this booking");
+				builder.SetPositiveButton("OK", (senderAlert, args) => {
 					Bundle bundle = new Bundle();
 					bundle.PutString("studentId", studentId);
 					MyBookingsFragment myBooking = new MyBookingsFragment();
