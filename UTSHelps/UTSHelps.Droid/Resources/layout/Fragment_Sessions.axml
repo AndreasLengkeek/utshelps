@@ -82,7 +82,7 @@
                     android:clickable="true"
                     android:textColor="@color/Text_Gray"
                     android:gravity="center"
-                    android:text="@string/fa_calendar_o"
+                    android:text="@string/fa_calendar"
                     android:layout_marginRight="5sp"
                     android:visibility="visible"
                     android:layout_marginLeft="10sp" />
