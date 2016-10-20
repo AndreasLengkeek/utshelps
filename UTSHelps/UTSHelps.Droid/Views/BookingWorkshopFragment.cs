@@ -72,9 +72,6 @@ namespace UTSHelps.Droid
 			workshopBookingProgressBar = view.FindViewById<ProgressBar>(Resource.Id.workshopBooking_progress);
 			lnrWorkshopDetails = view.FindViewById<RelativeLayout>(Resource.Id.lnrBookingDetails);
 
-
-			//Toast.MakeText(this.Activity, "The Workshop Id is " + workshopId, ToastLength.Short).Show();
-
 			addWaitListbtn = view.FindViewById<Button>(Resource.Id.workshopWaitlistBtn);
 			addWaitListbtn.Click += AddWaitListbtn_Click;
 			bookWorkshopbtn = view.FindViewById<Button>(Resource.Id.workshopBookingbtn);
@@ -154,7 +151,6 @@ namespace UTSHelps.Droid
 			var response = await ServiceHelper.Workshop.CreateWorkshopBooking(workshopId, studentId);
 			if (response.IsSuccess)
 			{
-				Toast.MakeText(this.Activity, "Booking Success!", ToastLength.Short).Show();
 				SetReminder();
 			}
 			else
@@ -173,9 +169,23 @@ namespace UTSHelps.Droid
 				SetReminderConfirmation();
 			});
 			builder.SetNegativeButton("No", (sender, args) => {
-				
+				GoToWorkshopBooked();
 			});
 			builder.Create().Show();
+		}
+
+		void GoToWorkshopBooked()
+		{
+			Bundle bundle = new Bundle();
+			bundle.PutInt("workshopId", workshopId);
+			bundle.PutString("studentId", studentId);
+
+			BookedWorkshopFragment bookedWorkshop = new BookedWorkshopFragment();
+			bookedWorkshop.Arguments = bundle;
+
+			var trans = FragmentManager.BeginTransaction();
+			trans.Replace(Resource.Id.mainFragmentContainer, bookedWorkshop, "BookedFragment");
+			trans.Commit();
 		}
 
 		void SetReminderConfirmation()
@@ -201,11 +211,11 @@ namespace UTSHelps.Droid
 				{
 					SetCalendarWeek();
 				}
-
+				GoToWorkshopBooked();
 				//add calendar function here
 			});
 			builder.SetNegativeButton("Cancel", (sender, e) => {
-				
+				GoToWorkshopBooked();
 			});
 			builder.Create().Show();
 		}
